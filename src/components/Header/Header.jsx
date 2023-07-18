@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import "./Header.css";
 // import { useSelector, useDispatch } from "react-redux";
 // import { userData, logout } from "../../pages/userSlice";
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
 
     //GETTING CREDENTIALS FROM REDUX
     // const datosCredencialesRedux = useSelector(userData);
     // const dispatch = useDispatch();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     
     //
     // useEffect(() => {
