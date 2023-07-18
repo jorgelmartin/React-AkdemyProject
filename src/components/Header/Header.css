@@ -1,0 +1,42 @@
+
+.headerDesign {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 8vh;
+    width: 100vw;
+
+    background-color: #598295;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+/* .linksDesign {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5em;
+} */
+
+
+/* .linksDesignToken {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5em;
+} */
+
+/* .headerLink {
+    font-weight: bolder;
+    font-size: large;
+    margin: 0.2em;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-bottom: 0.4em;
+    margin-right: 1em;
+}
+
+.headerLink:hover {
+    transition: 0.5s;
+    color: darkgrey;
+} */
