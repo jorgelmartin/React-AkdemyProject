@@ -1,0 +1,13 @@
+.normalInput {
+
+    border-radius: 0.4em;
+    border: 0.2em solid rgb(138, 138, 198);
+    width: 13em;
+    height: 2em;
+}
+
+.errorInput {
+    color: red;
+    border: 0.2em solid red;
+    
+}
