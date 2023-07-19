@@ -13,20 +13,20 @@
     justify-content: space-between;
     align-items: flex-end;
 }
-/* .linksDesign {
+.linksDesign {
     display: flex;
     flex-direction: row;
     padding: 0.5em;
-} */
+} 
 
 
-/* .linksDesignToken {
+.linksDesignToken {
     display: flex;
     flex-direction: row;
     padding: 0.5em;
-} */
+}
 
-/* .headerLink {
+.headerLink {
     font-weight: bolder;
     font-size: large;
     margin: 0.2em;
@@ -39,4 +39,4 @@
 .headerLink:hover {
     transition: 0.5s;
     color: darkgrey;
-} */
+} 
