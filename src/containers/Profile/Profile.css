@@ -1,0 +1,48 @@
+.userContainer {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(132, 172, 203, 0.299);
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 1em; */
+}
+
+.userCard {
+    /* margin-bottom: 10em; */
+    display: flex;
+    justify-content: center;
+}
+
+.userCardTitle {
+
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+.userCardTitle:hover {
+    /* font-size:0.98em; */
+    background-color: rgba(45, 79, 134, 0.722);
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.appointments {
+
+    display: flex;
+    justify-content: center;
+    margin: 0.50em;
+
+}
+
+.profileHeader h3 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.container-max-width {
+    max-width: 25em;
+}
