@@ -1,13 +1,4 @@
-.userContainer {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(132, 172, 203, 0.299);
-    margin-bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* margin-top: 1em; */
-}
+
 
 .userCard {
     /* margin-bottom: 10em; */
@@ -15,11 +6,6 @@
     justify-content: center;
 }
 
-.userCardTitle {
-
-    border-radius: 1em;
-    cursor: pointer;
-}
 
 .userCardTitle:hover {
     /* font-size:0.98em; */
@@ -29,7 +15,6 @@
 }
 
 .appointments {
-
     display: flex;
     justify-content: center;
     margin: 0.50em;
