@@ -24,3 +24,29 @@ export const getProfile = async (token) => {
     let res = await axios.get(`${URL}/api/profile`, config);
     return res.data;
 };
+
+//UPDATE PROFILE
+export const updateProfile = async (body, token) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    };
+    let res = await axios.put(`${URL}/api/user/update`, body, config);
+    return res.data;
+};
+
+//DELETE PROFILE
+export const deleteProfile = async (token) => {
+    try {
+        let config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+        let res = await axios.delete(`${URL}/api/user/delete`, config);
+        return res.data;
+    } catch (error) {
+        throw error;
+    }
+};

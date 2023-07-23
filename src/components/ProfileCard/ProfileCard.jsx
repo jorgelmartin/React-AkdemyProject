@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { getProfile, updateProfile } from "../../services/apiCalls";
+import { deleteProfile, getProfile, updateProfile } from "../../services/apiCalls";
 import "./ProfileCard.css";
 import { Card, Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { userData } from "../../containers/userSlice";
 import { inputHandler } from "../../services/UseFul";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const ProfileCard = () => {
 
@@ -12,28 +13,41 @@ export const ProfileCard = () => {
     const [editing, setEditing] = useState(false);
     const [body, setBody] = useState({});
     const [id, setId] = useState({});
+    const [profileId, setProfileId] = useState({});
+    const navigate = useNavigate();
 
     //GETTING TOKEN FROM REDUX
     const datos = useSelector(userData);
     console.log(datos);
     const token = datos.credentials.token;
 
-    console.log("Soy", token);
-    
+    console.log("Soy token", token);
 
     //UPDATE PROFILE
     const editHandler = (body, token) => {
         console.log('Body obtenido:', body);
         if (id) {
-            console.log('Id obtenido:', id);
+            // console.log('Id obtenido:', id);
             body.id = id;
-        updateProfile(body, token)
-            .then(() => {
-                setEditing(false);
-            })
-            .catch((error) => {
-                console.error('Error al actualizar el perfil:', error);
-            });
+            updateProfile(body, token)
+                .then(() => {
+                    setEditing(false);
+                })
+                .catch((error) => {
+                    console.error('Error al actualizar el perfil:', error);
+                });
+        }
+    };
+
+    //DELETE PROFILE
+    const handleDeleteProfile = async () => {
+        try {
+            await deleteProfile(token);
+            console.log("tokatoka", token); // llega bien el token
+            // Realizar acciones adicionales después de eliminar el perfil
+            navigate("/home"); 
+        } catch (error) {
+            console.error("Error al borrar el perfil:", error);
         }
     };
 
@@ -58,7 +72,7 @@ export const ProfileCard = () => {
         <Container className="mt-2">
             <Card style={{ backgroundColor: '#3c709a61' }}>
                 <Card.Body>
-                <Card.Title className="text-center mb-3 display-5">Perfil</Card.Title>
+                    <Card.Title className="text-center mb-3 display-5">Perfil</Card.Title>
                     <Form>
                         <Form.Group>
                             <Row>
@@ -178,6 +192,12 @@ export const ProfileCard = () => {
                                 Editar
                             </Button>
                         )}
+                        <Button
+                            style={{ backgroundColor: "#13326fba" }}
+                            onClick={handleDeleteProfile}
+                        >
+                            Borrar perfil
+                        </Button>
                     </Form>
                 </Card.Body>
             </Card>
