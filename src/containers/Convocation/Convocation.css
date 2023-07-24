@@ -1,0 +1,57 @@
+/* .searchAppointment{
+    height: 100vh;
+    width: 100vw;
+
+} */
+.buttonUpdate {
+    background-color: rgba(89, 89, 209, 0.608);
+    color: white;
+    width: 4em;
+    height: 3em;
+
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0.01em solid black;
+    /* font-size:0.9em; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonUpdate:hover {
+    background-color: rgb(3, 3, 140);
+}
+
+.buttonDelete {
+    background-color: rgba(173, 10, 10, 0.462);
+    color: white;
+    width: 4em;
+    height: 3em;
+    border: 0.01em solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    /* font-size:0.9em; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonDelete:hover {
+    background-color: rgb(115, 26, 1);
+}
+/* 
+.buttonsAppointments {
+    overflow-y:scroll;
+} */
+/* .searchAppointment{
+    background-color:rgba(132, 172, 203, 0.299);
+    margin-top: 2em;
+} */
+
+.InputSearch {
+    text-align: center;
+    background-color: rgba(123, 219, 243, 0.244);
+    width: 12em;
+    height: 2em;
+    border-radius: 2em;
+}
