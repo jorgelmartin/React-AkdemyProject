@@ -50,3 +50,25 @@ export const deleteProfile = async (token) => {
         throw error;
     }
 };
+
+//CREATE CONVOCATION
+export const createConvocation = async (body, token) => {
+    let config = {
+      headers: { 
+        'Authorization': 'Bearer '+ token,  
+      }
+    };
+      let res =  await axios.post(`${URL}/convocation/create`, body, config)
+      return res.data;
+    }
+  
+  //UPDATE CONVOCATION
+  export const updateConvocation = async (token, id, bodyApp) => {
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    }
+    let res = await axios.put(`${URL}/convocation/update/${id}`, bodyApp, config)
+    return res
+  }
