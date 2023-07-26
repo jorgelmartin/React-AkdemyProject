@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { userData } from "../src/containers/userSlice";
 
 //GET ALL USERS
 export const useFetchUsers = () => {
     const [users, setUsers] = useState(null);
+    const datosCredencialesRedux = useSelector(userData);
     useEffect(() => {
-        fetch('http://localhost:8000/api/user/getAll')
+            let config = {
+                headers: {
+                    Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,
+                },
+            };
+        fetch('http://localhost:8000/api/user/getAll', config)
             .then(res => res.json())
             .then(res => {
-                console.log("Response from API:", res);
                 setUsers(res.data);
             })
             .catch(error => console.log("Error fetching users:", error))

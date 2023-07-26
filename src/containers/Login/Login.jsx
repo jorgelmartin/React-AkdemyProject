@@ -3,24 +3,18 @@ import "./Login.css";
 
 import { loginMe } from "../../services/apiCalls";
 import { Button, Card, Col, Container, Row, Form } from "react-bootstrap";
-import jwtDecode from "jwt-decode";
+// import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { login, userData } from "../userSlice";
+import { useDispatch } from "react-redux";
+import { login } from "../userSlice";
 import { InputText } from "../../components/InputText/InputText";
 // import { inputHandler } from "../../services/useful";
 
 export const Login = () => {
 
-    const [user, setUser] = useState({
-        email: '',
-        password: ''
-    });
+    const [user, setUser] = useState({});
     const [token, setToken] = useState("");
-    const [userError, setUserError] = useState({
-        emailError: false,
-        password: false
-    });
+    const [userError, setUserError] = useState({});
 
 
     //DISPATCH WRITE MODE
@@ -43,7 +37,6 @@ export const Login = () => {
             .then((res) => {
                 setToken(res.data.token);
                 setUserLogin(res.data.data);
-                console.log(res.data.token);
             })
             .catch((error) => {
                 setUserError({ credentials: error.response.data.message });
@@ -52,15 +45,10 @@ export const Login = () => {
     // USE DISPATCH 
     useEffect(() => {
         if (token) {
-            console.log("Soy el token", token);
-            console.log("Soy el tokendecoded", userLogin);
-            //No hace falta decodificar el token, llega deco del back
-            // let decoded = jwtDecode(token);
-            // console.log("Soy el tokendecoded", decoded);
             dispatch(
                 login({
                     token: token,
-                    name: userLogin.name, // Corregir esta línea
+                    name: userLogin.name,
                     role: userLogin.role_id,
                     userId: userLogin.id,
                 })

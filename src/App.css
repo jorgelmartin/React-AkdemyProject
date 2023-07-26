@@ -1,11 +1,24 @@
 #root {
   /* max-width: 1280px; */
+  width: 100vw;
+  height: 100vh;
   margin: auto ;
   padding: auto;
-  background-color: #84afef46;
+  background-color: #b4de7a2a;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* text-align: center; */
 }
 
+.userContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* .logo {
   height: 6em;
   padding: 1.5em;

@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { userData } from "../src/containers/userSlice";
 
-export const useFetchAppointments = () => {
-    const [appointments, setAppointments] = useState(null);
+export const useFetchConvocations = () => {
+    const [convocations, setConvocations] = useState(null);
     const datosCredencialesRedux = useSelector(userData);
-
     useEffect(() => {
         let config = {
             headers: {
@@ -15,10 +14,11 @@ export const useFetchAppointments = () => {
         fetch('http://localhost:8000/api/convocation/getAll', config)
             .then(res => res.json())
             .then(res => {
-                setAppointments(res.data);
+                setConvocations(res.data);
+                console.log("Response from API:", res);
             })
-            .catch(error => console.log("Error fetching appointments:", error))
+            .catch(error => console.log("Error fetching convocations:", error))
     }, []);
 
-    return appointments;
+    return convocations;
 };

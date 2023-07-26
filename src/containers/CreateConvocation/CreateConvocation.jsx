@@ -10,6 +10,7 @@ import { SelectDate } from "../../../hooks/useFetchSelectDate";
 import { userData } from "../../containers/userSlice";
 import { useSelector } from "react-redux";
 import { createConvocation, updateConvocation } from "../../services/apiCalls";
+import { SelectSchedule } from "../../../hooks/useFetchSelectSchedule";
 
 export const CreateConvocation = ({ isUpdate, updateData }) => {
 
@@ -24,7 +25,7 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
             
             patient_id: datos.data.userId
         }
-    );console.log(datos);
+    );
 
     //CREATE AND UPDATE APPOINTMENT
     const createApp = () => {
@@ -36,7 +37,7 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                 .then(() => navigate("/convocation"));
         }
     };
-
+    console.log("Soyla",convocationData);
     return (
         <div className="ContainerCreate1">
             <div className="ContainerCreate">
@@ -83,17 +84,17 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                                         <Form.Group as={Row}>
                                             <Form.Label column xs={4} sm={5}>Duración:</Form.Label>
                                             <Col xs={6} sm={6}>
-                                                {/* <SelectDate
-                                                    className="dateSelector"
-                                                    name={"date_id"}
-                                                    value={convocationData.date}
+                                                <SelectSchedule
+                                                    className="scheduleSelector"
+                                                    name={"schedule_id"}
+                                                    value={convocationData.schedule_id}
                                                     handleChange={(value) => {
                                                         setConvocationData({
                                                             ...convocationData,
-                                                            date: value,
+                                                            schedule: value,
                                                         }) }
                                                     }>
-                                                </SelectDate> */}
+                                                </SelectSchedule>
                                             </Col>
                                         </Form.Group>
                                     </Form>
