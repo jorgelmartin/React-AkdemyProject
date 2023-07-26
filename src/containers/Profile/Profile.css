@@ -14,7 +14,7 @@
     transition: transform 0.3s ease;
 }
 
-.appointments {
+.convocations {
     display: flex;
     justify-content: center;
     margin: 0.50em;

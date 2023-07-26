@@ -3,7 +3,7 @@ import { useFetchConvocations } from "../../../hooks/useFetchConvocation";
 import { Table, Container } from "react-bootstrap";
 import "./Convocation.css"
 import { useNavigate } from "react-router-dom";
-import { inputHandler } from "../../services/useful";
+import { inputHandler } from "../../services/UseFul";
 
 export const Convocation = () => {
 
@@ -11,7 +11,7 @@ export const Convocation = () => {
 
     //GET THE APPOINTMENT FROM THE HOOK
     const convocations = useFetchConvocations();
-
+console.log(convocations);
     //STATE TO GET THE FILTERED Convocations
     const [filteredConvocations, setfilteredConvocations] = useState([]);
 
@@ -62,7 +62,7 @@ export const Convocation = () => {
                             {/* <th>Paciente</th> */}
                             <th>Programa</th>
                             <th>Inicio</th>
-                            <th>Fin</th>
+                            <th>Horarios</th>
                             {/* <th>Descripción</th> */}
                         </tr>
                     </thead>
@@ -74,7 +74,7 @@ export const Convocation = () => {
                                 {/* <td>{convocation.name} {convocation.user.surname}</td> */}
                                 <td>{convocation.program.name}</td>
                                 <td>{convocation.beginning}</td>
-                                <td>{convocation.end}</td>
+                                <td>{convocation.schedule}</td>
                                 {/* <td>{convocation.program.description}</td> */}
                                 <div className="d-flex justify-content-center buttonsConvocations"> {/* Use d-flex and justify-content-between to display buttons side by side */}
                                     <button className="buttonUpdate" onClick={() => navigate(`/appointmentdetail/${convocation.id}`)}>Detalle</button>

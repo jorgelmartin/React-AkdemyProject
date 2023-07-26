@@ -1,6 +1,6 @@
 import React from "react";
 import { useFetchUsers } from "../../../hooks/useFetchUsers";
-import { Container, Form, Card, Table } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import "./Users.css";
 
 export const Users = () => {
@@ -11,8 +11,7 @@ export const Users = () => {
     }
 
     return (
-        
-            <Container className="mt-5">
+            <Container className="mt-4">
                 <Table striped bordered hover responsive>
                     <thead>
                         <tr>
@@ -34,6 +33,5 @@ export const Users = () => {
                     </tbody>
                 </Table>
             </Container>
-        
     );
 }

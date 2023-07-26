@@ -1,8 +1,6 @@
-.userCardsRow{
-    height: 100vh;
-    width: 100vw;
+.Container.usersRow {
+    margin-top: 1em;
 }
-
 .buttonDelete {
     background-color: rgba(173, 10, 10, 0.462);
     color: white;
@@ -22,7 +20,7 @@
     background-color: rgb(115, 26, 1);
 }
 
-.buttonsAppointments {
+.buttonsConvocations {
     overflow-y:hidden;
 }
 .searchAppointment{

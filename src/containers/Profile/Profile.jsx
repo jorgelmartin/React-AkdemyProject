@@ -4,7 +4,7 @@ import "./Profile.css";
 import { Card, Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { userData } from "../userSlice";
-import { inputHandler } from "../../services/UseFul";
+import { inputHandler } from "../../services/useful";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../containers/userSlice";
@@ -41,17 +41,11 @@ export const Profile = () => {
     };
 
     //DELETE PROFILE
-    const handleLogout = () => {
-        dispatch(logout({ credentials: "" }));
-        navigate("/home");
-    };
     const handleDeleteProfile = () => {
-        const userToken = token; // Almacena el token en una variable local antes de llamar a logout
-        dispatch(logout({ credentials: "" })); // Vacía las credenciales del usuario
-        deleteProfile(userToken) // Utiliza el token antes de que sea eliminado
+        const userToken = token; 
+        dispatch(logout({ credentials: "" })); 
+        deleteProfile(userToken) 
             .then(() => {
-                console.log("tokatoka", userToken); // El token todavía está disponible aquí
-                // Realizar acciones adicionales después de eliminar el perfil
                 navigate("/home");
             })
             .catch((error) => {
