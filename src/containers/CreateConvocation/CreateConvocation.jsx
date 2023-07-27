@@ -22,16 +22,16 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
     const [convocationData, setConvocationData] = useState(
         {
             ...updateData,
-            
-            patient_id: datos.data.userId
+            // id: datos.data.userId
         }
     );
 
     //CREATE AND UPDATE APPOINTMENT
     const createApp = () => {
+        console.log("Objeto body:", convocationData);
         if (isUpdate) {
             updateConvocation(token, convocationData.id, convocationData)
-                .then(() => navigate("/convocation"));console.log("soylaconvo", convocationData);
+                .then(() => navigate("/convocation"));
         } else {
             createConvocation(convocationData, token)
                 .then(() => navigate("/convocation"));
@@ -52,7 +52,7 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                                             <Form.Label column xs={4} sm={5}>Programas:</Form.Label>
                                             <Col xs={6} sm={6}>
                                                 <SelectPrograms
-                                                    className="dentistSelector"
+                                                    className="programSelector"
                                                     name={"program_id"}
                                                     value={convocationData.program_id}
                                                     handleChange={(value) => {
@@ -70,12 +70,12 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                                             <Col xs={6} sm={6}>
                                                 <SelectDate
                                                     className="dateSelector"
-                                                    name={"date_id"}
-                                                    value={convocationData.date}
+                                                    name={"beginning"}
+                                                    value={convocationData.beginning}
                                                     handleChange={(value) => {
                                                         setConvocationData({
                                                             ...convocationData,
-                                                            date: value,
+                                                            beginning: value,
                                                         }) }
                                                     }>
                                                 </SelectDate>
