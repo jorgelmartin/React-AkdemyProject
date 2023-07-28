@@ -8,6 +8,8 @@ import { Admin } from "../Admin/Admin";
 import { Users } from "../Users/Users";
 import { Convocation } from "../Convocation/Convocation";
 import { CreateConvocation } from "../CreateConvocation/CreateConvocation";
+import { ConvocationDetail } from "../ConvocationDetail/ConvocationDetail";
+import { Student } from "../Student/Student";
 
 
 export const Body = () => {
@@ -24,6 +26,8 @@ export const Body = () => {
                 <Route path="/users" element={<Users />} /> 
                 <Route path="/convocation" element={<Convocation />} /> 
                 <Route path="/createConvocation" element={<CreateConvocation />} /> 
+                <Route path="/convodetail/:id" element={<ConvocationDetail />} /> 
+                <Route path="/student" element={<Student />} /> 
             </Routes>
         </>
     );
