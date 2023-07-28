@@ -54,21 +54,63 @@ export const deleteProfile = async (token) => {
 //CREATE CONVOCATION
 export const createConvocation = async (body, token) => {
     let config = {
-      headers: { 
-        'Authorization': 'Bearer '+ token,  
-      }
+        headers: {
+            'Authorization': 'Bearer ' + token,
+        }
     };
-      let res =  await axios.post(`${URL}/convocation/create`, body, config)
-      return res.data;
-    }
-  
-  //UPDATE CONVOCATION
-  export const updateConvocation = async (token, id, bodyApp) => {
+    let res = await axios.post(`${URL}/api/convocation/create`, body, config)
+    return res.data;
+
+}
+
+//UPDATE CONVOCATION
+export const updateConvocation = async (token, id, bodyApp) => {
     let config = {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     }
-    let res = await axios.put(`${URL}/convocation/update/${id}`, bodyApp, config)
+    let res = await axios.put(`${URL}/api/convocation/update/${id}`, bodyApp, config);
     return res
-  }
+}
+
+//CREATE USER-CONVOCATION
+export const createUserConvocation = async (body, token) => {
+    let config = {
+        headers: {
+            'Authorization': 'Bearer ' + token,
+        }
+    };
+    console.log("Soylatokje", body);
+    let res = await axios.post(`${URL}/api/userConvo/create`, body, config)
+    return res.data;
+}
+// export const createUserConvocation = async (convocationData, userToken) => {
+//     let config = {
+//         headers: {
+//             'Authorization': `Bearer ${userToken}`,
+//         }
+//     };
+//     console.log("");
+//     let res = await axios.post(`${URL}/api/userConvo/create`, convocationData, config);
+//     return res.data;
+// }
+
+export const joinConvocation = async (token, id) => {
+    try {
+        let config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+        let data = {
+            id: id,
+        };
+        let res = await axios.post(`${URL}/api/convocation/join`, data, config);
+        return res;
+    } catch (error) {
+        console.error("Error uniendo a la convocatoria", error);
+        throw error;
+    }
+};
+
