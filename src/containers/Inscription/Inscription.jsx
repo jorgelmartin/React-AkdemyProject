@@ -13,7 +13,7 @@ export const Inscription = () => {
 
     const userToken = datosCredencialesRedux?.credentials?.token;
     const userId = datosCredencialesRedux?.data?.userId;
-    // const selectedConvocationId = convocationData.convocation_id;
+    
 
     const convocations = useFetchConvocations(); // Fetch convocations from the API
 
@@ -35,32 +35,14 @@ export const Inscription = () => {
     };
 
     const handleInscription = async () => {
-        try {
-            if (!userToken) {
-                console.error("User token not available. Please ensure the user is logged in.");
-                return;
-            }
-
-            if (!selectedConvocationId) {
-                console.error("No convocation selected. Please select a convocation first.");
-                return;
-            }
-
-            const body = {
-                convocation_id: selectedConvocationId,
-                user_id: userId, // Replace with the actual ID of the user (obtained from Redux store or any other method)
-            };
-
-            // Call the API to create user-convocation with the selected convocation ID and user token
-            const result = await createUserConvocation(body, userToken);
-            console.log("User-Convocation created:", result);
-            // Optionally, you can show a success message or navigate to another page after successful inscription.
-        } catch (error) {
-            console.log("Error creating User-Convocationddddd:", error);
-            // Handle any errors that occurred during the API call.
-        }
+        const body = {
+            convocation_id: selectedConvocationId,
+            user_id: userId,
+        };
+        const result = await createUserConvocation(body, userToken);
+        console.log("User-Convocation created:", result);
     };
-
+    const upcomingConvocations = convocations ? convocations.filter(convocation => new Date(convocation.beginning) > new Date()) : [];
     return (
         <Container>
             <Card style={{ maxWidth: '25em', margin: '0 auto' }}>
@@ -71,17 +53,20 @@ export const Inscription = () => {
                             <tr>
                                 <td>Convocatorias:</td>
                                 <td>
-                                    <select
+                                <select
                                         value={convocationData.convocation_id}
                                         onChange={handleConvocationChange}
                                     >
                                         <option value={0}>Seleccione una convocatoria</option>
-                                        {convocations &&
-                                            convocations.map((convocation) => (
+                                        {upcomingConvocations.length > 0 ? (
+                                            upcomingConvocations.map((convocation) => (
                                                 <option key={convocation.id} value={convocation.id}>
                                                     {convocation.program.name}
                                                 </option>
-                                            ))}
+                                            ))
+                                        ) : (
+                                            <option disabled>No hay convocatorias próximas</option>
+                                        )}
                                     </select>
                                 </td>
                             </tr>
