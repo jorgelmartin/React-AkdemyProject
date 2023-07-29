@@ -21,7 +21,7 @@
 .appointmentCardsRow .apcard {
     flex: 0 0 calc(33% - 1em); 
 } */
-.inputAppointment {
+.inputConvocation {
     text-align: center;
     width: 12em;
     height: 2em;

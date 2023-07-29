@@ -5,7 +5,7 @@ const URL = "http://localhost:8000";
 //LOGIN 
 export const loginMe = async (credentials) => {
     return await axios.post(`${URL}/api/login`, credentials);
-    return res.data
+    return res.data;
 }
 
 //REGISTER
@@ -71,7 +71,7 @@ export const updateConvocation = async (token, id, bodyApp) => {
         },
     }
     let res = await axios.put(`${URL}/api/convocation/update/${id}`, bodyApp, config);
-    return res
+    return res;
 }
 
 //CREATE USER-CONVOCATION
@@ -81,19 +81,18 @@ export const createUserConvocation = async (body, token) => {
             'Authorization': 'Bearer ' + token,
         }
     };
-    console.log("Soylatokje", body);
     let res = await axios.post(`${URL}/api/userConvo/create`, body, config)
     return res.data;
 }
-// export const createUserConvocation = async (convocationData, userToken) => {
+// //UPDATE CONVOCATION
+// export const updateConvocation = async (token, id, bodyApp) => {
 //     let config = {
 //         headers: {
-//             'Authorization': `Bearer ${userToken}`,
-//         }
-//     };
-//     console.log("");
-//     let res = await axios.post(`${URL}/api/userConvo/create`, convocationData, config);
-//     return res.data;
+//             Authorization: `Bearer ${token}`,
+//         },
+//     }
+//     let res = await axios.put(`${URL}/api/convocation/update/${id}`, bodyApp, config);
+//     return res;
 // }
 
 export const joinConvocation = async (token, id) => {

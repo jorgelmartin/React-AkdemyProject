@@ -11,7 +11,6 @@ export const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
-    
     useEffect(() => {
         if (!datosCredencialesRedux.credentials?.token) {
             navigate("/login");
@@ -33,7 +32,7 @@ export const Header = () => {
                     {datosCredencialesRedux.data.role === 2 ? (
                         <>
                             <div className="headerLink" onClick={() => navigate("/profile")}>Perfil</div>
-                            <div className="headerLink" onClick={() => navigate("/appointment")}>Citas</div>
+                            <div className="headerLink" onClick={() => navigate("/student")}>Convocatorias</div>
                             <div className="headerLink" onClick={handleLogout}>Salir</div>
                         </>
                     ) : datosCredencialesRedux.data.role === 1 ? (
