@@ -4,6 +4,7 @@ import { createUserConvocation } from '../../services/apiCalls';
 import { useFetchConvocations } from '../../../hooks/useFetchConvocation';
 import { useSelector } from 'react-redux';
 import { userData } from '../userSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 export const Inscription = () => {
@@ -11,9 +12,10 @@ export const Inscription = () => {
     const datosCredencialesRedux = useSelector(userData);
     const [selectedConvocationId, setSelectedConvocationId] = useState({});
 
+    const navigate = useNavigate();
+
     const userToken = datosCredencialesRedux?.credentials?.token;
     const userId = datosCredencialesRedux?.data?.userId;
-    
 
     const convocations = useFetchConvocations(); // Fetch convocations from the API
 
@@ -30,7 +32,6 @@ export const Inscription = () => {
                 price: selectedConvocation && selectedConvocation.program ? selectedConvocation.program.price : ''
             }
         });
-
         setSelectedConvocationId(selectedId); // Update the selectedConvocationId state
     };
 
@@ -41,19 +42,25 @@ export const Inscription = () => {
         };
         const result = await createUserConvocation(body, userToken);
         console.log("User-Convocation created:", result);
+        navigate('/');
     };
-    const upcomingConvocations = convocations ? convocations.filter(convocation => new Date(convocation.beginning) > new Date()) : [];
+
+    const upcomingConvocations = convocations ? convocations.filter(
+        convocation => new Date(
+            convocation.beginning
+            ) > new Date()) : [];
+
     return (
         <Container>
             <Card style={{ maxWidth: '25em', margin: '0 auto' }}>
                 <Card.Body>
-                    <h2 className="text-center mb-3">Solicitar Inscripción</h2>
+                    <h2 className="text-center mb-3">Inscripción</h2>
                     <table className="table">
                         <tbody>
                             <tr>
                                 <td>Convocatorias:</td>
                                 <td>
-                                <select
+                                    <select
                                         value={convocationData.convocation_id}
                                         onChange={handleConvocationChange}
                                     >
@@ -99,7 +106,7 @@ export const Inscription = () => {
                             style={{ backgroundColor: '#13326fba' }}
                             className="w-50"
                         >
-                            Inscribirme!
+                            Solicitar!
                         </Button>
                     </div>
                 </Card.Body>
