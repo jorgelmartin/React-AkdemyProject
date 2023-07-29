@@ -1,10 +1,30 @@
-
-.homeDesign {
-    height: 100vh;
-    width: 100vw;
+.productCardContainer {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    /* flex-wrap: wrap; */
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.productCardDesign {
+    width: 18em;
+    height: 18em;
+    margin: 2em;
+    margin-bottom: 1em;
+    border: 0.1em solid #2e3c5a79;
+    padding: 1em;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column; /* Set flex-direction to column to stack the image and text */
+    align-items: center; /* Center the items horizontally */
+}
+
+.productImgDesign {
+    width: 13em;
+    height: 12em;
+    object-fit: contain;
+    border-radius: 2em;
+}
+
+.productCardDesign h1 {
+    font-size: 1.2em;
+    margin-top: 0.5em;
 }
