@@ -31,7 +31,6 @@ export const UserRequest = () => {
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Apellidos</th>
                         <th>Curso</th>
                         <th>Inicio</th>
                         <th>Estado</th>
@@ -41,8 +40,7 @@ export const UserRequest = () => {
                 {usersReq.map((request, index) => (
                         console.log("request.id:", request.id),
                         <tr key={index}>
-                            <td>{request.user.name}</td>
-                            <td>{request.user.surname}</td>
+                            <td>{request.user.name} {request.user.surname}</td>
                             <td>{request.program.name}</td>
                             <td>{request.convocation.beginning}</td>
                             <td>{request.status}</td>

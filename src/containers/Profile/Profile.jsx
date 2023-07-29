@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { deleteProfile, getProfile, updateProfile } from "../../services/apiCalls";
 import "./Profile.css";
 import { Card, Form, Button, Container, Row, Col } from "react-bootstrap";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
 import { inputHandler } from "../../services/useful";
 import { useNavigate } from "react-router-dom";

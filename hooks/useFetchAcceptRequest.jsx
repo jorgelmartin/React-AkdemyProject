@@ -37,30 +37,3 @@ export const useFetchAcceptRequest = () => {
     // Retorna la función acceptUserRequest para que el componente que use este gancho pueda acceder a ella
     return acceptUserRequest;
 };
-
-
-
-// import { useEffect, useState } from "react";
-// import { useSelector } from "react-redux";
-// import { userData } from "../src/containers/userSlice";
-
-// export const useFetchAcceptRequest = (id) => {
-//     const [userRequest, setUserRequest] = useState({});
-//     const datosCredencialesRedux = useSelector(userData);
-//     useEffect(() => {
-//         let config = {
-//             method: "POST",
-//             headers: {
-//                 Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,
-//             },
-//         }
-//         fetch(`http://localhost:8000/api/userConvo/accept/${id}`, config)
-//             .then(res => res.json())
-//             .then(res => {
-//                 setUserRequest(res);
-//                 // console.log("Response from APIIII:", res.data);
-//             })
-//             .catch(error => console.log("Error fetching convocations:", error))
-//     }, [id]);
-//     return userRequest;
-// };

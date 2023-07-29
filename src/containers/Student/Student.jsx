@@ -24,7 +24,7 @@ export const Student = () => {
                                 <Button
                                     style={{ backgroundColor: "#13326fba" }}
                                     className="w-100 userCardTitle"
-                                    onClick={() => navigate("/appointmentcard")}
+                                    onClick={() => navigate("/myPrograms")}
                                 >
                                     MIS CURSOS
                                 </Button>
