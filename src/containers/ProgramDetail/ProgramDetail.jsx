@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import "./ServiceDetail.css";
+import "./ProgramDetail.css";
 import { useFetchPrograms } from "../../../hooks/useFetchPrograms";
 
     export const ProgramDetail = () => {
@@ -22,6 +22,7 @@ import { useFetchPrograms } from "../../../hooks/useFetchPrograms";
                 setProgramDetail(null);
             }
         }, [parsedId, programs]);
+        console.log("soyiddd", programDetail);
 
         //SHOW THE DETAIL SERVICE
     return (
@@ -29,10 +30,10 @@ import { useFetchPrograms } from "../../../hooks/useFetchPrograms";
             <div className="DetailService1">
                 {programDetail ? (
                     <>
-                        <h2>Servicio: {programDetail.name}</h2>
-                        <img src={programDetail.image} alt="" />
-                        <h4>Duración: {programDetail.duration}</h4>
-                        <h5>Precio€: {programDetail.price}</h5>
+                        <h2>{programDetail.name}</h2>
+                        <img src={`http://localhost:8000/${programDetail.image}`} alt="" />
+                        <h4>Descripción: {programDetail.description}</h4>
+                        <h5>Precio €: {programDetail.price}</h5>
                     </>
                 ) : (
                     <p>Producto no encontrado</p>

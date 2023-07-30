@@ -1,0 +1,35 @@
+.DetailService {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    margin-top: 3em;
+    /* min-height: 100vh; */
+    min-height: 100vh;
+    min-width: 100vw;
+
+}
+
+.DetailService1 {
+    border-radius: 2em;
+    /* background-color: rgba(121, 161, 192, 0.9); */
+    box-shadow: 0 0 2em rgba(199, 78, 45, 0.2);
+    padding: 2em;
+    text-align: center;
+    color: #834016b4;
+    
+}
+.DetailService1 img {
+    border-radius: 2em;
+    max-width: 100%;
+    height: auto;
+}
+
+.DetailService1 h2 {
+    font-size: 1.8em; /* Aumentar el tamaño del nombre */
+    margin-bottom: 0.5em;
+}
+
+.DetailService1 h4 {
+    font-size: 1em; /* Hacer más pequeña la descripción */
+}
