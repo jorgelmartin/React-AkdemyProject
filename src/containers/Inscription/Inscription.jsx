@@ -92,7 +92,7 @@ export const Inscription = () => {
                                 </td>
                             </tr>
                             <tr>
-                                <td>Price:</td>
+                                <td>Precio:</td>
                                 <td>
                                     {/* Display the price of the program */}
                                     <span>{convocationData.program && convocationData.program.price}</span>

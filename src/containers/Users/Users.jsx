@@ -11,8 +11,8 @@ export const Users = () => {
     }
 
     return (
-            <Container className="mt-4">
-                <Table striped bordered hover responsive>
+            <Container className="mt-5">
+                <Table striped bordered hover responsive className="mt-3">
                     <thead>
                         <tr>
                             <th>Nombre</th>

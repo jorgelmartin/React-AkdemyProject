@@ -69,146 +69,113 @@ export const Profile = () => {
     }, [editing, token]);
 
     return (
-        <div className="userContainer">
-            <Container className="container-max-width">
-                <Row className="userCard gap-3">
-                    <Col>
-                        <Container className="mt-2">
-                            <Card style={{ backgroundColor: '#3c709a61' }}>
-                                <Card.Body>
-                                    <Card.Title className="text-center mb-3 display-5">Perfil</Card.Title>
-                                    <Form>
-                                        <Form.Group>
-                                            <Row>
-                                                <Col>
-                                                    <Form.Label>Nombre:</Form.Label>
-                                                </Col>
-                                                {editing ? (
-                                                    <Col>
-                                                        <input
-                                                            type={"text"}
-                                                            name={"name"}
-                                                            placeholder={user.name}
-                                                            onChange={(e) => inputHandler(e, setBody)}
-                                                        />
-                                                    </Col>
-                                                ) : (
-                                                    <Col>
-                                                        <div>{user.name}</div>
-                                                    </Col>
-                                                )}
-                                            </Row>
-                                        </Form.Group>
-                                        <Form.Group>
-                                            <Row>
-                                                <Col>
-                                                    <Form.Label>Apellido:</Form.Label>
-                                                </Col>
-                                                {editing ? (
-                                                    <Col>
-                                                        <input
-                                                            type={"text"}
-                                                            name={"surname"}
-                                                            placeholder={user.surname}
-                                                            onChange={(e) => inputHandler(e, setBody)}
-                                                        />
-                                                    </Col>
-                                                ) : (
-                                                    <Col>
-                                                        <div>{user.surname}</div>
-                                                    </Col>
-                                                )}
-                                            </Row>
-                                        </Form.Group>
-                                        <Form.Group>
-                                            <Row>
-                                                <Col>
-                                                    <Form.Label>Email:</Form.Label>
-                                                </Col>
-                                                {editing ? (
-                                                    <Col>
-                                                        <input
-                                                            type={"text"}
-                                                            name={"email"}
-                                                            placeholder={user.email}
-                                                            onChange={(e) => inputHandler(e, setBody)}
-                                                        />
-                                                    </Col>
-                                                ) : (
-                                                    <Col>
-                                                        <div>{user.email}</div>
-                                                    </Col>
-                                                )}
-                                            </Row>
-                                        </Form.Group>
-                                        {editing && (
-                                            <Form.Group>
-                                                <Row>
-                                                    <Col>
-                                                        <Form.Label>Contraseña:</Form.Label>
-                                                    </Col>
-                                                    <Col>
-                                                        <input
-                                                            type={"password"}
-                                                            name={"password"}
-                                                            placeholder={user.password}
-                                                            onChange={(e) => inputHandler(e, setBody)}
-                                                        />
-                                                    </Col>
-                                                </Row>
-                                            </Form.Group>
-                                        )}
-                                        <Form.Group>
-                                            <Row>
-                                                <Col>
-                                                    <Form.Label>Teléfono:</Form.Label>
-                                                </Col>
-                                                {editing ? (
-                                                    <Col>
-                                                        <input
-                                                            type={"text"}
-                                                            name={"phone"}
-                                                            placeholder={user.phone}
-                                                            onChange={(e) => inputHandler(e, setBody)}
-                                                        />
-                                                    </Col>
-                                                ) : (
-                                                    <Col>
-                                                        <div>{user.phone}</div>
-                                                    </Col>
-                                                )}
-                                            </Row>
-                                        </Form.Group>
+        <Container className="mt-2">
+                <Card style={{ backgroundColor: '#3c709a61' }}>
+                    <Card.Body>
+                        <Card.Title className="text-center mb-3 display-5">Perfil</Card.Title>
+                        <table className="table">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Nombre:</strong></td>
+                                    <td>
                                         {editing ? (
-                                            <Button
-                                                onClick={() => {
-                                                    editHandler(body, token);
-                                                }}
-                                            >
-                                                Guardar
-                                            </Button>
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                className="form-control"
+                                                defaultValue={user.name}
+                                                onChange={(e) => inputHandler(e, setBody)}
+                                            />
                                         ) : (
-                                            <Button style={{ backgroundColor: '#13326fba' }}
-                                                onClick={() => {
-                                                    setEditing(true);
-                                                }}
-                                            >
-                                                Editar
-                                            </Button>
+                                            <span>{user.name}</span>
                                         )}
-                                        <Button
-                                            style={{ backgroundColor: "#13326fba" }}
-                                            onClick={handleDeleteProfile}
-                                        >
-                                            Borrar perfil
-                                        </Button>
-                                    </Form>
-                                </Card.Body>
-                            </Card>
-                        </Container>
-                    </Col>
-                </Row>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Apellido:</strong></td>
+                                    <td>
+                                        {editing ? (
+                                            <input
+                                                type="text"
+                                                name="surname"
+                                                className="form-control"
+                                                defaultValue={user.surname}
+                                                onChange={(e) => inputHandler(e, setBody)}
+                                            />
+                                        ) : (
+                                            <span>{user.surname}</span>
+                                        )}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Email:</strong></td>
+                                    <td>
+                                        {editing ? (
+                                            <input
+                                                type="text"
+                                                name="email"
+                                                className="form-control"
+                                                defaultValue={user.email}
+                                                onChange={(e) => inputHandler(e, setBody)}
+                                            />
+                                        ) : (
+                                            <span>{user.email}</span>
+                                        )}
+                                    </td>
+                                </tr>
+                                {editing && (
+                                    <tr>
+                                        <td><strong>Contraseña:</strong></td>
+                                        <td>
+                                            <input
+                                                type="password"
+                                                name="password"
+                                                className="form-control"
+                                                onChange={(e) => inputHandler(e, setBody)}
+                                            />
+                                        </td>
+                                    </tr>
+                                )}
+                                <tr>
+                                    <td><strong>Teléfono:</strong></td>
+                                    <td>
+                                        {editing ? (
+                                            <input
+                                                type="text"
+                                                name="phone"
+                                                className="form-control"
+                                                defaultValue={user.phone}
+                                                onChange={(e) => inputHandler(e, setBody)}
+                                            />
+                                        ) : (
+                                            <span>{user.phone}</span>
+                                        )}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        {editing ? (
+                            <div className="text-center">
+                                <Button onClick={() => editHandler(body, token)}>Guardar</Button>
+                            </div>
+                        ) : (
+                            <div className="text-center">
+                                <Button
+                                    onClick={() => setEditing(true)}
+                                    style={{ backgroundColor: '#13326fba' }}
+                                >
+                                    Editar
+                                </Button>
+                                <Button
+                                    onClick={handleDeleteProfile}
+                                    style={{ backgroundColor: '#13326fba', marginTop: '1rem' }}
+                                >
+                                    Borrar perfil
+                                </Button>
+                            </div>
+                        )}
+                    </Card.Body>
+                </Card>
             </Container>
-        </div>
     )
 }
