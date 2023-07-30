@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = "http://localhost:8000";
+const URL = "https://laravel-akdemy-project.vercel.app";
 
 //LOGIN 
 export const loginMe = async (credentials) => {
