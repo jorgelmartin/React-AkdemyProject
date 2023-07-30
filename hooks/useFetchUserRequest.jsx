@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { userData } from "../src/containers/userSlice";
 
 export const useFetchUserRequest = () => {
-    const [userRequest, setUserRequest] = useState(null);
+    const [usersRequest, setUsersRequest] = useState(null);
     const datosCredencialesRedux = useSelector(userData);
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
@@ -15,7 +15,7 @@ export const useFetchUserRequest = () => {
         fetch('http://localhost:8000/api/userConvo/getPending', config)
             .then(res => res.json())
             .then(res => {
-                setUserRequest(res);
+                setUsersRequest(res);
                 // console.log("Response from APIIII:", res.data);
             })
             .catch(error => {
@@ -24,5 +24,5 @@ export const useFetchUserRequest = () => {
                 // Puedes mostrar un mensaje de error en la interfaz de usuario si lo deseas.
             });
     }, []);
-    return userRequest;
+    return usersRequest;
 };

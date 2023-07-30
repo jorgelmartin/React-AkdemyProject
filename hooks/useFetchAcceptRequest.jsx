@@ -4,7 +4,7 @@ import { userData } from "../src/containers/userSlice";
 
 export const useFetchAcceptRequest = () => {
     // Puedes utilizar useState para guardar la respuesta de la API
-    const [userRequest, setUserRequest] = useState(null);
+    const [usersRequest, setUsersRequest] = useState(null);
     const datosCredencialesRedux = useSelector(userData);
 
     // Esta es la función que realizará la solicitud para aceptar la solicitud del usuario
@@ -24,7 +24,7 @@ export const useFetchAcceptRequest = () => {
 
             const data = await response.json();
             // Actualiza el estado con la respuesta de la API
-            setUserRequest(data);
+            setUsersRequest(data);
 
             // Devuelve la respuesta si es necesaria para el componente que utiliza el gancho
             return data;

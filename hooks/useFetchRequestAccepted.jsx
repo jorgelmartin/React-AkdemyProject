@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { userData } from "../src/containers/userSlice";
 
 export const useFetchRequestAccepted = (userId) => {
-    const [userRequest, setUserRequest] = useState(null);
+    const [usersRequest, setUsersRequest] = useState(null);
     const datosCredencialesRedux = useSelector(userData);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -17,7 +17,7 @@ export const useFetchRequestAccepted = (userId) => {
         fetch(`http://localhost:8000/api/userConvo/getAccepted/${userId}`, config) // Agrega una barra antes de userId
             .then(res => res.json())
             .then(res => {
-                setUserRequest(res);
+                setUsersRequest(res);
                 console.log("Response from APIIII:", res.data);
                 setIsLoading(false); // Asegúrate de establecer isLoading a false cuando se complete la solicitud
             })
@@ -28,5 +28,5 @@ export const useFetchRequestAccepted = (userId) => {
             });
     }, [userId, datosCredencialesRedux.credentials?.token]);
 
-    return userRequest;
+    return usersRequest;
 };
