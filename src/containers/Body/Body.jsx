@@ -13,7 +13,7 @@ import { Student } from "../Student/Student";
 import { Inscription } from "../Inscription/Inscription";
 import { MyPrograms } from "../MyPrograms/MyPrograms";
 import { ProgramDetail } from "../ProgramDetail/ProgramDetail";
-import { UserRequest } from "../userRequest/UserRequest";
+import { UserRequest } from "../UserRequest/UserRequest";
 
 
 export const Body = () => {
