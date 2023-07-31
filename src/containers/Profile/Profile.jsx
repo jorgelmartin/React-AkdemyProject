@@ -16,17 +16,15 @@ export const Profile = () => {
     const [id, setId] = useState({});
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [hovering, setHovering] = useState(false);
 
     //GETTING TOKEN FROM REDUX
     const datos = useSelector(userData);
     console.log(datos);
     const token = datos.credentials.token;
 
-    console.log("Soy token", token);
-
     //UPDATE PROFILE
     const editHandler = (body, token) => {
-        console.log('Body obtenido:', body);
         if (id) {
             // console.log('Id obtenido:', id);
             body.id = id;
@@ -38,6 +36,13 @@ export const Profile = () => {
                     console.error('Error al actualizar el perfil:', error);
                 });
         }
+    };
+    const handleMouseEnter = () => {
+        setHovering(true);
+    };
+
+    const handleMouseLeave = () => {
+        setHovering(false);
     };
 
     //DELETE PROFILE
@@ -69,107 +74,117 @@ export const Profile = () => {
     }, [editing, token]);
 
     return (
-        <Container className="mt-2 d-flex justify-content-center">
-            <Row>
-                <Col>
-                    <div style={{ minWidth: '20em' }}>
-                        <Card style={{ backgroundColor: '#3c709a61' }}>
-                            <Card.Body>
-                                <Card.Title className="text-center mb-3 display-5">Perfil</Card.Title>
-                                <table className="table">
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>Nombre:</strong></td>
-                                            <td>
-                                                {editing ? (
-                                                    <input
-                                                        type="text"
-                                                        name="name"
-                                                        className="form-control"
-                                                        defaultValue={user.name}
-                                                        onChange={(e) => inputHandler(e, setBody)}
-                                                    />
-                                                ) : (
-                                                    <span>{user.name}</span>
-                                                )}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Apellido:</strong></td>
-                                            <td>
-                                                {editing ? (
-                                                    <input
-                                                        type="text"
-                                                        name="surname"
-                                                        className="form-control"
-                                                        defaultValue={user.surname}
-                                                        onChange={(e) => inputHandler(e, setBody)}
-                                                    />
-                                                ) : (
-                                                    <span>{user.surname}</span>
-                                                )}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Email:</strong></td>
-                                            <td>
-                                                {editing ? (
-                                                    <input
-                                                        type="text"
-                                                        name="email"
-                                                        className="form-control"
-                                                        defaultValue={user.email}
-                                                        onChange={(e) => inputHandler(e, setBody)}
-                                                    />
-                                                ) : (
-                                                    <span>{user.email}</span>
-                                                )}
-                                            </td>
-                                        </tr>
-                                        {editing && (
-                                            <tr>
-                                                <td><strong>Contraseña:</strong></td>
-                                                <td>
-                                                    <input
-                                                        type="password"
-                                                        name="password"
-                                                        className="form-control"
-                                                        onChange={(e) => inputHandler(e, setBody)}
-                                                    />
-                                                </td>
-                                            </tr>
-                                        )}
-                                    </tbody>
-                                </table>
-                                {editing ? (
-                                    <div className="text-center">
-                                        <Button onClick={() => editHandler(body, token)}>Guardar</Button>
+        <div className="mt-2 d-flex justify-content-center">
+            <div>
+                <div style={{ minWidth: '20em' }}>
+                    <div
+                    
+                    >
+                        <div className="text-center mb-3 display-3" style={{
+                            backgroundColor: hovering ? '#FF0000' : '#3c709a61',
+                            padding: '1rem',
+                            borderRadius: '0.5rem',
+                            // Agregar otros estilos de la tarjeta aquí según sea necesario
+                        }}>
+                            <strong>Perfil</strong>
+                        </div><div className="dataUser">
+                        <div className="profile-info">
+                            <div className="profile-info-row">
+                                <strong className="profile-label">Nombre:</strong>
+                                <div className="profile-data">
+                                    {editing ? (
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            className="form-control"
+                                            defaultValue={user.name}
+                                            onChange={(e) => inputHandler(e, setBody)}
+                                        />
+                                    ) : (
+                                        <div>{user.name}</div>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="profile-info-row">
+                                <strong className="profile-label">Apellido:</strong>
+                                <div className="profile-data">
+                                    {editing ? (
+                                        <input
+                                            type="text"
+                                            name="surname"
+                                            className="form-control"
+                                            defaultValue={user.surname}
+                                            onChange={(e) => inputHandler(e, setBody)}
+                                        />
+                                    ) : (
+                                        <div>{user.surname}</div>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="profile-info-row">
+                                <strong className="profile-label">Email:</strong>
+                                <div className="profile-data">
+                                    {editing ? (
+                                        <input
+                                            type="text"
+                                            name="email"
+                                            className="form-control"
+                                            defaultValue={user.email}
+                                            onChange={(e) => inputHandler(e, setBody)}
+                                        />
+                                    ) : (
+                                        <div>{user.email}</div>
+                                    )}
+                                </div>
+                            </div>
+                            {editing && (
+                                <div className="profile-info-row">
+                                    <strong className="profile-label">Contraseña:</strong>
+                                    <div className="profile-data">
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            className="form-control"
+                                            onChange={(e) => inputHandler(e, setBody)}
+                                        />
                                     </div>
-                                ) : (
+                                </div>
+                            )}
+                        </div></div>
+                        <div className="text-center">
+                            {editing ? (
+                                <div className="text-center">
+                                    <Button onClick={() => editHandler(body, token)}>Guardar</Button>
+                                </div>
+                            ) : (
+                                <div className="text-center">
                                     <div className="text-center">
-                                        <div className="text-center">
-                                            <Button
-                                                onClick={() => setEditing(true)}
-                                                style={{ backgroundColor: '#13326fba' }}
-                                                className="d-inline-block me-2"
-                                            >
-                                                Editar
-                                            </Button>
-                                            <Button
-                                                onClick={handleDeleteProfile}
-                                                style={{ backgroundColor: '#13326fba' }}
-                                                className="d-inline-block"
-                                            >
-                                                Borrar perfil
-                                            </Button>
-                                        </div>
+                                        <Button
+                                            onClick={() => setEditing(true)}
+                                            style={{ backgroundColor: '#13326fba' }}
+                                            className="d-inline-block me-2"
+                                        >
+                                            Editar
+                                        </Button>
+                                        <Button
+                                            onClick={handleDeleteProfile}
+                                            style={{
+                                                backgroundColor: hovering ? '#FF0000' : '#13326fba',
+                                                borderColor: hovering ? '#FF0000' : '#13326fba',
+                                            }}
+                                            className="d-inline-block"
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                        >
+                                            {hovering ? 'CUIDADO!' : 'Borrar perfil'}
+                                        </Button>
                                     </div>
-                                )}
-                            </Card.Body>
-                        </Card>
+                                </div>
+                            )}
+                        </div>
                     </div>
-                </Col>
-            </Row>
-        </Container>
-    )
-}
+                </div>
+            </div>
+        </div>
+    );
+};

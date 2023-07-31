@@ -18,7 +18,7 @@ export const Inscription = () => {
     const userId = datosCredencialesRedux?.data?.userId;
 
     const convocations = useFetchConvocations(); // Fetch convocations from the API
-
+    console.log(convocations)
     const handleConvocationChange = (e) => {
         const selectedId = parseInt(e.target.value);
         const selectedConvocation = convocations.find((convocation) => convocation.id === selectedId);
@@ -65,8 +65,13 @@ export const Inscription = () => {
                                         onChange={handleConvocationChange}
                                     >
                                         <option value={0}>Seleccione una convocatoria</option>
+                                        
+                                        
+                                        
                                         {upcomingConvocations.length > 0 ? (
+                                            
                                             upcomingConvocations.map((convocation) => (
+                                                
                                                 <option key={convocation.id} value={convocation.id}>
                                                     {convocation.program.name}
                                                 </option>
