@@ -8,7 +8,7 @@ export const SelectPrograms = ({handleChange, value}) => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8000/api/program/getAll")
+        fetch("https://laravel-akdemyproject-production.up.railway.app/api/program/getAll")
             .then((res) => res.json())
             .then((res) => {
                 setServices(res.data);

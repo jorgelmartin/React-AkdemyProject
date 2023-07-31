@@ -4,13 +4,13 @@ const URL = "https://laravel-akdemyproject-production.up.railway.app";
 
 //LOGIN 
 export const loginMe = async (credentials) => {
-    return await axios.post(`${URL}/login`, credentials);
+    return await axios.post(`${URL}/api/login`, credentials);
     return res.data;
 }
 
 //REGISTER
 export const registerMe = async (credentials) => {
-    let res = await axios.post(`${URL}/register`, credentials);
+    let res = await axios.post(`${URL}/api/register`, credentials);
     return res.data;
 }
 

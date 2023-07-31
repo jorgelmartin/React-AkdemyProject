@@ -12,12 +12,12 @@ export const Home = () => {
         return <div>Cargando...</div>;
     }
 
-    const navigate = useNavigate();
-    
+    const navigate = useNavigate()
     console.log("Soy los programas", programs);
     
     return (
         <div className="productCardContainer">
+            <div className="akdemyTitle">AKDEMY</div>
             {programs.map((program) => (
                 <div key={program.id} className="productCardDesign">
                     <img
@@ -29,6 +29,9 @@ export const Home = () => {
                     <h1>{program.name}</h1>
                 </div>
             ))}
+            <div className="centerTitle">
+            <div className="akdemyTitle1">Unlock Your Potential</div>
+        </div>
         </div>
     );
 };
