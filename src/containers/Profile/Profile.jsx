@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { deleteProfile, getProfile, updateProfile } from "../../services/apiCalls";
 import "./Profile.css";
-import { Card, Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
-import { inputHandler } from "../../services/useful";
+import { inputHandler } from "../../services/UseFul";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../containers/userSlice";
@@ -42,9 +42,9 @@ export const Profile = () => {
 
     //DELETE PROFILE
     const handleDeleteProfile = () => {
-        const userToken = token; 
-        dispatch(logout({ credentials: "" })); 
-        deleteProfile(userToken) 
+        const userToken = token;
+        dispatch(logout({ credentials: "" }));
+        deleteProfile(userToken)
             .then(() => {
                 navigate("/home");
             })
@@ -69,113 +69,107 @@ export const Profile = () => {
     }, [editing, token]);
 
     return (
-        <Container className="mt-2">
-                <Card style={{ backgroundColor: '#3c709a61' }}>
-                    <Card.Body>
-                        <Card.Title className="text-center mb-3 display-5">Perfil</Card.Title>
-                        <table className="table">
-                            <tbody>
-                                <tr>
-                                    <td><strong>Nombre:</strong></td>
-                                    <td>
-                                        {editing ? (
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                className="form-control"
-                                                defaultValue={user.name}
-                                                onChange={(e) => inputHandler(e, setBody)}
-                                            />
-                                        ) : (
-                                            <span>{user.name}</span>
+        <Container className="mt-2 d-flex justify-content-center">
+            <Row>
+                <Col>
+                    <div style={{ minWidth: '20em' }}>
+                        <Card style={{ backgroundColor: '#3c709a61' }}>
+                            <Card.Body>
+                                <Card.Title className="text-center mb-3 display-5">Perfil</Card.Title>
+                                <table className="table">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Nombre:</strong></td>
+                                            <td>
+                                                {editing ? (
+                                                    <input
+                                                        type="text"
+                                                        name="name"
+                                                        className="form-control"
+                                                        defaultValue={user.name}
+                                                        onChange={(e) => inputHandler(e, setBody)}
+                                                    />
+                                                ) : (
+                                                    <span>{user.name}</span>
+                                                )}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Apellido:</strong></td>
+                                            <td>
+                                                {editing ? (
+                                                    <input
+                                                        type="text"
+                                                        name="surname"
+                                                        className="form-control"
+                                                        defaultValue={user.surname}
+                                                        onChange={(e) => inputHandler(e, setBody)}
+                                                    />
+                                                ) : (
+                                                    <span>{user.surname}</span>
+                                                )}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Email:</strong></td>
+                                            <td>
+                                                {editing ? (
+                                                    <input
+                                                        type="text"
+                                                        name="email"
+                                                        className="form-control"
+                                                        defaultValue={user.email}
+                                                        onChange={(e) => inputHandler(e, setBody)}
+                                                    />
+                                                ) : (
+                                                    <span>{user.email}</span>
+                                                )}
+                                            </td>
+                                        </tr>
+                                        {editing && (
+                                            <tr>
+                                                <td><strong>Contraseña:</strong></td>
+                                                <td>
+                                                    <input
+                                                        type="password"
+                                                        name="password"
+                                                        className="form-control"
+                                                        onChange={(e) => inputHandler(e, setBody)}
+                                                    />
+                                                </td>
+                                            </tr>
                                         )}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Apellido:</strong></td>
-                                    <td>
-                                        {editing ? (
-                                            <input
-                                                type="text"
-                                                name="surname"
-                                                className="form-control"
-                                                defaultValue={user.surname}
-                                                onChange={(e) => inputHandler(e, setBody)}
-                                            />
-                                        ) : (
-                                            <span>{user.surname}</span>
-                                        )}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Email:</strong></td>
-                                    <td>
-                                        {editing ? (
-                                            <input
-                                                type="text"
-                                                name="email"
-                                                className="form-control"
-                                                defaultValue={user.email}
-                                                onChange={(e) => inputHandler(e, setBody)}
-                                            />
-                                        ) : (
-                                            <span>{user.email}</span>
-                                        )}
-                                    </td>
-                                </tr>
-                                {editing && (
-                                    <tr>
-                                        <td><strong>Contraseña:</strong></td>
-                                        <td>
-                                            <input
-                                                type="password"
-                                                name="password"
-                                                className="form-control"
-                                                onChange={(e) => inputHandler(e, setBody)}
-                                            />
-                                        </td>
-                                    </tr>
+                                    </tbody>
+                                </table>
+                                {editing ? (
+                                    <div className="text-center">
+                                        <Button onClick={() => editHandler(body, token)}>Guardar</Button>
+                                    </div>
+                                ) : (
+                                    <div className="text-center">
+                                        <div className="text-center">
+                                            <Button
+                                                onClick={() => setEditing(true)}
+                                                style={{ backgroundColor: '#13326fba' }}
+                                                className="d-inline-block me-2"
+                                            >
+                                                Editar
+                                            </Button>
+                                            <Button
+                                                onClick={handleDeleteProfile}
+                                                style={{ backgroundColor: '#13326fba' }}
+                                                className="d-inline-block"
+                                            >
+                                                Borrar perfil
+                                            </Button>
+                                        </div>
+                                    </div>
                                 )}
-                                <tr>
-                                    <td><strong>Teléfono:</strong></td>
-                                    <td>
-                                        {editing ? (
-                                            <input
-                                                type="text"
-                                                name="phone"
-                                                className="form-control"
-                                                defaultValue={user.phone}
-                                                onChange={(e) => inputHandler(e, setBody)}
-                                            />
-                                        ) : (
-                                            <span>{user.phone}</span>
-                                        )}
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        {editing ? (
-                            <div className="text-center">
-                                <Button onClick={() => editHandler(body, token)}>Guardar</Button>
-                            </div>
-                        ) : (
-                            <div className="text-center">
-                                <Button
-                                    onClick={() => setEditing(true)}
-                                    style={{ backgroundColor: '#13326fba' }}
-                                >
-                                    Editar
-                                </Button>
-                                <Button
-                                    onClick={handleDeleteProfile}
-                                    style={{ backgroundColor: '#13326fba', marginTop: '1rem' }}
-                                >
-                                    Borrar perfil
-                                </Button>
-                            </div>
-                        )}
-                    </Card.Body>
-                </Card>
-            </Container>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
     )
 }

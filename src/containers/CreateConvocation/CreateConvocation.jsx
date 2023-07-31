@@ -1,12 +1,10 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./CreateConvocation.css";
-import { Col, Row, Container, Form, Card, Button } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { SelectPrograms } from "../../../hooks/useFetchSelectPrograms";
-// import { SelectDoctors } from "../../../hooks/useFetchSelectDoctors";
 import { SelectDate } from "../../../hooks/useFetchSelectDate";
-// import { SelectHour } from "../../../hooks/useFetchSelectHour";
 import { userData } from "../../containers/userSlice";
 import { useSelector } from "react-redux";
 import { createConvocation, updateConvocation } from "../../services/apiCalls";
@@ -37,10 +35,9 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                 .then(() => navigate("/convocation"));
         }
     };
-    console.log("Soyla", convocationData);
     return (
         <Container>
-            <Card style={{ maxWidth: '30em', margin: '0 auto' }}>
+            <Card style={{ maxWidth: '30em', margin: '0 auto' }} className="cardConvo">
                 <Card.Body>
                     <h2 className="text-center mb-3">Convocatoria</h2>
                     <table className="table">
@@ -48,7 +45,7 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                             <tr>
                                 <td>Programas:</td>
                                 <td>
-                                    <SelectPrograms
+                                    <SelectPrograms 
                                         className="programSelector"
                                         name={"program_id"}
                                         value={convocationData.program_id}

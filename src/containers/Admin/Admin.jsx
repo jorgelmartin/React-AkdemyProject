@@ -11,10 +11,10 @@ export const Admin = () => {
             <Container> 
                 <Row className="d-flex justify-content-center mt-5">
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1" >
-                    <div className="adminCardTitle1" style={{ backgroundColor: '#3c709a61' }}   >
+                    <div className="adminCardTitle1">
                             <div>
                                 <Button
-                                    style={{ backgroundColor: "#13326fba" }}
+                                    // style={{ backgroundColor: "#13326fba" }}
                                     className="w-100 adminCardTitle"
                                     onClick={() => navigate("/users")}
                                 >
@@ -24,10 +24,10 @@ export const Admin = () => {
                         </div>
                     </Col>
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
-                        <div className="adminCardTitle1" style={{ backgroundColor: '#3c709a61' }}>
+                        <div className="adminCardTitle1">
                             <div>
                                 <Button
-                                    style={{ backgroundColor: "#13326fba" }}
+                                    // style={{ backgroundColor: "#13326fba" }}
                                     className="w-100 adminCardTitle"
                                     onClick={() => navigate("/convocation")}
                                 >
@@ -37,23 +37,23 @@ export const Admin = () => {
                         </div>
                     </Col>
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
-                        <div className="adminCardTitle1" style={{ backgroundColor: '#3c709a61' }}>
+                        <div className="adminCardTitle1">
                             <div>
                                 <Button
-                                    style={{ backgroundColor: "#13326fba" }}
+                                    // style={{ backgroundColor: "#13326fba" }}
                                     className="w-100 adminCardTitle"
                                     onClick={() => navigate("/createConvocation")}
                                 >
-                                    CREAR CONVOCATORIA
+                                    CREAR C.
                                 </Button>
                             </div>
                         </div>
                     </Col>
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
-                        <div className="adminCardTitle1" style={{ backgroundColor: '#3c709a61' }}>
+                        <div className="adminCardTitle1" >
                             <div>
                                 <Button
-                                    style={{ backgroundColor: "#13326fba" }}
+                                    // style={{ backgroundColor: "#13326fba" }}
                                     className="w-100 adminCardTitle"
                                     onClick={() => navigate("/userReq")}
                                 >

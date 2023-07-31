@@ -19,7 +19,7 @@ export const SelectPrograms = ({handleChange, value}) => {
 
     return (
         <>
-            <select className="inputAppointment" value={selectedService} onChange={(e) => {
+            <select className="inputConvocation" value={selectedService} onChange={(e) => {
                 handleChange(e.target.value); 
                 setSelectedService(e.target.value)}}>
                 <option value="">Cursos</option>

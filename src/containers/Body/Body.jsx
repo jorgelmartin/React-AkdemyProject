@@ -13,7 +13,7 @@ import { Student } from "../Student/Student";
 import { Inscription } from "../Inscription/Inscription";
 import { MyPrograms } from "../MyPrograms/MyPrograms";
 import { ProgramDetail } from "../ProgramDetail/ProgramDetail";
-import { UserRequest } from "../UserRequest/UserRequest";
+import { UserRequest } from "../userRequest/userRequest";
 
 
 export const Body = () => {
@@ -22,7 +22,7 @@ export const Body = () => {
             <Routes>
                 <Route path="*" element={<Navigate to="/"/>} />
                 <Route path="*" element={<Navigate to="/" />} />
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Profile />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} /> 
                 <Route path="/profile" element={<Profile />} /> 
@@ -33,7 +33,7 @@ export const Body = () => {
                 <Route path="/convodetail/:id" element={<ConvocationDetail />} /> 
                 <Route path="/student" element={<Student />} /> 
                 <Route path="/inscription" element={<Inscription />} />
-                <Route path="/" element={<UserRequest />} /> 
+                <Route path="/userReq" element={<UserRequest />} /> 
                 <Route path="/myPrograms" element={<MyPrograms />} /> 
                 <Route path="/programDetail/:id" element={<ProgramDetail />} /> 
             </Routes>
