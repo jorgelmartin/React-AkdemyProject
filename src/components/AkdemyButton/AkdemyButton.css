@@ -1,0 +1,10 @@
+.AkdemyButton {
+    background-color: #90a729fd;
+    color: #fff;
+    padding: 0.6em 0.9em;
+    border: none;
+    border-radius: 1em;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 1.3em;
+}
