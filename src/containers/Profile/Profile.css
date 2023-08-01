@@ -27,35 +27,54 @@
 } */
 
 
- /* .profile-table {
+/* .profile-table {
     width: 100%;
     background-color: #ff6600;
   } */
-  
-  .profile-label {
+
+.dataUser {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0.1em solid rgba(178, 137, 66, 0.357);
+    border-radius: 0.5em;
+    background-color: #9f512121;
+    margin-bottom: 1em;
+    padding: 1.3em;
+}
+
+.profile-label {
     display: flex;
     justify-content: center;
     font-weight: bold;
     text-align: center;
-    padding: 0.5rem 1rem;
-    padding-bottom: 1em;
-    /* background-color: #b62525a6;  */
-  }
-  
-  .profile-data {
-    padding: 0.5rem;
-    padding-bottom: 1em;
-    margin-left: 6em;
-    font-size: 1.3em;
-   
-   
-  }
-.dataUser{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 1em;
-    background-color: #dc8c4a;
-    margin-bottom: 1em;
+    border: 0.1em solid rgba(93, 177, 64, 0.683);
+    width: 9em;
+    border-radius: 0.5em;
+    padding-bottom: 0.5em;
+    /* margin-left: 1em; */
+    background-color: #699f21ac; 
 }
 
+.profile-data {
+    padding: 0.5rem;
+    padding-bottom: 0.5em;
+    border-radius: 0.5em;
+    margin-left: 4.4em;
+    font-size: 1.3em;
+    background-color: #8ffb713b; 
+    box-shadow: 1em 0.4em 1em 0.1em rgba(0, 0, 0, 0.503); 
+    border: 0.06em solid rgba(178, 137, 66, 0.357);
+}
+.deleteButton{
+    background-color: #90a729fd;
+    color: #ffffff;
+    padding: 0.6em 0.9em;
+    border: none;
+    border-radius: 1em;
+    margin-left: 1em;
+    margin-bottom: 0.3em;
+    font-size: 1em;
+    cursor: pointer;
+    /* margin-top: 1.3em; */
+}
