@@ -4,6 +4,7 @@ import "./ProgramDetail.css";
 import { useFetchPrograms } from "../../../hooks/useFetchPrograms";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
+import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
 
 export const ProgramDetail = () => {
     const datosCredencialesRedux = useSelector(userData);
@@ -43,12 +44,10 @@ export const ProgramDetail = () => {
                 {programDetail ? (
                     <>
                         <h2>{programDetail.name}</h2>
-                        <img src={`http://localhost:8000/${programDetail.image}`} alt="" />
+                        <img src={`https://laravel-akdemyproject-production.up.railway.app/${programDetail.image}`} alt="" />
                         <h4>{programDetail.description}</h4>
                         <h5>Precio €: {programDetail.price}</h5>
-                        <button className="SolicitarButton" onClick={handleClick}>
-                            Solicitar inscripción
-                        </button>
+                        <AkdemyButton onClick={handleClick} text={"Solicitar Inscripción"}/>
                     </>
                 ) : (
                     <p>Cargando...</p>
