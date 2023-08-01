@@ -13,7 +13,7 @@
     /* box-shadow: inset 0 0 2em rgba(199, 78, 45, 0.2); */
     padding: 1em; 
     text-align: center;
-    color: #834016b4;
+    color: #834016;
     max-width: 100em; 
     width: 90%; 
     overflow: hidden; 
@@ -36,7 +36,7 @@
     margin-top: 0.3em;
     font-size: 1em; 
 }
-
+/* 
 .SolicitarButton {
     background-color: #b62525a6; 
     color: #fff;
@@ -47,13 +47,13 @@
     cursor: pointer;
     margin-top: 1.3em;
     
-}
+} */
 
 .DetailService1 img:hover {
     transform: scale(0.9); 
 }
 
 /* Hover effect */
-.SolicitarButton:hover {
+/* .SolicitarButton:hover {
     background-color: #0056b3; 
-}
+} */
