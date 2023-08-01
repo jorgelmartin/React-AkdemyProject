@@ -10,7 +10,7 @@ export const useFetchAcceptRequest = () => {
     // Esta es la función que realizará la solicitud para aceptar la solicitud del usuario
     const acceptUserRequest = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8000/api/userConvo/accept/${id}`, {
+            const response = await fetch(`https://laravel-akdemyproject-production.up.railway.app/api/userConvo/accept/${id}`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,

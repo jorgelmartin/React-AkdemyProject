@@ -12,7 +12,7 @@ export const useFetchUserRequest = () => {
                 Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,
             },
         }
-        fetch('http://localhost:8000/api/userConvo/getPending', config)
+        fetch('https://laravel-akdemyproject-production.up.railway.app/api/userConvo/getPending', config)
             .then(res => res.json())
             .then(res => {
                 setUsersRequest(res);

@@ -26,7 +26,7 @@ export const Profile = () => {
 
     //UPDATE PROFILE
     const editHandler = (body, token) => {
-        
+
         if (id) {
             body.id = id;
             updateProfile(body, token)
@@ -77,121 +77,121 @@ export const Profile = () => {
     }, [editing, token]);
 
     return (
-                <div style={{ minWidth: '20em' }}>
-                        {/* MAKING ALERT WITH RED COLOR BEFORE DELETE PROFILE */}
-                        <div className="text-center mb-3  display-3 mt-5" style={{
-                            backgroundColor: hovering ? '#FF0000'  : '#699f216c',
-                            padding: '1rem',
-                            border: '1px solid green',
-                            borderRadius: '0.5rem',
-                            text:"Editar"
-                        }}>
-                            <strong>Perfil</strong>
-                        </div>{hovering ? "Espera, ¿Seguro deseas borrar tu perfil?" : null}
-                        <div className="dataUser">
-                        
-                            <div className="profile-info">
-                                <div className="profile-info-row">
-                                    <strong className="profile-label">Nombre:</strong>
-                                    <div className="profile-data">
-                                        {editing ? (
-                                        <div>
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                className="form-control"
-                                                defaultValue={user.name}
-                                                onChange={(e) => inputHandler(e, setBody)}
-                                            />
-                                        </div>
-                                        ) : (
-                                            <div>{user.name}</div>
-                                        )}
-                                    </div>
-                                </div>
-                                <div className="profile-info-row">
-                                    <strong className="profile-label">Apellidos:</strong>
-                                    <div className="profile-data">
-                                        {editing ? (
-                                            <input
-                                                type="text"
-                                                name="surname"
-                                                className="form-control"
-                                                defaultValue={user.surname}
-                                                onChange={(e) => inputHandler(e, setBody)}
-                                            />
-                                        ) : (
-                                            <div>{user.surname}</div>
-                                        )}
-                                    </div>
-                                </div>
-                                <div className="">
-                                    <strong className="profile-label">Email:</strong>
-                                    <div className="profile-data">
-                                        {editing ? (
-                                            <input
-                                                type="text"
-                                                name="email"
-                                                className="form-control"
-                                                defaultValue={user.email}
-                                                onChange={(e) => inputHandler(e, setBody)}
-                                            />
-                                        ) : (
-                                            <div>{user.email}</div>
-                                        )}
-                                    </div>
-                                </div>
-                                {editing && (
-                                    <div className="profile-info-row">
-                                        <strong className="profile-label">Contraseña:</strong>
-                                        <div className="profile-data">
-                                            <input
-                                                type="password"
-                                                name="password"
-                                                className="form-control"
-                                                onChange={(e) => inputHandler(e, setBody)}
-                                            />
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                            </div>
-                        <div className="text-center">
+        <div style={{ minWidth: '20em' }}>
+            {/* MAKING ALERT WITH RED COLOR BEFORE DELETE PROFILE */}
+            <div className="text-center mb-3  display-3 mt-5" style={{
+                backgroundColor: hovering ? '#FF0000' : '#699f216c',
+                padding: '1rem',
+                border: '1px solid green',
+                borderRadius: '0.5rem',
+                text: "Editar"
+            }}>
+                <strong>Perfil</strong>
+            </div>{hovering ? "Espera, ¿Seguro deseas borrar tu perfil?" : null}
+            <div className="dataUser">
+
+                <div className="profile-info">
+                    <div className="profile-info-row">
+                        <strong className="profile-label">Nombre:</strong>
+                        <div className="profile-data">
                             {editing ? (
-                                <div className="">
-                                    <AkdemyButton 
-                                    onClick={() => editHandler(body, token)} text={"Guardar"}/>
+                                <div>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        className="form-control"
+                                        defaultValue={user.name}
+                                        onChange={(e) => inputHandler(e, setBody)}
+                                    />
                                 </div>
                             ) : (
-                                <div className="">
-                                    <div className="">
-                                        <AkdemyButton
-                                            onClick={() => setEditing(true)}
-                                            text={"Editar"}
-                                        />
-                                            
-
-                                    {/* CHECK IF THE USER IS ADMIN  TO HIDE DELETE BUTTON */}
-                                        {datos.data.role === 2 ? (
-                                            <Button 
-                                                onClick={handleDeleteProfile}
-                                                style={{
-                                                    backgroundColor: hovering ? '#FF0000' : '#90a729fd',
-                                                    borderColor: hovering ? '#FF0000' : '#13326fba',
-                                                }}
-                                                className="deleteButton"
-                                                onMouseEnter={handleMouseEnter}
-                                                onMouseLeave={handleMouseLeave}
-                                            >
-                                                {hovering ? 'CUIDADO!' : 'Borrar perfil'}
-                                            </Button>
-                                        ) : null}
-                                    </div>
-                                </div>
+                                <div>{user.name}</div>
                             )}
                         </div>
                     </div>
-           
-    
+                    <div className="profile-info-row">
+                        <strong className="profile-label">Apellidos:</strong>
+                        <div className="profile-data">
+                            {editing ? (
+                                <input
+                                    type="text"
+                                    name="surname"
+                                    className="form-control"
+                                    defaultValue={user.surname}
+                                    onChange={(e) => inputHandler(e, setBody)}
+                                />
+                            ) : (
+                                <div>{user.surname}</div>
+                            )}
+                        </div>
+                    </div>
+                    <div className="">
+                        <strong className="profile-label">Email:</strong>
+                        <div className="profile-data">
+                            {editing ? (
+                                <input
+                                    type="text"
+                                    name="email"
+                                    className="form-control"
+                                    defaultValue={user.email}
+                                    onChange={(e) => inputHandler(e, setBody)}
+                                />
+                            ) : (
+                                <div>{user.email}</div>
+                            )}
+                        </div>
+                    </div>
+                    {editing && (
+                        <div className="profile-info-row">
+                            <strong className="profile-label">Contraseña:</strong>
+                            <div className="profile-data">
+                                <input
+                                    type="password"
+                                    name="password"
+                                    className="form-control"
+                                    onChange={(e) => inputHandler(e, setBody)}
+                                />
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+            <div className="text-center">
+                {editing ? (
+                    <div className="">
+                        <AkdemyButton
+                            onClick={() => editHandler(body, token)} text={"Guardar"} />
+                    </div>
+                ) : (
+                    <div className="">
+                        <div className="">
+                            <AkdemyButton
+                                onClick={() => setEditing(true)}
+                                text={"Editar"}
+                            />
+
+
+                            {/* CHECK IF THE USER IS ADMIN  TO HIDE DELETE BUTTON */}
+                            {datos.data.role === 2 ? (
+                                <Button
+                                    onClick={handleDeleteProfile}
+                                    style={{
+                                        backgroundColor: hovering ? '#FF0000' : '#90a729fd',
+                                        borderColor: hovering ? '#FF0000' : '#13326fba',
+                                    }}
+                                    className="deleteButton"
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}
+                                >
+                                    {hovering ? 'CUIDADO!' : 'Borrar perfil'}
+                                </Button>
+                            ) : null}
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+
+
     );
 };

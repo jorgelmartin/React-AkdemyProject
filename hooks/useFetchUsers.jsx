@@ -12,7 +12,7 @@ export const useFetchUsers = () => {
                     Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,
                 },
             };
-        fetch('http://localhost:8000/api/user/getAll', config)
+        fetch('https://laravel-akdemyproject-production.up.railway.app/api/user/getAll', config)
             .then(res => res.json())
             .then(res => {
                 setUsers(res.data);

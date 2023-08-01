@@ -5,6 +5,8 @@ import { useFetchConvocations } from '../../../hooks/useFetchConvocation';
 import { useSelector } from 'react-redux';
 import { userData } from '../userSlice';
 import { useNavigate } from 'react-router-dom';
+import { AkdemyButton } from '../../components/AkdemyButton/AkdemyButton';
+import "./Inscription.css";
 
 
 export const Inscription = () => {
@@ -48,72 +50,54 @@ export const Inscription = () => {
     const upcomingConvocations = convocations ? convocations.filter(
         convocation => new Date(
             convocation.beginning
-            ) > new Date()) : [];
+        ) > new Date()) : [];
 
     return (
-        <Container>
-            <Card style={{ maxWidth: '25em', margin: '0 auto' }}>
+        <Container >
+            <Card style={{ maxWidth: '25em', margin: '0 auto', backgroundColor: '#9f512121', border: 'green solid 0.1em'}}>
                 <Card.Body>
-                    <h2 className="text-center mb-3">Inscripción</h2>
-                    <table className="table">
-                        <tbody>
-                            <tr>
-                                <td>Convocatorias:</td>
-                                <td>
-                                    <select
-                                        value={convocationData.convocation_id}
-                                        onChange={handleConvocationChange}
-                                    >
-                                        <option value={0}>Seleccione una convocatoria</option>
-                                        
-                                        
-                                        
-                                        {upcomingConvocations.length > 0 ? (
-                                            
-                                            upcomingConvocations.map((convocation) => (
-                                                
-                                                <option key={convocation.id} value={convocation.id}>
-                                                    {convocation.program.name}
-                                                </option>
-                                            ))
-                                        ) : (
-                                            <option disabled>No hay convocatorias próximas</option>
-                                        )}
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Inicio:</td>
-                                <td>
-                                    {/* Display the beginning date */}
-                                    <span>{convocationData.beginning}</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Horarios:</td>
-                                <td>
-                                    {/* Display the schedule */}
-                                    <span>{convocationData.schedule}</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Precio:</td>
-                                <td>
-                                    {/* Display the price of the program */}
-                                    <span>{convocationData.program && convocationData.program.price}</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div className="text-center">
-                        <Button
-                            onClick={handleInscription}
-                            style={{ backgroundColor: '#13326fba' }}
-                            className="w-50"
-                        >
-                            Solicitar!
-                        </Button>
+                    <h2 className="textInscription mb-3">Inscripción</h2>
+                    <div className="grid-container">
+                        <div className="grid-item">
+                            <div className="label">Convocatorias:</div>
+                            <select
+                                value={convocationData.convocation_id}
+                                onChange={handleConvocationChange}
+                                style={{ width: '10em' }}
+                            >
+                                <option value={0}>Seleccione una convocatoria</option>
+                                {upcomingConvocations.length > 0 ? (
+                                    upcomingConvocations.map((convocation) => (
+                                        <option key={convocation.id} value={convocation.id}>
+                                            {convocation.program.name}
+                                        </option>
+                                    ))
+                                ) : (
+                                    <option disabled>No hay convocatorias próximas</option>
+                                )}
+                            </select>
+                        </div>
+                        <div className="grid-item">
+                            <div className="label">Inicio:</div>
+                            {/* Display the beginning date */}
+                            <span>{convocationData.beginning}</span>
+                        </div>
+                        <div className="grid-item">
+                            <div className="label">Horarios:</div>
+                            {/* Display the schedule */}
+                            <span>{convocationData.schedule}</span>
+                        </div>
+                        <div className="grid-item">
+                            <div className="label">Precio:</div>
+                            {/* Display the price of the program */}
+                            <span>{convocationData.program && convocationData.program.price}</span>
+                        </div>
                     </div>
+                    <div className="textInscription">
+                        <AkdemyButton onClick={handleInscription} text="Solicitar" />
+
+                    </div>
+
                 </Card.Body>
             </Card>
         </Container>

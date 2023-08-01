@@ -11,7 +11,7 @@ export const useFetchConvocations = () => {
                 Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,
             },
         }
-        fetch('http://localhost:8000/api/convocation/getAll', config)
+        fetch('https://laravel-akdemyproject-production.up.railway.app/api/convocation/getAll', config)
             .then(res => res.json())
             .then(res => {
                 setConvocations(res.data);

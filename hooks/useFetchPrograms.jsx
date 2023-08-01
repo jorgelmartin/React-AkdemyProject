@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export const useFetchPrograms = () => {
     const [programs, setPrograms] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8000/api/program/getAll')
+        fetch('https://laravel-akdemyproject-production.up.railway.app/api/program/getAll')
             .then(res => res.json())
             .then(res => setPrograms(res.data))
             .catch(error => console.log(error))
