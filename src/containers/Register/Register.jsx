@@ -4,6 +4,7 @@ import { InputText } from "../../components/InputText/InputText";
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { registerMe } from "../../services/apiCalls";
+import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
 
 
 export const Register = () => {
@@ -26,14 +27,16 @@ export const Register = () => {
 
     return (
         <div className="registerDesign">
-            <Container fluid className="d-flex justify-content-center align-items-center mt-4">
-                <Card className="registerCard" style={{ backgroundColor: '#3c709a61' }}>
-                    <Card.Body >
-                        <Card.Title className="text-center mb-3 display-5">Registro</Card.Title>
-                        <Form>
-                            <Form.Group as={Row} className="mb-2">
-                                <Form.Label column xs={4} md={4} lg={4}>Nombre:</Form.Label>
-                                <Col> {/* Ajusta el tamaño de la columna para que ocupen el espacio deseado */}
+            <Container className="d-flex justify-content-center align-items-center mt-4">
+                <Card className="registerCard" style={{ backgroundColor: '#9f512121', maxWidth: '25em',
+             }}>
+                    <Card.Body>
+                        <Card.Title className="text-center mb-3 display-5"><strong>Registro</strong></Card.Title>
+                        <Form as={Row}>
+                            {/* Nombre */}
+                            <div className="dataUserRegister">
+                                <div className="profileLabelRegister">Nombre:</div>
+                                <div className="dataRegister">
                                     <InputText
                                         type={"text"}
                                         design={
@@ -46,11 +49,12 @@ export const Register = () => {
                                         state={setUser}
                                         errorState={setUserError}
                                     />
-                                </Col>
-                            </Form.Group>
-                            <Form.Group as={Row} className="mb-2">
-                                <Form.Label column xs={4} md={4} lg={4}>Apellido:</Form.Label>
-                                <Col>
+                                </div></div>
+                            
+                            {/* Apellido */}
+                            <div className="dataUserRegister">
+                                <div className="profileLabelRegister">Apellido:</div>
+                                <div className="dataRegister">
                                     <InputText
                                         type={"text"}
                                         design={
@@ -63,11 +67,12 @@ export const Register = () => {
                                         state={setUser}
                                         errorState={setUserError}
                                     />
-                                </Col>
-                            </Form.Group>
-                            <Form.Group as={Row} className="mb-2">
-                                <Form.Label column xs={4} md={4} lg={4}>Email:</Form.Label>
-                                <Col>
+                                </div>
+                            </div>
+                            {/* Email */}
+                            <div className="dataUserRegister">
+                                <div className="profileLabelRegister">Email:</div>
+                                <div className="dataRegister">
                                     <InputText
                                         type={"email"}
                                         design={
@@ -80,11 +85,12 @@ export const Register = () => {
                                         state={setUser}
                                         errorState={setUserError}
                                     />
-                                </Col>
-                            </Form.Group>
-                            <Form.Group as={Row} className="mb-2">
-                                <Form.Label column xs={4} md={4} lg={4}>Contraseña:</Form.Label>
-                                <Col>
+                                </div>
+                            </div>
+                            {/* Contraseña */}
+                            <div className="dataUserRegister">
+                                <div className="profileLabelRegister">Contraseña:</div>
+                                <div className="dataRegister">
                                     <InputText
                                         type={"password"}
                                         design={
@@ -97,36 +103,21 @@ export const Register = () => {
                                         state={setUser}
                                         errorState={setUserError}
                                     />
-                                </Col>
-                            </Form.Group>
-                            <Form.Group as={Row} className="mb-2">
-                                <Form.Label column xs={4} md={4} lg={4}>Teléfono:</Form.Label>
-                                <Col>
-                                    <InputText
-                                        type={"text"}
-                                        design={
-                                            userError.phoneError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
-                                        placeholder={"Ingrese su teléfono..."}
-                                        name={"phone"}
-                                        state={setUser}
-                                        errorState={setUserError}
-                                    />
-                                </Col>
-                            </Form.Group>
+                                </div>
+                            </div>
+
                             {userError?.credentials ? (
                                 <div>{userError.credentials}</div>
                             ) : (
                                 <div></div>
                             )}
                             <div className="text-center">
-                                <Button onClick={(e) =>
-                                    submitHandler(e, user)
-                                } style={{ backgroundColor: '#13326fba' }} className="w-50 mt-4" type="submit">
-                                    Registrarme!
-                                </Button>
+                                <AkdemyButton
+                                    onClick={(e) => submitHandler(e, user)}
+                                    style={{ backgroundColor: '#13326fba' }}
+                                    type="submit"
+                                    text={"Registrarme!"}
+                                />
                             </div>
                         </Form>
                     </Card.Body>
