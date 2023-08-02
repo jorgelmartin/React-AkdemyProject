@@ -7,6 +7,7 @@ import { inputHandler } from "../../services/UseFul";
 import { joinConvocation } from "../../services/apiCalls";
 import { useSelector } from 'react-redux';
 import { userData } from "../../containers/userSlice";
+import { InputSearch } from "../../components/InputSearch/InputSearch";
 
 export const Convocation = () => {
     const [searchText, setSearchText] = useState("");
@@ -19,42 +20,18 @@ export const Convocation = () => {
         setFilteredConvocations(convocations);
     }, [convocations]);
 
-    useEffect(() => {
-        const searchAppointment = (text) => {
-            let filtered = convocations;
-            console.log("convocations ", convocations);
-            if (text && convocations) {
-                filtered = convocations.filter(
-                    (convocation) =>
-                        convocation.program.name.includes(text) ||
-                        convocation.beginning.includes(text) ||
-                        convocation.schedule.includes(text) ||
-                        convocation.id.toString().includes(text)
-                );
-            }
+    const handleSearch = (text) => {
+        if (text) {
+            const filtered = convocations.filter(
+                (convocation) =>
+                    convocation.program.name.includes(text) ||
+                    convocation.beginning.includes(text) ||
+                    convocation.schedule.includes(text) ||
+                    convocation.id.toString().includes(text)
+            );
             setFilteredConvocations(filtered);
-        };
-
-        const timeOutId = setTimeout(() => searchAppointment(searchText.text), 500);
-        return () => clearTimeout(timeOutId);
-    }, [searchText, convocations]);
-
-    // Function to handle the join request
-    const handleJoinConvocation = async (id) => {
-        try {
-            // Make the join request using the service function
-            // Replace 'YOUR_ACCESS_TOKEN' with the actual access token of the user
-            await joinConvocation("YOUR_ACCESS_TOKEN", id);
-
-
-            // You can add a success message or trigger any other actions after a successful join request.
-            console.log("Solicitud de unirse a la convocatoria enviada correctamente.");
-
-            // If needed, you can also update the local state to reflect the user's request// For example, you can set a property like 'isJoinRequested' to true for the corresponding convocation in 'filteredConvocations'.
-            
-        } catch (error) {
-            // Handle errors if the request fails
-            console.error("Error al enviar la solicitud de unirse a la convocatoria", error);
+        } else {
+            setFilteredConvocations(convocations);
         }
     };
 
@@ -65,13 +42,7 @@ export const Convocation = () => {
     return (
         <Container className="mt-5">
             <div className="containerInput">
-                <input
-                    className="InputSearch"
-                    type={"text"}
-                    name={"text"}
-                    placeholder={"Buscar convocatoria..."}
-                    onChange={(e) => inputHandler(e, setSearchText)}
-                />
+                <InputSearch onSearch={handleSearch} />
             </div>
             <div className="tableContainer">
                 <table className="customTable">
@@ -85,13 +56,13 @@ export const Convocation = () => {
                         </tr>
                     </thead>
                     <tbody>
-                    {filteredConvocations.slice(0, 15).map((convocation) => (
+                        {filteredConvocations.slice(0, 15).map((convocation) => (
                             <tr key={convocation.id}>
                                 <td className="customData">{convocation.id}</td>
                                 <td className="customData">{convocation.program.name}</td>
                                 <td className="customData">{convocation.beginning}</td>
                                 <td className="customData">{convocation.schedule}
-                                
+
                                     {/* Mostramos los botones según el rol correspondiente */}
                                     {userRole.data.role === 1 ? (
                                         <div className="d-flex justify-content-end buttonsConvocations">

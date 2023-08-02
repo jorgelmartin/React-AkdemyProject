@@ -5,17 +5,17 @@
 } */
 .buttonUpdate {
     background-color: rgba(89, 89, 209, 0.608);
-    color: white;
+    color: rgb(0, 0, 0);
     width: 4em;
-    height: 3em;
+    height: 1.4em;
 
     border-radius: 50%;
     cursor: pointer;
-    border: 0.01em solid black;
+    /* border: 0.01em solid black; */
     /* font-size:0.9em; */
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
 }
 
 .buttonUpdate:hover {
@@ -39,19 +39,50 @@
 .buttonDelete:hover {
     background-color: rgb(115, 26, 1);
 }
-/* 
+
+
 .buttonsConvocations {
-    overflow-y:scroll;
-} */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:-1em;
+}
 /* .searchAppointment{
     background-color:rgba(132, 172, 203, 0.299);
     margin-top: 2em;
 } */
 
-.InputSearch {
-    text-align: center;
-    background-color: rgba(123, 219, 243, 0.244);
-    width: 12em;
-    height: 2em;
-    border-radius: 2em;
+.containerInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.tableContainer {
+    margin-top: 1em;
+    background-color: rgb(250, 248, 247);
+    width: 100%;
+}
+
+.customTable {
+    width: 100%;
+    border: 0.1em solid #cfc5c5;
+}
+
+/* Estilos para las celdas de encabezado (th) */
+.customTitle {
+    
+    background-color: #f2f2f2;
+    padding: 0.4em;
+    text-align: left;
+    border: 0.1em solid #ccc;
+}
+
+/* Estilos para las celdas de datos (td) */
+.customData {
+    padding: 0.3em;
+    text-align: left;
+    border: 0.06em solid #ccc;
 }
