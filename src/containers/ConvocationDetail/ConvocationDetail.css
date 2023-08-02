@@ -1,0 +1,52 @@
+.convocationDetail {
+    margin: 2em;
+    padding: 2em;
+    border: 1em solid #749b7381;
+    border-radius: 2em;
+}
+
+/* .DetailAppointment1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+.program-info {
+    flex: 1;
+}
+
+.program-details {
+    margin-top: 10px;
+}
+
+.detail-item {
+    margin-bottom: 5px;
+}
+
+.edit-button {
+    background-color: #13326fba;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-list {
+    margin-top: 20px;
+}
+
+.user-item {
+    margin-bottom: 10px;
+}
+
+.user-item h4 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.user-item p {
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+}
