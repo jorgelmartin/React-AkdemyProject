@@ -10,23 +10,23 @@ export const Users = () => {
     const [filteredUsers, setFilteredUsers] = useState([]);
     // Replace 'users' with your actual list of users.
     const users = useFetchUsers();
-  
+
     const handleSearch = (text) => {
-      if (text) {
-        const filtered = users.filter(
-          (user) =>
-            user.name.includes(text) ||
-            user.email.includes(text) ||
-            user.id.toString().includes(text)
-        );
-        setFilteredUsers(filtered);
-      } else {
-        setFilteredUsers([]);
-      }
+        if (text) {
+            const filtered = users.filter(
+                (user) =>
+                    user.name.includes(text) ||
+                    user.email.includes(text) ||
+                    user.id.toString().includes(text)
+            );
+            setFilteredUsers(filtered);
+        } else {
+            setFilteredUsers([]);
+        }
     };
-  
+
     if (!users) {
-      return <div>Cargando...</div>;
+        return <div>Cargando...</div>;
     }
     const displayedUsers = filteredUsers.length > 0 ? filteredUsers : users;
     return (

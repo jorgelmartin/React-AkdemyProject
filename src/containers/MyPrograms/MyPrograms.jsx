@@ -23,7 +23,7 @@ console.log("que traigo",datosCredencialesRedux);
                         <th>Nombre</th>
                         <th>Curso</th>
                         <th>Inicio</th>
-                        <th>Estado</th>
+                        {/* <th>Estado</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +33,7 @@ console.log("que traigo",datosCredencialesRedux);
                             <td>{request.user.name} {request.user.surname}</td>
                             <td>{request.program.name}</td>
                             <td>{request.convocation.beginning}</td>
-                            <td>{request.status}</td>
+                            {/* <td>{request.status}</td> */}
                         </tr>
                     ))}
                 </tbody>

@@ -38,6 +38,7 @@ export const Inscription = () => {
     };
 
     const handleInscription = async () => {
+        e.preventDefault();
         const body = {
             convocation_id: selectedConvocationId,
             user_id: userId,
@@ -56,10 +57,10 @@ export const Inscription = () => {
         <Container >
             <Card style={{ maxWidth: '25em', margin: '0 auto', backgroundColor: '#9f512121', border: 'green solid 0.1em'}}>
                 <Card.Body>
-                    <h2 className="textInscription mb-3">Inscripción</h2>
+                    <h2 className="textInscription mb-3 display-5">Inscripción:</h2>
                     <div className="grid-container">
                         <div className="grid-item">
-                            <div className="label">Convocatorias:</div>
+                            <div className="labelCreate">Convocatorias:</div>
                             <select
                                 value={convocationData.convocation_id}
                                 onChange={handleConvocationChange}
@@ -78,22 +79,22 @@ export const Inscription = () => {
                             </select>
                         </div>
                         <div className="grid-item">
-                            <div className="label">Inicio:</div>
+                            <div className="labelCreate">Inicio:</div>
                             {/* Display the beginning date */}
                             <span>{convocationData.beginning}</span>
                         </div>
                         <div className="grid-item">
-                            <div className="label">Horarios:</div>
+                            <div className="labelCreate">Horarios:</div>
                             {/* Display the schedule */}
                             <span>{convocationData.schedule}</span>
                         </div>
                         <div className="grid-item">
-                            <div className="label">Precio:</div>
+                            <div className="labelCreate">Precio:</div>
                             {/* Display the price of the program */}
                             <span>{convocationData.program && convocationData.program.price}</span>
                         </div>
                     </div>
-                    <div className="textInscription">
+                    <div className="d-flex justify-content-center">
                         <AkdemyButton onClick={handleInscription} text="Solicitar" />
 
                     </div>

@@ -82,7 +82,7 @@ export const Profile = () => {
             <div className="text-center mb-3  display-3 mt-5" style={{
                 backgroundColor: hovering ? '#FF0000' : '#699f216c',
                 padding: '1rem',
-                border: '1px solid green',
+                border: '0.01em solid green',
                 borderRadius: '0.5rem',
                 text: "Editar"
             }}>
@@ -90,10 +90,10 @@ export const Profile = () => {
             </div>{hovering ? "Espera, ¿Seguro deseas borrar tu perfil?" : null}
             <div className="dataUser">
 
-                <div className="profile-info">
-                    <div className="profile-info-row">
-                        <strong className="profile-label">Nombre:</strong>
-                        <div className="profile-data">
+                <div className="profileInfo">
+                    <div className="profileInfoRow">
+                        <strong className="profileLabel">Nombre:</strong>
+                        <div className="profileData">
                             {editing ? (
                                 <div>
                                     <input
@@ -109,9 +109,9 @@ export const Profile = () => {
                             )}
                         </div>
                     </div>
-                    <div className="profile-info-row">
-                        <strong className="profile-label">Apellidos:</strong>
-                        <div className="profile-data">
+                    <div className="profileInfoRow">
+                        <strong className="profileLabel">Apellidos:</strong>
+                        <div className="profileData">
                             {editing ? (
                                 <input
                                     type="text"
@@ -126,8 +126,8 @@ export const Profile = () => {
                         </div>
                     </div>
                     <div className="">
-                        <strong className="profile-label">Email:</strong>
-                        <div className="profile-data">
+                        <strong className="profileLabel">Email:</strong>
+                        <div className="profileData">
                             {editing ? (
                                 <input
                                     type="text"
@@ -142,9 +142,9 @@ export const Profile = () => {
                         </div>
                     </div>
                     {editing && (
-                        <div className="profile-info-row">
-                            <strong className="profile-label">Contraseña:</strong>
-                            <div className="profile-data">
+                        <div className="profileInfoRow">
+                            <strong className="profileLabel">Contraseña:</strong>
+                            <div className="profileData">
                                 <input
                                     type="password"
                                     name="password"
@@ -163,8 +163,8 @@ export const Profile = () => {
                             onClick={() => editHandler(body, token)} text={"Guardar"} />
                     </div>
                 ) : (
-                    <div className="">
-                        <div className="">
+                    <div>
+                        <div>
                             <AkdemyButton
                                 onClick={() => setEditing(true)}
                                 text={"Editar"}

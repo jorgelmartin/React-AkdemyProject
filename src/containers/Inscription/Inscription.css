@@ -7,20 +7,23 @@
     background-color: rgba(109, 176, 94, 0.295);
     border-radius: 2em;
     padding: 2em;
-border: 0.1em solid rgb(227, 123, 19);
+border: 0.01em solid rgb(118, 71, 24);
+box-shadow: inset 1em 0.4em 0.7em 0.1em rgba(0, 0, 0, 0.503);
   }
   
   .grid-item {
+    box-shadow:  0.3em 0.2em 0.4em 0.1em rgba(6, 32, 4, 0.476);
+    margin:0.3em;
     display: flex;
     flex-direction: column;
-  
+    border: 0.01em solid rgb(20, 18, 16);
     align-items: center;
     /* justify-content: center; */
-    /* background-color: rgba(178, 137, 66, 0.357); */
-    border-radius: 2em;
+    background-color: rgba(255, 223, 223, 0.838);
+    border-radius: 1em;
   }
   
-  .label {   
+  .labelCreate {   
      /* background-color: antiquewhite; */
 
 
@@ -29,11 +32,13 @@ border: 0.1em solid rgb(227, 123, 19);
     margin-bottom: 0.5em;
   }
   .textInscription {
+    border: 0.01em solid rgb(20, 18, 16);
     border-radius: 2em;
+    height: 1.8em;
     /* background-color: antiquewhite; */
-
+    box-shadow: inset 0.5em 0.4em 2em 0em rgba(6, 32, 4, 0.476);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
   }

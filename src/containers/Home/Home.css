@@ -20,6 +20,7 @@
     flex-direction: column; /* Set flex-direction to column to stack the image and text */
     align-items: center; /* Center the items horizontally */
     transition: all 0.3s ease;
+    box-shadow: 0.4em 0.4em 0.7em 0.1em rgba(0, 0, 0, 0.503);
 }
 
 .productImgDesign {
