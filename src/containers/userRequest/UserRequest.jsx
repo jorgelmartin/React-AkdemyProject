@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Container, Table, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useFetchUserRequest } from "../../../hooks/useFetchUserRequest";
 import { useFetchAcceptRequest } from "../../../hooks/useFetchAcceptRequest";
+import "../../App.css";
+import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
 
 export const UserRequest = () => {
     const usersReq = useFetchUserRequest();
@@ -13,6 +15,7 @@ export const UserRequest = () => {
     }
 
     const handleAcceptRequest = (id) => {
+        // e.preventDefault();
         console.log("Valor de id:", id); 
         acceptUserRequest(id)
         
@@ -27,32 +30,34 @@ export const UserRequest = () => {
 
     return (
         <Container className="mt-5">
-            <Table striped bordered hover responsive className="mt-4">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Email</th>
-                        <th>Curso</th>
-                        <th>Inicio</th>
-                        {/* <th>Estado</th> */}
-                    </tr>
-                </thead>
-                <tbody>
-                {usersReq.map((request, index) => (
-                        <tr key={index}>
-                            <td>{request.user.name} {request.user.surname}</td>
-                            <td>{request.user.email}</td>
-                            <td>{request.program.name}</td>
-                            <td>{request.convocation.beginning}</td>
-                            {/* <td>{request.status}</td> */}
+            <div className="requestUser">Solicitudes</div>
+            <div className="tableContainerCheck mt-4">
+                <div className="tableHeader">
+                    <div className="tableHeaderCheck">Nombre</div>
+                    <div className="tableHeaderCheck">Email</div>
+                    <div className="tableHeaderCheck">Curso</div>
+                    <div className="tableHeaderCheck">Inicio</div>
+                    {/* <div className="tableHeaderCheck">Aceptar</div> */}
+                    {/* <div className="tableHeaderCheck">Aceptar</div> */}
+                </div>
+                <div className="tableBodyCheck">
+                {usersReq.slice(0, 7).map((request, index) => (
+                        <div className="tableDataRow" key={index}>
+                            <div className="tableDataCheck">{request.user.name} {request.user.surname}</div>
+                            <div className="tableDataCheck">{request.user.email}</div>
+                            <div className="tableDataCheck">{request.program.name}</div>
+                            <div className="tableDataCheck">{request.convocation.beginning}
+                            </div>
+                            {/* <div className="tableDataCheck">{request.status}</div> */}
                             {/* Estado */}
-                            <Button onClick={() => {
+                            <AkdemyButton onClick={() => {
                                 handleAcceptRequest(request.id);
-                            }}>Aceptar</Button>
-                        </tr>
+                            }}
+                                text={"✔"} />
+                        </div>
                     ))}
-                </tbody>
-            </Table>
+                </div>
+            </div>
         </Container>
     );
 };

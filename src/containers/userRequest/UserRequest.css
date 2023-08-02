@@ -1,0 +1,57 @@
+/* .requestUser{
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 4em;
+font-weight: bold;
+color: rgb(75, 65, 65);
+}
+
+.tableContainerCheck {
+    border: 0.1em solid #aca7a7;
+    border-radius: 0.2em;
+    overflow-x: auto;
+}
+
+.tableHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-weight: bold;
+    margin-right: 3.27em;
+}
+
+.tableHeaderCheck {
+    flex: 1;
+    
+    padding: 0.6em;
+    text-align: center;
+    border-right: 0.06em solid #aca7a7;
+}
+
+.tableBodyCheck {
+    display: flex;
+    flex-direction: column;
+}
+
+.tableDataRow {
+    display: flex;
+    border-bottom:0.06em solid #aca7a7;
+}
+
+.tableDataCheck {
+    flex: 1;
+    padding: 0.7em;
+    text-align: center;
+    border-right: 0.06em solid  #aca7a7;
+} */
+
+/* .accept-button {
+    background-color: #13326fba;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+} */
