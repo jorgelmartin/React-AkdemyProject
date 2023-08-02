@@ -9,6 +9,7 @@ import { userData } from "../../containers/userSlice";
 import { useSelector } from "react-redux";
 import { createConvocation, updateConvocation } from "../../services/apiCalls";
 import { SelectSchedule } from "../../../hooks/useFetchSelectSchedule";
+import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
 
 export const CreateConvocation = ({ isUpdate, updateData }) => {
 
@@ -25,7 +26,8 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
     );
 
     //CREATE AND UPDATE APPOINTMENT
-    const createApp = () => {
+    const createApp = (e) => {
+        e.preventDefault();
         console.log("Objeto body:", convocationData);
         if (isUpdate) {
             updateConvocation(token, convocationData.id, convocationData)
@@ -37,66 +39,57 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
     };
     return (
         <Container>
-            <Card style={{ maxWidth: '30em', margin: '0 auto' }} className="cardConvo">
-                <Card.Body>
-                    <h2 className="text-center mb-3">Convocatoria</h2>
-                    <table className="table">
-                        <tbody>
-                            <tr>
-                                <td>Programas:</td>
-                                <td>
-                                    <SelectPrograms 
-                                        className="programSelector"
-                                        name={"program_id"}
-                                        value={convocationData.program_id}
-                                        handleChange={(value) => {
-                                            setConvocationData({
-                                                ...convocationData,
-                                                program_id: parseInt(value),
-                                            });
-                                        }}
-                                    />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Inicio:</td>
-                                <td>
-                                    <SelectDate
-                                        className="dateSelector"
-                                        name={"beginning"}
-                                        value={convocationData.beginning}
-                                        handleChange={(value) => {
-                                            setConvocationData({
-                                                ...convocationData,
-                                                beginning: value,
-                                            });
-                                        }}
-                                    />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Duración:</td>
-                                <td>
-                                    <SelectSchedule
-                                        className="scheduleSelector"
-                                        name={"schedule_id"}
-                                        value={convocationData.schedule_id}
-                                        handleChange={(value) => {
-                                            setConvocationData({
-                                                ...convocationData,
-                                                schedule: value,
-                                            });
-                                        }}
-                                    />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div className="text-center">
-                        <Button onClick={createApp} style={{ backgroundColor: '#13326fba' }} className="w-50">Aceptar!</Button>
+            <Card style={{ maxWidth: '20em', margin: '0 auto' }}>
+                <div className="cardCreate">
+                    <h2 style={{ textAlign: 'center', marginBottom: '1em' }}>Convocatoria</h2>
+                    <div className="rowCreate">
+                        <strong>Programas:</strong>
+                        <SelectPrograms
+                            name="program_id"
+                            value={convocationData.program_id}
+                            handleChange={(value) => {
+                                setConvocationData({
+                                    ...convocationData,
+                                    program_id: parseInt(value),
+                                });
+                            }}
+                        />
                     </div>
-                </Card.Body>
+                    <div className="rowCreate">
+                        <strong>Inicio:</strong>
+                        <SelectDate
+                            name="beginning"
+                            value={convocationData.beginning}
+                            handleChange={(value) => {
+                                setConvocationData({
+                                    ...convocationData,
+                                    beginning: value,
+                                });
+                            }}
+                        />
+                    </div>
+                    <div className="rowCreate">
+                        <strong>Duración:</strong>
+                        <SelectSchedule
+                            name="schedule_id"
+                            value={convocationData.schedule_id}
+                            handleChange={(value) => {
+                                setConvocationData({
+                                    ...convocationData,
+                                    schedule: value,
+                                });
+                            }}
+                        />
+                    </div>
+                    <div style={{ textAlign: 'center' }}>
+                        <AkdemyButton
+                            onClick={createApp}
+                            style={{ backgroundColor: '#13326fba' }}
+                            text="Aceptar"
+                        />
+                    </div>
+                </div>
             </Card>
         </Container>
-    )
+    );
 };

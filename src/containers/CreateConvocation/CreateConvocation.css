@@ -1,6 +1,25 @@
 .inputConvocation {
     text-align: center;
     width: 12em;
-    height: 2em;
+    height: 2.5em;
     border-radius: 2em;
+    /* justify-content: end; */
+
+}
+.cardCreate{
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    /* padding: 9%; */
+    background-color: rgba(142, 106, 53, 0.239);
+    border-radius: 0.3em;
+    box-shadow:  0.3em 0.2em 0.4em 0.1em rgba(6, 32, 4, 0.476); 
+    /* max-width: fit-content; */
+}
+
+.rowCreate {
+    display: flex;
+    margin: 1em;
+    /* justify-content: space-between; */
+    justify-content: end;
 }
