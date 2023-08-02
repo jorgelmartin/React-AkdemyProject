@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { loginMe } from "../../services/apiCalls";
-import { Button, Card, Col, Container, Row, Form } from "react-bootstrap";
+import { Card, Col, Container, Row, Form } from "react-bootstrap";
 // import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../userSlice";
 import { InputText } from "../../components/InputText/InputText";
+import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
 // import { inputHandler } from "../../services/useful";
 
 export const Login = () => {
@@ -56,30 +57,6 @@ export const Login = () => {
         }
     }, [token, userLogin]);
 
-    // const submitHandler = (e, body) => {
-    //     e.preventDefault();
-    //     loginMe(body)
-    //         .then((res) => {
-    //             setToken(res.token);
-    //             console.log(res.data); // Verificar los detalles del objeto recibido en la consola
-    
-    //             // Despachar la acción de inicio de sesión con los datos del usuario obtenidos de la respuesta
-    //             dispatch(
-    //                 login({
-    //                     token: res.token,
-    //                     name: res.data.data.name,
-    //                     role: res.data.data.role,
-    //                     userId: res.data.data.id,
-    //                 })
-    //             );
-    
-    //             navigate("/");
-    //         })
-    //         .catch((error) => {
-    //             setUserError({ credentials: error.response.data.message });
-    //         });
-    // };
-
     return (
         <div className="loginDesign">
             {/* {welcome !== "" ? (
@@ -88,14 +65,19 @@ export const Login = () => {
             {/* La utilidad de la siguiente linea es renderizar un hook at tiempo real en el DOM */}
             {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
             <Container className="d-flex justify-content-center align-items-center mt-4">
-                <Card style={{ backgroundColor: '#3c709a61' }}>
-                    <Card.Title className="text-center mb-3 display-5">Iniciar sesión</Card.Title>
-                    <Card.Body>
+            <Row className="justify-content-center">           <Card
+                    style={{
+                        backgroundColor: '#9f512121',
+                        border: '0.1em solid #614a1971',
+                        borderRadius: '1em'
+                    }}>
+                    <Card.Title className="text-center mb-3 display-5"><strong>Iniciar sesión</strong></Card.Title>
+                    <Card.Body className="loginDataUser">
                         <Row className="justify-content-center align-items-center">
                             <Col xs={10} md={6}>
                                 <Form as={Row}>
-                                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                                        <Form.Label>Email:</Form.Label>
+                                    <Form.Group className="mt-3">
+                                        <div className="labelLogin">Email:</div>
                                         <Col>
                                             <InputText
                                                 type={"email"}
@@ -107,8 +89,8 @@ export const Login = () => {
                                             />
                                         </Col>
                                     </Form.Group>
-                                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                                        <Form.Label>Password:</Form.Label>
+                                    <Form.Group className="mb-3">
+                                        <div className="labelLogin">Contraseña:</div>
                                         <Col>
                                             <InputText
                                                 type={"password"}
@@ -119,26 +101,25 @@ export const Login = () => {
                                                 errorState={setUserError}
                                             />
                                         </Col>
-                                    </Form.Group>
-                                    {userError?.credentials ? (
-                                        <div>{userError.credentials}</div>
-                                    ) : (
-                                        <div></div>
-                                    )}
-                                    <Button
-                                        style={{ backgroundColor: '#13326fba' }}
-                                        type="submit"
-                                        onClick={(e) => {
-                                            submitHandler(e, user);
-                                        }}
-                                    >
-                                        Aceptar
-                                    </Button>
-                                </Form>
+                                    </Form.Group></Form>
                             </Col>
                         </Row>
                     </Card.Body>
+                    {userError?.credentials ? (
+                        <div>{userError.credentials}</div>
+                    ) : (
+                        <></>
+                    )}
+                    <div className="d-flex justify-content-center"> {/* Agrega la clase para centrar el botón */}
+      <AkdemyButton
+        onClick={(e) => submitHandler(e, user)}
+        style={{ backgroundColor: '#13326fba' }}
+        type="submit"
+        text={"Registrarme!"}
+      />
+    </div>
                 </Card>
+                </Row>
             </Container>
         </div>
     );
