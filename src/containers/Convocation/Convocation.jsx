@@ -22,13 +22,14 @@ export const Convocation = () => {
     useEffect(() => {
         const searchAppointment = (text) => {
             let filtered = convocations;
-console.log("convocations ", convocations);
+            console.log("convocations ", convocations);
             if (text && convocations) {
                 filtered = convocations.filter(
                     (convocation) =>
                         convocation.program.name.includes(text) ||
                         convocation.beginning.includes(text) ||
-                        convocation.schedule.includes(text)
+                        convocation.schedule.includes(text) ||
+                        convocation.id.toString().includes(text)
                 );
             }
             setFilteredConvocations(filtered);
@@ -49,8 +50,8 @@ console.log("convocations ", convocations);
             // You can add a success message or trigger any other actions after a successful join request.
             console.log("Solicitud de unirse a la convocatoria enviada correctamente.");
 
-            // If needed, you can also update the local state to reflect the user's request
-            // For example, you can set a property like 'isJoinRequested' to true for the corresponding convocation in 'filteredConvocations'.
+            // If needed, you can also update the local state to reflect the user's request// For example, you can set a property like 'isJoinRequested' to true for the corresponding convocation in 'filteredConvocations'.
+            
         } catch (error) {
             // Handle errors if the request fails
             console.error("Error al enviar la solicitud de unirse a la convocatoria", error);
@@ -63,56 +64,61 @@ console.log("convocations ", convocations);
 
     return (
         <Container className="mt-5">
-            <input
-                className="InputSearch"
-                type={"text"}
-                name={"text"}
-                placeholder={"Buscar convocatoria..."}
-                onChange={(e) => inputHandler(e, setSearchText)}
-            />
-            <Table striped bordered hover responsive>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Programa</th>
-                        <th>Inicio</th>
-                        <th>Horarios</th>
-                        <th>Acciones</th> {/* Agregamos una columna para las acciones */}
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredConvocations.map((convocation) => (
-                        <tr key={convocation.id}>
-                            <td>{convocation.id}</td>
-                            <td>{convocation.program.name}</td>
-                            <td>{convocation.beginning}</td>
-                            <td>{convocation.schedule}</td>
-                            <td>
-                                {/* Mostramos los botones según el rol correspondiente */}
-                                {userRole.data.role === 1 ? (
-                                    <div className="d-flex justify-content-center buttonsConvocations">
-                                        <button
-                                            className="buttonUpdate"
-                                            onClick={() => navigate(`/convodetail/${convocation.id}`)}
-                                        >
-                                            Detalle
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <div className="d-flex justify-content-center buttonsConvocations">
+            <div className="containerInput">
+                <input
+                    className="InputSearch"
+                    type={"text"}
+                    name={"text"}
+                    placeholder={"Buscar convocatoria..."}
+                    onChange={(e) => inputHandler(e, setSearchText)}
+                />
+            </div>
+            <div className="tableContainer">
+                <table className="customTable">
+                    <thead>
+                        <tr>
+                            <th className="customTitle">ID</th>
+                            <th className="customTitle">Programa</th>
+                            <th className="customTitle">Inicio</th>
+                            <th className="customTitle">Horarios</th>
+                            {/* <th className="customTitle">Editar</th> */}
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {filteredConvocations.slice(0, 15).map((convocation) => (
+                            <tr key={convocation.id}>
+                                <td className="customData">{convocation.id}</td>
+                                <td className="customData">{convocation.program.name}</td>
+                                <td className="customData">{convocation.beginning}</td>
+                                <td className="customData">{convocation.schedule}
+                                
+                                    {/* Mostramos los botones según el rol correspondiente */}
+                                    {userRole.data.role === 1 ? (
+                                        <div className="d-flex justify-content-end buttonsConvocations">
+                                            <button
+                                                className="buttonUpdate"
+                                                onClick={() => navigate(`/convodetail/${convocation.id}`)}
+                                            >
+                                                VER
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <>
+                                            {/* <div className="d-flex justify-content-center buttonsConvocations">
                                         <button
                                             className="buttonJoin"
                                             onClick={() => handleJoinConvocation(convocation.id)}
                                         >
                                             Unirse
                                         </button>
-                                    </div>
-                                )}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
+                                    </div> */}
+                                        </>
+                                    )}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </Container>
     );
 };
