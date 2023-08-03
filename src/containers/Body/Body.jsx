@@ -13,7 +13,8 @@ import { Student } from "../Student/Student";
 import { Inscription } from "../Inscription/Inscription";
 import { MyPrograms } from "../MyPrograms/MyPrograms";
 import { ProgramDetail } from "../ProgramDetail/ProgramDetail";
-import { UserRequest } from "../userRequest/userRequest";
+import { UserRequest } from "../UserRequest/UserRequest";
+import { RequestAccepted } from "../RequestAccepted/RequestAccepted";
 
 
 export const Body = () => {
@@ -36,6 +37,7 @@ export const Body = () => {
                 <Route path="/userReq" element={<UserRequest />} /> 
                 <Route path="/myPrograms" element={<MyPrograms />} /> 
                 <Route path="/programDetail/:id" element={<ProgramDetail />} /> 
+                <Route path="/requestAccepted" element={<RequestAccepted />} /> 
             </Routes>
         </>
     );

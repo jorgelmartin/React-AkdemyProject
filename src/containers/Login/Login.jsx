@@ -115,7 +115,7 @@ export const Login = () => {
         onClick={(e) => submitHandler(e, user)}
         style={{ backgroundColor: '#13326fba' }}
         type="submit"
-        text={"Registrarme!"}
+        text={"Entrar!"}
       />
     </div>
                 </Card>

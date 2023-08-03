@@ -81,35 +81,27 @@ export const createUserConvocation = async (body, token) => {
             'Authorization': 'Bearer ' + token,
         }
     };
+    console.log("Soy la redddds", config);
     let res = await axios.post(`${URL}/api/userConvo/create`, body, config)
-    return res.data;
+    
+    return res;
 }
-// //UPDATE CONVOCATION
-// export const updateConvocation = async (token, id, bodyApp) => {
-//     let config = {
-//         headers: {
-//             Authorization: `Bearer ${token}`,
-//         },
-//     }
-//     let res = await axios.put(`${URL}/api/convocation/update/${id}`, bodyApp, config);
-//     return res;
-// }
 
-export const joinConvocation = async (token, id) => {
-    try {
-        let config = {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        };
-        let data = {
-            id: id,
-        };
-        let res = await axios.post(`${URL}/api/convocation/join`, data, config);
-        return res;
-    } catch (error) {
-        console.error("Error uniendo a la convocatoria", error);
-        throw error;
-    }
-};
+// export const joinConvocation = async (token, id) => {
+//     try {
+//         let config = {
+//             headers: {
+//                 Authorization: `Bearer ${token}`,
+//             },
+//         };
+//         let data = {
+//             id: id,
+//         };
+//         let res = await axios.post(`${URL}/api/convocation/join`, data, config);
+//         return res;
+//     } catch (error) {
+//         console.error("Error uniendo a la convocatoria", error);
+//         throw error;
+//     }
+// };
 

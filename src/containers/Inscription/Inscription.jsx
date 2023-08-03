@@ -37,15 +37,16 @@ export const Inscription = () => {
         setSelectedConvocationId(selectedId); // Update the selectedConvocationId state
     };
 
-    const handleInscription = async () => {
+    const handleInscription = async (e) => {
         e.preventDefault();
         const body = {
             convocation_id: selectedConvocationId,
             user_id: userId,
         };
+        navigate('/requestAccepted');
         const result = await createUserConvocation(body, userToken);
         console.log("User-Convocation created:", result);
-        navigate('/');
+        
     };
 
     const upcomingConvocations = convocations ? convocations.filter(
