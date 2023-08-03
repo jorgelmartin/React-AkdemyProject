@@ -40,9 +40,11 @@ Al hacer clic en la imagen, aparecerá a una vista detalle en la que resaltamos 
 
 ### PERFIL
 
-<img src="./src/assets/profile1.png" alt="" width="280" height="">
-<img src="./src/assets/profile2.png" alt="" width="280" height="">
-<img src="./src/assets/profile3.jpeg" alt="" width="280" height="">
+<div style="display: flex;">
+  <img src="./src/assets/profile1.png" alt="" width="280" height="">
+  <img src="./src/assets/profile2.png" alt="" width="280" height="">
+  <img src="./src/assets/profile3.jpeg" alt="" width="280" height="">
+</div>
 
 En su perfil podrá ver, editar y borrar su cuenta en caso de necesitarlo.
 
@@ -59,13 +61,14 @@ Los estudiantes podrán llevar un control de las convocatorias disponibles, curs
 Tantos los usuarios como los admin tendrán acceso a esta vista y así estar al día con las convocatorias futuras disponibles.
 
 ### SOLICITAR INSCRIPCIÓN
+<div style="display: flex;">
 <img src="./src/assets/inscription.png" alt="" width="400" height="">
 <img src="./src/assets/inscriptionok.png" alt="" width="400" height="420">
-
+</div>
 <!-- !['inscription'](./src/assets/inscription.png)
 !['inscription'](./src/assets/inscriptionok.png) -->
 
-En esta vista, podrán solicitar la inscripción del programa de su interés, comprobando fecha de inicio, horario y precio, siendo un proceso trasparente para el usuario.
+En esta vista, podrán solicitar la inscripción en el programa de su interés, comprobando la fecha de inicio, horario y precio, siendo un proceso transparente para el usuario. Luego, los redirigirá a la vista que les indicará que la solicitud se ha procesado correctamente y les proporcionará los documentos necesarios para formalizar la inscripción.
 
 ### MIS CURSOS
 
@@ -87,9 +90,9 @@ Podrá ver todos los usuarios registrados en el sistema, teniendo la posibilidad
 
 ### CONVOCATORIAS
 
-!['create'](./src/assets/create.png)
+<img src="./src/assets/create.png" alt="" width="400" height="420">
 
-Podrá crear las convocatorias necesarias, escogiendo curso, inicio y horarios.
+Podrá crear las convocatorias necesarias, escogiendo curso, fecha inicio y horarios.
 
 ### DETALLE/EDITAR CONVOCATORIAS
 
