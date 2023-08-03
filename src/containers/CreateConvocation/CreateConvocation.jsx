@@ -43,7 +43,7 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                 <div className="cardCreate">
                     <h2 style={{ textAlign: 'center', marginBottom: '1em' }}>Convocatoria</h2>
                     <div className="rowCreate">
-                        <strong>Programas:</strong>
+                        <strong>Curso:</strong>
                         <SelectPrograms
                             name="program_id"
                             value={convocationData.program_id}
@@ -69,7 +69,7 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                         />
                     </div>
                     <div className="rowCreate">
-                        <strong>Duración:</strong>
+                        <strong>Horario:</strong>
                         <SelectSchedule
                             name="schedule_id"
                             value={convocationData.schedule_id}

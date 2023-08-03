@@ -10,7 +10,7 @@ export const RequestAccepted = () => {
         <div className="estimado-mensaje">
             <p>Estimado/a,</p>
             <p>Nos complace informarle que hemos recibido su solicitud y estamos encantados de poder asistirle en su proceso de formación.</p>
-            <p>Para proceder con el trámite, le solicitamos amablemente que nos haga llegar la siguiente documentación, ya sea de manera presencial o por correo electrónico:</p>
+            <p>Para proceder con el trámite, le solicitamos amablemente que nos haga llegar la siguiente documentación, ya sea de manera presencial o por correo electrónico a akdemyproject@outlook.com:</p>
             <ul>
                 <li>DNI/NIE (Por ambas caras).</li>
                 <li>Depósito bancario indicando nombre completo y curso a la siguiente cuenta: ES82 2333 3333 3333 3333 3333.</li>
