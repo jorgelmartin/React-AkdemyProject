@@ -1,6 +1,6 @@
 ## React-AkdemyProject
 
-!['home'](./src/assets/home.jpeg)!['register'](./src/assets/register.png)
+!['home'](./src/assets/home.jpeg)
 
 <!-- <img src="./src/assets/home.jpeg" alt="Home" width="400"> -->
 
@@ -15,75 +15,93 @@
 
 ### Descripción:
 
-AkdemyProject es una aplicación de educación con múltiples programas y convocatorias. Los usuarios se registran y acceden a su perfil, donde pueden explorar programas académicos, solicitar inscripciones y editar su información personal. Los administradores gestionan las convocatorias y solicitudes de inscripción. Destacadas características incluyen ver convocatorias vigentes, rastrear el progreso académico y eliminar la cuenta si lo desean. Akdemy brinda una experiencia educativa completa y transparente, con un enfoque en la accesibilidad y facilidad de uso
+AkdemyProject es una aplicación de educación con múltiples programas y convocatorias. Los usuarios se registran y acceden a su perfil, donde pueden explorar programas académicos, solicitar inscripciones y editar su información personal. Los administradores gestionan las convocatorias y solicitudes de inscripción. Destacadas características incluyen ver convocatorias vigentes, rastrear el progreso académico y eliminar la cuenta si lo desean. Akdemy brinda una experiencia educativa completa y transparente, con un enfoque en la accesibilidad y facilidad de uso.
 
-### REGISTRO
+### REGISTRO/LOGIN
 
-<!-- !['register'](./src/assets/register.png) -->
-<img src="./src/assets/register.png" alt="Register" width="400">
-<img src="./src/assets/login.png" alt="Register" width="500">
+<!-- !['register'](./src/assets/login.png) -->
+<img src="./src/assets/register.png" alt="Register" width="350"><img src="./src/assets/login.png" alt="Register" width="370">
 
 El primer paso será registrarse, para poder acceder a todos los beneficios de la app.
 
-### LOGIN
-
-!['login'](./img/login.png)
-
-Una vez registrados, se enviará a la página del login para que ingrese el email y contraseña.
-
 ### HOME
 
-!['home'](./img/home.png)
+<img src="./src/assets/home2.jpeg" alt="" width="" height="">
 
-La única página que estará disponible para todos será la del Home, para que puedan ver los servicios.
+La única página que estará disponible para todos será la del Home, para que puedan ver los cursos disponibles de la academia. 
 
 ### VISTA DETALLE
 
-!['detail'](./img/detail.png)
+<img src="./src/assets/python.jpeg" alt="" width="" height="">
+<img src="./src/assets/php.jpeg" alt="" width="" height="">
+<!-- !['detail'](./img/detail.png) -->
 
-Al hacer clic en la imagen, aparecerá a una vista detalle para que pueda ver más información del mismo, incluyendo el precio y duración.
+Al hacer clic en la imagen, aparecerá a una vista detalle en la que resaltamos los aspectos mas importantes de cada curso, junto con la opción de solicitar su inscripción en caso de ser de interés.
 
 ### PERFIL
 
-!['perfil'](./img/perfil.png)
+<img src="./src/assets/profile1.png" alt="" width="280" height="">
+<img src="./src/assets/profile2.png" alt="" width="280" height="">
+<img src="./src/assets/profile3.jpeg" alt="" width="280" height="">
 
-Cuenta con una página para ver y editar datos de usuario en caso de necesitarlo.
+En su perfil podrá ver, editar y borrar su cuenta en caso de necesitarlo.
 
-### ADMIN
+### VISTAS USUARIOS/ALUMNOS
 
-!['admin'](./img/admin.png)
+!['student'](./src/assets/student.jpeg)
 
-Los Admin, contarán con una vista privada para poder llevar el control de la clínica.
+Los estudiantes podrán llevar un control de las convocatorias disponibles, cursos en los que están matriculados y solicitar inscripción en la convocatoria disponible de interés.
 
-### USUARIOS
+### CONVOCATORIAS
 
-!['users'](./img/users.png)
+!['convocations'](./src/assets/convocations.png)
 
-El Admin será capaz de ver todos los usuarios registrados en el sistema.
+Tantos los usuarios como los admin tendrán acceso a esta vista y así estar al día con las convocatorias futuras disponibles.
 
-### CITAS ADMIN
+### SOLICITAR INSCRIPCIÓN
+<img src="./src/assets/inscription.png" alt="" width="400" height="">
+<img src="./src/assets/inscriptionok.png" alt="" width="400" height="420">
 
-!['citas'](./img/citas.png)
+<!-- !['inscription'](./src/assets/inscription.png)
+!['inscription'](./src/assets/inscriptionok.png) -->
 
-En caso de que los doctores/admin deseen buscar todas sus citas, dispondrán de un panel de búsqueda.
+En esta vista, podrán solicitar la inscripción del programa de su interés, comprobando fecha de inicio, horario y precio, siendo un proceso trasparente para el usuario.
 
-### PACIENTES
+### MIS CURSOS
 
-!['patients'](./img/patients.png)
+!['myprograms'](./src/assets/myprograms.png)
 
-Los pacientes contarán con una vista privada para solicitar la cita de su interés e incluso modificarla en caso de necesitarlo.
+En el apartado de "Mis cursos", llevaremos el control de todas nuestras matrículas aprobadas.
 
-### CITAS PACIENTES
+### VISTAS ADMIN
 
-!['citapaciente'](./img/citapaciente.png)
+!['admin'](./src/assets/admin.jpeg)
 
-Podrán ver el historial de sus citas.
+El admin podrá llevar el control total de la aplicación.
 
-### VISTA DETALLE DE LA CITA Y OPCIÓN DE MODIFICARLA
+### TODOS LOS USUARIOS
 
-!['detallecita'](./img/detallecita.png)
+!['users'](./src/assets/users.png)
 
-Si hacen clic en el botón detalle de la cita, les mostrará el detalle de la misma con opción de modificarla.
+Podrá ver todos los usuarios registrados en el sistema, teniendo la posibilidad de buscar por nombre, apellidos, email o id.
+
+### CONVOCATORIAS
+
+!['create'](./src/assets/create.png)
+
+Podrá crear las convocatorias necesarias, escogiendo curso, inicio y horarios.
+
+### DETALLE/EDITAR CONVOCATORIAS
+
+!['detailconvo'](./src/assets/detailconvo.png)
+
+En la vista detalle podrá ver toda la información del curso, los alumnos matriculados en el mismo y en caso de necesitarlo también poder editar ya sea el horario, la fecha o el curso en sí.
+
+### SOLICITUDES PENDIENTES
+
+!['pending'](./src/assets/pending.png)
+
+Una vez recibida y aprobada la documentación para la inscripción del alumno, el admin será el responsable de aceptar dicha solicitud y una vez aceptada le figurará al alumno en el apartado de "Mis cursos".
 
 ### Agradecimientos:
 
