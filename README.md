@@ -15,6 +15,14 @@
 
 AkdemyProject es una aplicación de educación con múltiples programas y convocatorias. Los usuarios se registran y acceden a su perfil, donde pueden explorar programas académicos, solicitar inscripciones y editar su información personal. Los administradores gestionan las convocatorias y solicitudes de inscripción. Destacadas características incluyen ver convocatorias vigentes, rastrear el progreso académico y eliminar la cuenta si lo desean. Akdemy brinda una experiencia educativa completa y transparente, con un enfoque en la accesibilidad y facilidad de uso.
 
+Enlace al proyecto: https://react-academy-project-jorgemctin.vercel.app/
+
+Crea una cuenta como usuario y también puedes acceder como administrador para una experiencia mas completa:
+
+Credenciales administrador:
+
+admin@admin.com - Hola1234
+
 ### REGISTRO/LOGIN
 
 <img src="./src/assets/register.png" alt="Register" width="350"><img src="./src/assets/login.png" alt="Register" width="370">

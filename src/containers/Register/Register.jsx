@@ -28,8 +28,9 @@ export const Register = () => {
     return (
         <div className="registerDesign">
             <Container className="d-flex justify-content-center align-items-center mt-4">
-                <Card className="registerCard" style={{ backgroundColor: '#9f512121', maxWidth: '25em',
-             }}>
+                <Card className="registerCard" style={{
+                    backgroundColor: '#9f512121', maxWidth: '25em',
+                }}>
                     <Card.Body>
                         <Card.Title className="text-center mb-3 display-5"><strong>Registro</strong></Card.Title>
                         <Form as={Row}>
@@ -50,7 +51,7 @@ export const Register = () => {
                                         errorState={setUserError}
                                     />
                                 </div></div>
-                            
+
                             {/* Apellido */}
                             <div className="dataUserRegister">
                                 <div className="profileLabelRegister">Apellido:</div>
