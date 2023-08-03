@@ -2,8 +2,6 @@
 
 !['home'](./src/assets/home.jpeg)
 
-<!-- <img src="./src/assets/home.jpeg" alt="Home" width="400"> -->
-
 ### Tecnologías:
 
 + REACT.
@@ -19,7 +17,6 @@ AkdemyProject es una aplicación de educación con múltiples programas y convoc
 
 ### REGISTRO/LOGIN
 
-<!-- !['register'](./src/assets/login.png) -->
 <img src="./src/assets/register.png" alt="Register" width="350"><img src="./src/assets/login.png" alt="Register" width="370">
 
 El primer paso será registrarse, para poder acceder a todos los beneficios de la app.
@@ -34,16 +31,15 @@ La única página que estará disponible para todos será la del Home, para que 
 
 <img src="./src/assets/python.jpeg" alt="" width="" height="">
 <img src="./src/assets/php.jpeg" alt="" width="" height="">
-<!-- !['detail'](./img/detail.png) -->
 
 Al hacer clic en la imagen, aparecerá a una vista detalle en la que resaltamos los aspectos mas importantes de cada curso, junto con la opción de solicitar su inscripción en caso de ser de interés.
 
 ### PERFIL
 
 <div style="display: flex;">
-  <img src="./src/assets/profile1.png" alt="" width="280" height="">
-  <img src="./src/assets/profile2.png" alt="" width="280" height="">
-  <img src="./src/assets/profile3.jpeg" alt="" width="280" height="">
+  <img src="./src/assets/profile1.png" alt="" width="270" height="">
+  <img src="./src/assets/profile2.png" alt="" width="270" height="">
+  <img src="./src/assets/profile3.jpeg" alt="" width="270" height="">
 </div>
 
 En su perfil podrá ver, editar y borrar su cuenta en caso de necesitarlo.
@@ -65,8 +61,6 @@ Tantos los usuarios como los admin tendrán acceso a esta vista y así estar al 
 <img src="./src/assets/inscription.png" alt="" width="400" height="">
 <img src="./src/assets/inscriptionok.png" alt="" width="400" height="420">
 </div>
-<!-- !['inscription'](./src/assets/inscription.png)
-!['inscription'](./src/assets/inscriptionok.png) -->
 
 En esta vista, podrán solicitar la inscripción en el programa de su interés, comprobando la fecha de inicio, horario y precio, siendo un proceso transparente para el usuario. Luego, los redirigirá a la vista que les indicará que la solicitud se ha procesado correctamente y les proporcionará los documentos necesarios para formalizar la inscripción.
 
@@ -74,7 +68,7 @@ En esta vista, podrán solicitar la inscripción en el programa de su interés, 
 
 !['myprograms'](./src/assets/myprograms.png)
 
-En el apartado de "Mis cursos", llevaremos el control de todas nuestras matrículas aprobadas.
+En el apartado de "Mis cursos", se lleavrá el control de las matrículas aprobadas.
 
 ### VISTAS ADMIN
 
