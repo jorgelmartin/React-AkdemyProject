@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useFetchUserRequest } from "../../../hooks/useFetchUserRequest";
 import { useFetchAcceptRequest } from "../../../hooks/useFetchAcceptRequest";
@@ -9,6 +9,15 @@ export const UserRequest = () => {
     const usersReq = useFetchUserRequest();
     const acceptUserRequest = useFetchAcceptRequest();
     const [requestAccepted, setRequestAccepted] = useState(false);
+
+    useEffect(() => {
+        // Aquí, si la solicitud se ha aceptado exitosamente (requestAccepted es true),
+        // volvemos a cargar las solicitudes para obtener los datos actualizados.
+        if (requestAccepted) {
+            setRequestAccepted(false); // Reiniciamos el estado a false para futuras actualizaciones
+            usersReq.refetch(); // Esta función debe existir en el hook useFetchUserRequest para recargar las solicitudes.
+        }
+    }, [requestAccepted, usersReq]);
 
     if (!usersReq) {
         return <div>Loading...</div>;
@@ -30,7 +39,7 @@ export const UserRequest = () => {
 
     return (
         <Container className="mt-5">
-            <div className="requestUser">Solicitudes</div>
+            <div className="requestUser">Solicitudes pendientes</div>
             <div className="tableContainerCheck mt-4">
                 <div className="tableHeader">
                     <div className="tableHeaderCheck">Nombre</div>

@@ -1,0 +1,27 @@
+.estimado-mensaje {
+    text-align: center;
+    border-radius: 2em;
+    /* height: 40em; */
+    /* width: 30em; */
+    margin: 0 auto;
+    margin-top: 3em;
+    max-width: 40em;
+    font-family: Arial, sans-serif;
+    padding: 2em;
+    box-shadow: inset 0.4em 0.4em 0.7em 0.1em rgba(0, 0, 0, 0.503);
+  }
+  
+  .estimado-mensaje p {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+  
+  .estimado-mensaje ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .estimado-mensaje li {
+    margin-bottom: 5px;
+  }
