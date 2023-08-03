@@ -1,6 +1,6 @@
 import React from 'react';
 import './InputText.css';
-import { checkError } from '../../services/UseFul';
+import { checkError } from '../../services/useful';
 // import { inputHandler } from '../../services/useful';
 
 
