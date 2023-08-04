@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { userData } from "../src/containers/userSlice";
 
+//GET THE CONVOCATIONS
 export const useFetchConvocations = () => {
     const [convocations, setConvocations] = useState(null);
     const datosCredencialesRedux = useSelector(userData);
@@ -15,7 +16,7 @@ export const useFetchConvocations = () => {
             .then(res => res.json())
             .then(res => {
                 setConvocations(res.data);
-                console.log("Response from API:", res);
+                // console.log("Response from API:", res);
             })
             .catch(error => console.log("Error fetching convocations:", error))
     }, []);

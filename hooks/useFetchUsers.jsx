@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { userData } from "../src/containers/userSlice";
 
-//GET ALL USERS
+//GET ALL USERS FROM THE API
 export const useFetchUsers = () => {
     const [users, setUsers] = useState(null);
     const datosCredencialesRedux = useSelector(userData);

@@ -81,8 +81,6 @@ export const createUserConvocation = async (body, token) => {
             'Authorization': 'Bearer ' + token,
         }
     };
-    console.log("Soy la redddds", config);
-    let res = await axios.post(`${URL}/api/userConvo/create`, body, config)
-    
+    let res = await axios.post(`${URL}/api/userConvo/create`, body, config);
     return res;
 }

@@ -12,7 +12,6 @@ export const SelectPrograms = ({handleChange, value}) => {
             .then((res) => res.json())
             .then((res) => {
                 setServices(res.data);
-                console.log("Response from API:", res);
             })
             .catch((error) => console.log(error));
     }, []);
@@ -29,7 +28,6 @@ export const SelectPrograms = ({handleChange, value}) => {
                     </option>
                 ))}
             </select>
-            {/* <div>{selectedService && `Selected service: ${selectedService}`}</div> */}
         </>
     );
 };

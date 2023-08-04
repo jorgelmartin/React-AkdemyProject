@@ -29,7 +29,6 @@ export const ConvocationDetail = () => {
         }
     }, [parsedId, convocations]);
 
-
     return (
         <>
 

@@ -21,7 +21,6 @@ export const Profile = () => {
 
     //GETTING TOKEN FROM REDUX
     const datos = useSelector(userData);
-    console.log(datos);
     const token = datos.credentials.token;
 
     //UPDATE PROFILE

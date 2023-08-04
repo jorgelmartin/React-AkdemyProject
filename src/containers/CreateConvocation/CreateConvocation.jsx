@@ -21,7 +21,6 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
     const [convocationData, setConvocationData] = useState(
         {
             ...updateData,
-            // id: datos.data.userId 
         }
     );
 
