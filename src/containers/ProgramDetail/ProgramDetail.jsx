@@ -13,7 +13,6 @@ export const ProgramDetail = () => {
     let { id } = useParams();
     const parsedId = parseInt(id);
 
-    console.log("soyiddd", id);
     //ASSIGN PROGRAMS
     const programs = useFetchPrograms();
     const [programDetail, setProgramDetail] = useState(null);
