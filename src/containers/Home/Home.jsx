@@ -18,7 +18,7 @@ export const Home = () => {
     return (
         <div className="productCardContainer">
             <div className="akdemyTitle" style={{ textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)' }}>AKDEMY</div>
-            {programs.map((program) => (
+            {programs.slice(0, 6).map((program) => (
                 <div key={program.id} className="productCardDesign">
                     <img
                         className="productImgDesign"
