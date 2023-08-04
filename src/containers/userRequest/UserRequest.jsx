@@ -10,15 +10,6 @@ export const UserRequest = () => {
     const acceptUserRequest = useFetchAcceptRequest();
     const [requestAccepted, setRequestAccepted] = useState(false);
 
-
-    //UPDATE DATA IF REQUEST ACCEPTED///
-    useEffect(() => {
-        if (requestAccepted) {
-            setRequestAccepted(false);
-            usersReq.refetch();
-        }
-    }, [requestAccepted, usersReq]);
-
     if (!usersReq) {
         return <div>Loading...</div>;
     }
