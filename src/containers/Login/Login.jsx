@@ -15,24 +15,18 @@ export const Login = () => {
     const [user, setUser] = useState({});
     const [token, setToken] = useState("");
     const [userError, setUserError] = useState({});
-
+    const navigate = useNavigate();
 
     //DISPATCH WRITE MODE
     const dispatch = useDispatch();
 
-    //USESELECTOR READING MODE
-    // const credentialsRdx = useSelector(userData);
-
-    const navigate = useNavigate();
-
-    // const [welcome, setWelcome] = useState("");
-
     const [userLogin, setUserLogin] = useState({});
 
-    //SENDING FORM LOGIN
+    //LOGIN FUNCTION
     const submitHandler = (e, body) => {
         e.preventDefault();
-        console.log(body);
+
+        //SEND TOKEN AND DATA
         loginMe(body)
             .then((res) => {
                 setToken(res.data.token);
@@ -42,7 +36,8 @@ export const Login = () => {
                 setUserError({ credentials: error.response.data.message });
             });
     };
-    // USE DISPATCH 
+
+    //SEND USERDATA TO REDUX STORE
     useEffect(() => {
         if (token) {
             dispatch(
@@ -58,67 +53,72 @@ export const Login = () => {
     }, [token, userLogin]);
 
     return (
+        //RENDER LOGIN CONTAINER
         <div className="loginDesign">
-            {/* {welcome !== "" ? (
-            <div>{welcome}</div>
-        ) : ( */}
-            {/* La utilidad de la siguiente linea es renderizar un hook at tiempo real en el DOM */}
-            {/* {<pre>{JSON.stringify(credentials, null, 2)}</pre>} */}
             <Container className="d-flex justify-content-center align-items-center mt-4">
-            <Row className="justify-content-center">           <Card
-                    style={{
-                        backgroundColor: '#9f512121',
-                        border: '0.1em solid #614a1971',
-                        borderRadius: '1em'
-                    }}>
-                    <Card.Title className="text-center mb-3 display-5"><strong>Iniciar sesión</strong></Card.Title>
-                    <Card.Body className="loginDataUser">
-                        <Row className="justify-content-center align-items-center">
-                            <Col xs={10} md={6}>
-                                <Form as={Row}>
-                                    <Form.Group className="mt-3">
-                                        <div className="labelLogin">Email:</div>
-                                        <Col>
-                                            <InputText
-                                                type={"email"}
-                                                design={userError.emailError ? 'errorInput' : 'normalInput'}
-                                                name={"email"}
-                                                placeholder={"Enter email"}
-                                                state={setUser}
-                                                errorState={setUserError}
-                                            />
-                                        </Col>
-                                    </Form.Group>
-                                    <Form.Group className="mb-3">
-                                        <div className="labelLogin">Contraseña:</div>
-                                        <Col>
-                                            <InputText
-                                                type={"password"}
-                                                design={userError.passwordError ? 'errorInput' : 'normalInput'}
-                                                name={"password"}
-                                                placeholder={"Contraseña"}
-                                                state={setUser}
-                                                errorState={setUserError}
-                                            />
-                                        </Col>
-                                    </Form.Group></Form>
-                            </Col>
-                        </Row>
-                    </Card.Body>
-                    {userError?.credentials ? (
-                        <div>{userError.credentials}</div>
-                    ) : (
-                        <></>
-                    )}
-                    <div className="d-flex justify-content-center"> {/* Agrega la clase para centrar el botón */}
-      <AkdemyButton
-        onClick={(e) => submitHandler(e, user)}
-        style={{ backgroundColor: '#13326fba' }}
-        type="submit"
-        text={"Entrar!"}
-      />
-    </div>
-                </Card>
+                <Row className="justify-content-center">
+                    <Card
+                        style={{
+                            backgroundColor: '#9f512121',
+                            border: '0.1em solid #614a1971',
+                            borderRadius: '1em'
+                        }}>
+
+                            {/* LOGIN TITLE */}
+                        <Card.Title className="text-center mb-3 display-5"><strong>Iniciar sesión</strong></Card.Title>
+                        <Card.Body className="loginDataUser">
+                            <Row className="justify-content-center align-items-center">
+                                <Col xs={10} md={6}>
+                                    <Form as={Row}>
+
+                                        {/* EMAIL LOGIN */}
+                                        <Form.Group className="mt-3">
+                                            <div className="labelLogin">Email:</div>
+                                            <Col>
+                                                <InputText
+                                                    type={"email"}
+                                                    design={userError.emailError ? 'errorInput' : 'normalInput'}
+                                                    name={"email"}
+                                                    placeholder={"Enter email"}
+                                                    state={setUser}
+                                                    errorState={setUserError}
+                                                />
+                                                <div className="errorText">{userError.emailError}</div>
+                                            </Col>
+                                        </Form.Group>
+
+                                        {/* PASSWORD LOGIN */}
+                                        <Form.Group className="mb-3">
+                                            <div className="labelLogin">Contraseña:</div>
+                                            <Col>
+                                                <InputText
+                                                    type={"password"}
+                                                    design={userError.passwordError ? 'errorInput' : 'normalInput'}
+                                                    name={"password"}
+                                                    placeholder={"Contraseña"}
+                                                    state={setUser}
+                                                    errorState={setUserError}
+                                                />
+                                                <div className="errorText">{userError.passwordError}</div>
+                                            </Col>
+                                        </Form.Group></Form>
+                                </Col>
+                            </Row>
+                        </Card.Body>
+                        {userError?.credentials ? (
+                            <div>{userError.credentials}</div>
+                        ) : (
+                            <></>
+                        )}
+                        <div className="d-flex justify-content-center">
+                            <AkdemyButton
+                                onClick={(e) => submitHandler(e, user)}
+                                style={{ backgroundColor: '#13326fba' }}
+                                type="submit"
+                                text={"Entrar!"}
+                            />
+                        </div>
+                    </Card>
                 </Row>
             </Container>
         </div>

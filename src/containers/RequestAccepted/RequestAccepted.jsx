@@ -4,10 +4,17 @@ import { AkdemyButton } from '../../components/AkdemyButton/AkdemyButton';
 import { useNavigate } from "react-router-dom";
 
 export const RequestAccepted = () => {
+    const navigate = useNavigate();
 
-    const navigate = useNavigate()
+    //GO BACK HOME
+    const handleBackClick = () => {
+        navigate("/");
+    };
+
     return (
-        <div className="estimado-mensaje">
+
+        //RENDER REQUEST ACCEPTED COMPONENT AND MESSAGE
+        <div className="messageInscription">
             <p>Estimado/a,</p>
             <p>Nos complace informarle que hemos recibido su solicitud y estamos encantados de poder asistirle en su proceso de formación.</p>
             <p>Para proceder con el trámite, le solicitamos amablemente que nos haga llegar la siguiente documentación, ya sea de manera presencial o por correo electrónico a akdemyproject@outlook.com:</p>
@@ -21,7 +28,9 @@ export const RequestAccepted = () => {
             <p>Atentamente,</p>
             <p>El equipo de Akdemy</p>
             <p>Teléfono de contacto: +34-911 111 111</p>
-            <AkdemyButton navigate="/" text={"Volver"} />
+
+            {/* AKDEMY BUTTON TO GO BACK */}
+            <AkdemyButton text={"Volver"} onClick={handleBackClick} />
         </div>
     );
 }

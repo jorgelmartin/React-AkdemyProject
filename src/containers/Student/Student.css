@@ -27,7 +27,6 @@
 .userCardTitle {
     margin: 0.1em;
     border-radius: 1em;
-    /* height: 6em;  */
     width: 18em; 
     cursor: pointer;
     padding: 1em; 
@@ -35,7 +34,6 @@
     background-color: #699f216c; 
     font-weight:bold; 
     color: #191818;
-    /* background-color: #f0f0f0;  */
     box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.1); 
     transition: transform 0.3s ease, font-size 0.2s ease, background-color 0.3s ease;
 }
@@ -44,7 +42,6 @@
     font-size: 1.25em;
     background-color: #5f9ea0a4;
     transform: scale(1.1);
-    
 }
 
 .userCardTitle1:hover {

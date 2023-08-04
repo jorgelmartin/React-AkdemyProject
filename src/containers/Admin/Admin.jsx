@@ -4,17 +4,19 @@ import { useNavigate } from 'react-router-dom';
 import "./Admin.css";
 
 export const Admin = () => {
+    //USE NAVIGATE
     const navigate = useNavigate();
 
     return (
+        // RENDER THE ADMIN PAGE
         <div className="adminContainer">
             <Container> 
                 <Row className="d-flex justify-content-center mt-5">
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1" >
                     <div className="adminCardTitle1">
                             <div>
+                                {/* SHOW BUTTON TO GO TO USERS */}
                                 <Button
-                                    // style={{ backgroundColor: "#13326fba" }}
                                     className="w-100 adminCardTitle"
                                     onClick={() => navigate("/users")}
                                 >
@@ -26,8 +28,8 @@ export const Admin = () => {
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
                         <div className="adminCardTitle1">
                             <div>
+                                {/* SHOW BUTTON TO GO TO CONVOCATIONS */}
                                 <Button
-                                    // style={{ backgroundColor: "#13326fba" }}
                                     className="w-100 adminCardTitle"
                                     onClick={() => navigate("/convocation")}
                                 >
@@ -39,8 +41,8 @@ export const Admin = () => {
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
                         <div className="adminCardTitle1">
                             <div>
+                                {/* SHOW BUTTON TO GO TO CREATE CONVOCATIONS */}
                                 <Button
-                                    // style={{ backgroundColor: "#13326fba" }}
                                     className="w-100 adminCardTitle"
                                     onClick={() => navigate("/createConvocation")}
                                 >
@@ -52,8 +54,8 @@ export const Admin = () => {
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
                         <div className="adminCardTitle1" >
                             <div>
+                                {/* SHOW BUTTON TO GO TO REQUESTS */}
                                 <Button
-                                    // style={{ backgroundColor: "#13326fba" }}
                                     className="w-100 adminCardTitle"
                                     onClick={() => navigate("/userReq")}
                                 >

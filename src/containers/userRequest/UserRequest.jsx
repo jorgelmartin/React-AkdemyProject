@@ -10,12 +10,12 @@ export const UserRequest = () => {
     const acceptUserRequest = useFetchAcceptRequest();
     const [requestAccepted, setRequestAccepted] = useState(false);
 
+
+    //UPDATE DATA IF REQUEST ACCEPTED///
     useEffect(() => {
-        // Aquí, si la solicitud se ha aceptado exitosamente (requestAccepted es true),
-        // volvemos a cargar las solicitudes para obtener los datos actualizados.
         if (requestAccepted) {
-            setRequestAccepted(false); // Reiniciamos el estado a false para futuras actualizaciones
-            usersReq.refetch(); // Esta función debe existir en el hook useFetchUserRequest para recargar las solicitudes.
+            setRequestAccepted(false);
+            usersReq.refetch();
         }
     }, [requestAccepted, usersReq]);
 
@@ -23,11 +23,10 @@ export const UserRequest = () => {
         return <div>Loading...</div>;
     }
 
+    // ACCEPT REQUEST HANDLER
     const handleAcceptRequest = (id) => {
         // e.preventDefault();
-        console.log("Valor de id:", id); 
         acceptUserRequest(id)
-        
             .then(() => {
                 console.log("Solicitud aceptada correctamente");
                 setRequestAccepted(true);
@@ -38,27 +37,33 @@ export const UserRequest = () => {
     };
 
     return (
+
+        //RENDER USER REQUEST
         <Container className="mt-5">
+
+            {/* PENDING REQUEST TITLE */}
             <div className="requestUser">Solicitudes pendientes</div>
             <div className="tableContainerCheck mt-4">
+
+                {/* TABLE PENDING REQUEST */}
                 <div className="tableHeader">
                     <div className="tableHeaderCheck">Nombre</div>
                     <div className="tableHeaderCheck">Email</div>
                     <div className="tableHeaderCheck">Curso</div>
                     <div className="tableHeaderCheck">Inicio</div>
-                    {/* <div className="tableHeaderCheck">Aceptar</div> */}
-                    {/* <div className="tableHeaderCheck">Aceptar</div> */}
                 </div>
                 <div className="tableBodyCheck">
-                {usersReq.slice(0, 7).map((request, index) => (
+
+                    {/* MAPPING PENDING USER REQUEST */}
+                    {usersReq.slice(0, 7).map((request, index) => (
                         <div className="tableDataRow" key={index}>
                             <div className="tableDataCheck">{request.user.name} {request.user.surname}</div>
                             <div className="tableDataCheck">{request.user.email}</div>
                             <div className="tableDataCheck">{request.program.name}</div>
                             <div className="tableDataCheck">{request.convocation.beginning}
-                            </div>
-                            {/* <div className="tableDataCheck">{request.status}</div> */}
-                            {/* Estado */}
+                        </div>
+
+                            {/* AKDEMY BUTTON WITH THE HANDLER */}
                             <AkdemyButton onClick={() => {
                                 handleAcceptRequest(request.id);
                             }}

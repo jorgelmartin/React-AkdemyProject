@@ -10,12 +10,7 @@ export const Header = () => {
     const datosCredencialesRedux = useSelector(userData);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    
-    useEffect(() => {
-        if (!datosCredencialesRedux.credentials?.token) {
-            navigate("/login");
-        }
-    }, []);
+
     // LOGOUT
     const handleLogout = () => {
         dispatch(logout({ credentials: "" }));
@@ -23,10 +18,14 @@ export const Header = () => {
     };
 
     return (
+
+         //CREATE COMPONENT HEADER
         <div className='headerDesign'>
             <div className='linksDesign'>
                 <div className="headerLink" onClick={() => navigate("/home")}>Akdemy</div>
             </div>
+
+            {/* CHECK IF THERE IS TOKEN TO SHOW ADMIN OR USER WINDOW*/}
             {datosCredencialesRedux.data ? (
                 <div className="linksDesignToken">
                     {datosCredencialesRedux.data.role === 2 ? (
@@ -42,6 +41,7 @@ export const Header = () => {
                             <div className="headerLink" onClick={handleLogout}>Salir</div>
                         </>
                     ) : (
+                        // IF THERE IS NO TOKEN SHOW THIS
                         <>
                             <div className="headerLink" onClick={() => navigate("/login")}>Entrar</div>
                             <div className="headerLink" onClick={() => navigate("/register")}>Regístrate</div>

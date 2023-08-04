@@ -19,6 +19,7 @@ import { RequestAccepted } from "../RequestAccepted/RequestAccepted";
 
 export const Body = () => {
     return (
+        // RENDER THE SEARCH INPUT
         <>
             <Routes>
                 <Route path="*" element={<Navigate to="/"/>} />

@@ -13,7 +13,7 @@ export const Register = () => {
     const [user, setUser] = useState({});
     const [userError, setUserError] = useState({});
 
-    //SENDING FORM REGISTER
+    //REGISTER FUNCTION
     const submitHandler = (e, body) => {
         e.preventDefault();
         registerMe(body)
@@ -26,31 +26,33 @@ export const Register = () => {
     };
 
     return (
+        //RENDER REGISTER
         <div className="registerDesign">
             <Container className="d-flex justify-content-center align-items-center mt-4">
                 <Card className="registerCard" style={{
                     backgroundColor: '#9f512121', maxWidth: '25em',
                 }}>
                     <Card.Body>
+
+                        {/* REGISTER TITLE */}
                         <Card.Title className="text-center mb-3 display-5"><strong>Registro</strong></Card.Title>
-                        <Form as={Row}>
+                            <Form as={Row}>
+
                             {/* Nombre */}
-                            <div className="dataUserRegister">
-                                <div className="profileLabelRegister">Nombre:</div>
+                        <div className="dataUserRegister">
+                            <div className="profileLabelRegister">Nombre:</div>
                                 <div className="dataRegister">
                                     <InputText
                                         type={"text"}
-                                        design={
-                                            userError.nameError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
+                                        design={userError.nameError ? 'errorInput' : 'normalInput'}
                                         placeholder={"Ingrese su nombre..."}
                                         name={"name"}
                                         state={setUser}
                                         errorState={setUserError}
                                     />
-                                </div></div>
+                                    <div className="errorText">{userError.nameError}</div>
+                                </div>
+                            </div>
 
                             {/* Apellido */}
                             <div className="dataUserRegister">
@@ -58,34 +60,29 @@ export const Register = () => {
                                 <div className="dataRegister">
                                     <InputText
                                         type={"text"}
-                                        design={
-                                            userError.surnameError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
+                                        design={userError.surnameError ? 'errorInput' : 'normalInput'}
                                         placeholder={"Ingrese su apellido..."}
                                         name={"surname"}
                                         state={setUser}
                                         errorState={setUserError}
                                     />
+                                    <div className="errorText">{userError.surnameError}</div>
                                 </div>
                             </div>
+
                             {/* Email */}
                             <div className="dataUserRegister">
                                 <div className="profileLabelRegister">Email:</div>
                                 <div className="dataRegister">
                                     <InputText
                                         type={"email"}
-                                        design={
-                                            userError.emailError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
+                                        design={userError.emailError ? 'errorInput' : 'normalInput'}
                                         placeholder={"Ingrese su email..."}
                                         name={"email"}
                                         state={setUser}
                                         errorState={setUserError}
                                     />
+                                    <div className="errorText">{userError.emailError}</div>
                                 </div>
                             </div>
                             {/* Contraseña */}
@@ -94,16 +91,13 @@ export const Register = () => {
                                 <div className="dataRegister">
                                     <InputText
                                         type={"password"}
-                                        design={
-                                            userError.passwordError === ""
-                                                ? "normalInputRegister"
-                                                : "normalInputRegister errorInput"
-                                        }
+                                        design={userError.passwordError ? 'errorInput' : 'normalInput'}
                                         placeholder={"Ingrese su contraseña..."}
                                         name={"password"}
                                         state={setUser}
                                         errorState={setUserError}
                                     />
+                                    <div className="errorText">{userError.passwordError}</div>
                                 </div>
                             </div>
 

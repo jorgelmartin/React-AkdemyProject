@@ -7,13 +7,16 @@ export const Student = () => {
     const navigate = useNavigate();
 
     return (
+
+        //RENDER STUDENT CONTAINER
         <Container> 
                 <Row className="d-flex justify-content-center mt-5">
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1" >
                     <div className="adminCardTitle1">
                             <div>
+
+                                {/* CONVOCATIONS BUTTON */}
                             <Button
-                                    // style={{ backgroundColor: "#13326fba" }}
                                     className="w-100 userCardTitle"
                                     onClick={() => navigate("/convocation")}
                                 >
@@ -25,8 +28,9 @@ export const Student = () => {
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
                         <div className="adminCardTitle1">
                             <div>
+
+                                {/* MY PROGRAMS BUTTON */}
                             <Button
-                                    // style={{ backgroundColor: "#13326fba" }}
                                     className="w-100 userCardTitle"
                                     onClick={() => navigate("/myPrograms")}
                                 >
@@ -38,8 +42,9 @@ export const Student = () => {
                     <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
                         <div className="adminCardTitle1">
                             <div>
+
+                                {/* REQUEST */}
                             <Button
-                                    // style={{ backgroundColor: "#13326fba" }}
                                     className="w-100 userCardTitle"
                                     onClick={() => navigate("/inscription")}
                                 >

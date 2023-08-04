@@ -86,22 +86,3 @@ export const createUserConvocation = async (body, token) => {
     
     return res;
 }
-
-// export const joinConvocation = async (token, id) => {
-//     try {
-//         let config = {
-//             headers: {
-//                 Authorization: `Bearer ${token}`,
-//             },
-//         };
-//         let data = {
-//             id: id,
-//         };
-//         let res = await axios.post(`${URL}/api/convocation/join`, data, config);
-//         return res;
-//     } catch (error) {
-//         console.error("Error uniendo a la convocatoria", error);
-//         throw error;
-//     }
-// };
-

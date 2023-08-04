@@ -26,7 +26,6 @@ export const Profile = () => {
 
     //UPDATE PROFILE
     const editHandler = (body, token) => {
-
         if (id) {
             body.id = id;
             updateProfile(body, token)
@@ -43,7 +42,6 @@ export const Profile = () => {
     const handleMouseEnter = () => {
         setHovering(true);
     };
-
     const handleMouseLeave = () => {
         setHovering(false);
     };
@@ -77,6 +75,8 @@ export const Profile = () => {
     }, [editing, token]);
 
     return (
+
+        // RENDER PROFILE CONTAINER
         <div style={{ minWidth: '20em' }}>
             {/* MAKING ALERT WITH RED COLOR BEFORE DELETE PROFILE */}
             <div className="text-center mb-3  display-3 mt-5" style={{
@@ -86,12 +86,15 @@ export const Profile = () => {
                 borderRadius: '0.5rem',
                 text: "Editar"
             }}>
+
+                {/* PROFILE TITLE */}
                 <strong>Perfil</strong>
             </div>{hovering ? "Espera, ¿Seguro deseas borrar tu perfil?" : null}
             <div className="dataUser">
-
                 <div className="profileInfo">
                     <div className="profileInfoRow">
+
+                        {/* PROFILE NAME */}
                         <strong className="profileLabel">Nombre:</strong>
                         <div className="profileData">
                             {editing ? (
@@ -109,6 +112,8 @@ export const Profile = () => {
                             )}
                         </div>
                     </div>
+
+                    {/* PROFILE SURNAME */}
                     <div className="profileInfoRow">
                         <strong className="profileLabel">Apellidos:</strong>
                         <div className="profileData">
@@ -125,7 +130,9 @@ export const Profile = () => {
                             )}
                         </div>
                     </div>
-                    <div className="">
+
+                    {/* PROFILE EMAIL */}
+                    <div className="profileInfoRow">
                         <strong className="profileLabel">Email:</strong>
                         <div className="profileData">
                             {editing ? (
@@ -141,6 +148,8 @@ export const Profile = () => {
                             )}
                         </div>
                     </div>
+
+                    {/* PROFILE PASSWORD, ONLY IF IS EDITING */}
                     {editing && (
                         <div className="profileInfoRow">
                             <strong className="profileLabel">Contraseña:</strong>
@@ -157,8 +166,10 @@ export const Profile = () => {
                 </div>
             </div>
             <div className="text-center">
+
+                {/* IF IS EDITING SHOW THIS BUTTON */}
                 {editing ? (
-                    <div className="">
+                    <div>
                         <AkdemyButton
                             onClick={() => editHandler(body, token)} text={"Guardar"} />
                     </div>
@@ -169,7 +180,6 @@ export const Profile = () => {
                                 onClick={() => setEditing(true)}
                                 text={"Editar"}
                             />
-
 
                             {/* CHECK IF THE USER IS ADMIN  TO HIDE DELETE BUTTON */}
                             {datos.data.role === 2 ? (
@@ -191,7 +201,5 @@ export const Profile = () => {
                 )}
             </div>
         </div>
-
-
     );
 };

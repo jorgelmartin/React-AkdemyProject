@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useFetchConvocations } from "../../../hooks/useFetchConvocation";
-import { Table, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "./Convocation.css";
 import { useNavigate } from "react-router-dom";
-// import { inputHandler } from "../../services/UseFul";
-// import { joinConvocation } from "../../services/apiCalls";
 import { useSelector } from 'react-redux';
 import { userData } from "../../containers/userSlice";
 import { InputSearch } from "../../components/InputSearch/InputSearch";
@@ -16,12 +14,18 @@ export const Convocation = () => {
     const navigate = useNavigate();
     const userRole = useSelector(userData);
 
+    //UPDATE SETFILTEREDCONVOCATIONS WITH CONVOCATIONS
     useEffect(() => {
         setFilteredConvocations(convocations);
     }, [convocations]);
 
+    //HANDLE SEARCH BASED ON THE GIVEN TEXT
     const handleSearch = (text) => {
+
+        //IF THERE IS TEXT
         if (text) {
+
+            //FILTER TEXT IN CONVOCATIONS 
             const filtered = convocations.filter(
                 (convocation) =>
                     convocation.program.name.includes(text) ||
@@ -29,24 +33,33 @@ export const Convocation = () => {
                     convocation.schedule.includes(text) ||
                     convocation.id.toString().includes(text)
             );
+            //UPDATE WITH THE FILTERED ARRAY FROM CONVOCATIONS
             setFilteredConvocations(filtered);
         } else {
+            //IF THERE IS NO TEXT, SHOW CONVOCATIONS
             setFilteredConvocations(convocations);
         }
     };
 
+    //IF THE API DONT WORK SHOW CARGANDO...
     if (!filteredConvocations) {
         return <div>Cargando...</div>;
     }
 
     return (
+        // RENDER THE CONVOCATIONS
         <Container className="mt-5">
+
+            {/* INPUTSEARCH */}
             <div className="containerInput">
                 <InputSearch onSearch={handleSearch} />
             </div>
+
+            {/* SHOW THE CONVOCATIONS TABLE */}
             <div className="tableContainer">
                 <table className="customTable">
                     <thead>
+                        {/* TABLE NAMES */}
                         <tr>
                             <th className="customTitle">ID</th>
                             <th className="customTitle">Programa</th>
@@ -56,6 +69,8 @@ export const Convocation = () => {
                         </tr>
                     </thead>
                     <tbody>
+
+                        {/* TABLE DATA */}
                         {filteredConvocations.slice(0, 15).map((convocation) => (
                             <tr key={convocation.id}>
                                 <td className="customData">{convocation.id}</td>
@@ -63,7 +78,7 @@ export const Convocation = () => {
                                 <td className="customData">{convocation.beginning}</td>
                                 <td className="customData">{convocation.schedule}
 
-                                    {/* Mostramos los botones según el rol correspondiente */}
+                                    {/* IF THERE IS ADMIN SHOW THIS BUTTON */}
                                     {userRole.data.role === 1 ? (
                                         <div className="d-flex justify-content-end buttonsConvocations">
                                             <button
@@ -75,14 +90,6 @@ export const Convocation = () => {
                                         </div>
                                     ) : (
                                         <>
-                                            {/* <div className="d-flex justify-content-center buttonsConvocations">
-                                        <button
-                                            className="buttonJoin"
-                                            onClick={() => handleJoinConvocation(convocation.id)}
-                                        >
-                                            Unirse
-                                        </button>
-                                    </div> */}
                                         </>
                                     )}</td>
                             </tr>

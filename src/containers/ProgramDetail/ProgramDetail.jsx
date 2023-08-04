@@ -27,8 +27,9 @@ export const ProgramDetail = () => {
             setProgramDetail(null);
         }
     }, [parsedId, programs]);
-    console.log("soyiddd", programDetail);
 
+
+    //CHECK IF THE USER IS REGISTERED
     const handleClick = () => {
         if (!datosCredencialesRedux.credentials?.token) {
             navigate('/register');
@@ -37,16 +38,19 @@ export const ProgramDetail = () => {
         }
     };
 
-    //SHOW THE DETAIL SERVICE
+    
     return (
-        <div className="DetailService">
-            <div className="DetailService1">
+        //RENDER DETAIL VIEW
+        <div className="DetailProgram">
+            <div className="DetailProgram1">
                 {programDetail ? (
                     <>
                         <h2>{programDetail.name}</h2>
                         <img src={`https://laravel-akdemyproject-production.up.railway.app/${programDetail.image}`} alt="" />
                         <h4>{programDetail.description}</h4>
                         <h5>Precio €: {programDetail.price}</h5>
+
+                        {/* BUTTON TO GO TO REQUEST INSCRIPTION */}
                         <AkdemyButton onClick={handleClick} text={"Solicitar Inscripción"}/>
                     </>
                 ) : (

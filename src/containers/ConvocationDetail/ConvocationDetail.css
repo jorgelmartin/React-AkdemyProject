@@ -6,16 +6,7 @@
     border-radius: 2em;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    
 }
-
-/* .DetailAppointment1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
-
 .program-info {
     
     border: 0.1em solid #749b7381;
@@ -26,16 +17,12 @@
 }
 
 .program-details {
-    
     margin-top: 0.3em;
 }
 
 .detail-item {
-    
     margin: 0.7em;
 }
-
-
 
 .user-list {
     margin-top: 0.1em;
@@ -51,7 +38,6 @@
 }
 
 .user-item p {
-    
     margin: 0;
     font-size: 0.8em;
     color: #818181;

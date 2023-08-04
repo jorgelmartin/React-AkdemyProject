@@ -11,16 +11,14 @@ export const ConvocationDetail = () => {
     //GET THE ID VALUE FROM THE URL
     let { id } = useParams();
     const parsedId = parseInt(id);
-    console.log(parsedId);
 
-    //ASSIGN convocation
     const convocations = useFetchConvocations();
     const [convocationDetail, setConvocationDetail] = useState(null);
     const [editing, setEditing] = useState(false);
 
+
+    //SEARCH IN THE ARRAY CONVOCATIONS COMPARING THE ID GETING FROM parsedId
     useEffect(() => {
-        // FOUND THE APPOINTMENT WITH THE ID GET IT FROM THE ARRAY
-        console.log("hello", convocations);
         if (convocations && Array.isArray(convocations)) {
             const foundConvocation = convocations.find((item) => item.id === parsedId);
             if (foundConvocation) {
@@ -30,10 +28,15 @@ export const ConvocationDetail = () => {
             }
         }
     }, [parsedId, convocations]);
-    console.log("convoooo", convocationDetail);
+
+
     return (
         <>
+
+            {/* IF IS NOT EDITING SHOW */}
             {convocationDetail && !editing ? (
+
+                //DETAIL PROGRAM GETTING FROM USEPARAMS
                 <div className="convocationDetail">
                     <div className="program-info">
                         <h2>Curso: {convocationDetail.program.name}</h2>
@@ -52,6 +55,8 @@ export const ConvocationDetail = () => {
                             </div>
 
                         </div>
+
+                        {/* AKDEMY BUTTON */}
                         <AkdemyButton
                             onClick={() => {
                                 setEditing(!editing);
@@ -59,18 +64,21 @@ export const ConvocationDetail = () => {
                             text={"Editar"}
                         />
                     </div>
+
+                    {/* SHOW THE STUDENT BY CONVOCATION */}
                     <h3>Alumnos:</h3>
                     <div className="user-list">
                         {convocationDetail.user.map((user) => (
                             <div className="user-item" key={user.id}>
                                 <h4>{user.name} {user.surname}</h4>
                                 <p>Email: {user.email}</p>
-                                {/* Aquí puedes mostrar más información sobre el usuario si lo deseas */}
                             </div>
                         ))}
                     </div>
                 </div>
             ) : (
+
+                // IF CLIC IN EDIT USE CREATECONVOCATION COMPONENT FOR EDIT THE ACTUAL CONVOCATION
                 <CreateConvocation isUpdate={true} updateData={convocationDetail}></CreateConvocation>
             )}
         </>

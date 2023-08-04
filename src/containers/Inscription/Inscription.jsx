@@ -19,12 +19,15 @@ export const Inscription = () => {
     const userToken = datosCredencialesRedux?.credentials?.token;
     const userId = datosCredencialesRedux?.data?.userId;
 
-    const convocations = useFetchConvocations(); // Fetch convocations from the API
-    console.log(convocations)
+    const convocations = useFetchConvocations();
+
+
+    //GETTING THE DATA FROM THE SELECTEDCONVOCATION 
     const handleConvocationChange = (e) => {
         const selectedId = parseInt(e.target.value);
         const selectedConvocation = convocations.find((convocation) => convocation.id === selectedId);
 
+        //UPDATE CONVOCATIONDATA FROM THE SELECTED CONVOCATION
         setConvocationData({
             ...convocationData,
             convocation_id: selectedId,
@@ -34,11 +37,16 @@ export const Inscription = () => {
                 price: selectedConvocation && selectedConvocation.program ? selectedConvocation.program.price : ''
             }
         });
-        setSelectedConvocationId(selectedId); // Update the selectedConvocationId state
+
+        //UPDATE SLECTEDCONVOCATIONID STATE WITH SELECTEDID
+        setSelectedConvocationId(selectedId);
     };
 
+    //INSCRIPTION HANDLER
     const handleInscription = async (e) => {
         e.preventDefault();
+
+        //PERPARE DATA TO BE SEND IN THE REQUEST BODY
         const body = {
             convocation_id: selectedConvocationId,
             user_id: userId,
@@ -46,21 +54,27 @@ export const Inscription = () => {
         navigate('/requestAccepted');
         const result = await createUserConvocation(body, userToken);
         console.log("User-Convocation created:", result);
-        
     };
 
+    //FILTER AND SHOW ONLY UPCOMING CONVOCATIONS
     const upcomingConvocations = convocations ? convocations.filter(
         convocation => new Date(
             convocation.beginning
         ) > new Date()) : [];
 
     return (
+
+        //RENDER INSCRIPTION CONTAINER
         <Container >
-            <Card style={{ maxWidth: '25em', margin: '0 auto', backgroundColor: '#9f512121', border: 'green solid 0.1em'}}>
+            <Card style={{ maxWidth: '25em', margin: '0 auto', backgroundColor: '#9f512121', border: 'green solid 0.1em' }}>
                 <Card.Body>
+
+                    {/* INSCRIPTION TITLE */}
                     <h2 className="textInscription mb-3 display-5">Inscripción:</h2>
                     <div className="grid-container">
                         <div className="grid-item">
+
+                            {/* GETTING UPCOMING CONVOCATIONS */}
                             <div className="labelCreate">Convocatorias:</div>
                             <select
                                 value={convocationData.convocation_id}
@@ -79,27 +93,30 @@ export const Inscription = () => {
                                 )}
                             </select>
                         </div>
+
+                        {/* DISPLAY THE BEGINNING DATE */}
                         <div className="grid-item">
                             <div className="labelCreate">Inicio:</div>
-                            {/* Display the beginning date */}
                             <span>{convocationData.beginning}</span>
                         </div>
+
+                        {/* DISPLAY SCHELUDE */}
                         <div className="grid-item">
                             <div className="labelCreate">Horarios:</div>
-                            {/* Display the schedule */}
                             <span>{convocationData.schedule}</span>
                         </div>
+
+                        {/* DISPLAY THE PRICE */}
                         <div className="grid-item">
                             <div className="labelCreate">Precio:</div>
-                            {/* Display the price of the program */}
                             <span>{convocationData.program && convocationData.program.price}</span>
                         </div>
                     </div>
+
+                    {/* AKDEMY BUTTON */}
                     <div className="d-flex justify-content-center">
                         <AkdemyButton onClick={handleInscription} text="Solicitar" />
-
                     </div>
-
                 </Card.Body>
             </Card>
         </Container>

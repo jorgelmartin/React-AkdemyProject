@@ -1,4 +1,4 @@
-.DetailService {
+.DetailProgram {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,11 +6,10 @@
     min-width: 100vw;
 }
 
-.DetailService1 {
+.DetailProgram1 {
     box-shadow: inset 0 0 2em #98a84e92;
     margin-top: 3.8em; 
     border-radius: 2em;
-    /* box-shadow: inset 0 0 2em rgba(199, 78, 45, 0.2); */
     padding: 1em; 
     text-align: center;
     color: #834016;
@@ -19,7 +18,7 @@
     overflow: hidden; 
 }
 
-.DetailService1 img {
+.DetailProgram1 img {
     border-radius: 2em;
     max-width: 100%;
     height: auto;
@@ -27,33 +26,16 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.DetailService1 h2 {
+.DetailProgram1 h2 {
     font-size: 1.8em; 
     margin-bottom: 0.5em;
 }
 
-.DetailService1 h4 {
+.DetailProgram1 h4 {
     margin-top: 0.3em;
     font-size: 1em; 
 }
-/* 
-.SolicitarButton {
-    background-color: #b62525a6; 
-    color: #fff;
-    padding: 0.6em 0.9em;
-    border: none;
-    border-radius: 1em;
-    font-size: 1em;
-    cursor: pointer;
-    margin-top: 1.3em;
-    
-} */
 
-.DetailService1 img:hover {
+.DetailProgram1 img:hover {
     transform: scale(0.9); 
 }
-
-/* Hover effect */
-/* .SolicitarButton:hover {
-    background-color: #0056b3; 
-} */

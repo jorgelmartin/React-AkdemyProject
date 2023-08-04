@@ -21,14 +21,13 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
     const [convocationData, setConvocationData] = useState(
         {
             ...updateData,
-            // id: datos.data.userId // VERIFICAR QUE SIRVE Y QUE NO
+            // id: datos.data.userId 
         }
     );
 
     //CREATE AND UPDATE APPOINTMENT
     const createApp = (e) => {
         e.preventDefault();
-        console.log("Objeto body:", convocationData);
         if (isUpdate) {
             updateConvocation(token, convocationData.id, convocationData)
                 .then(() => navigate("/convocation"));
@@ -38,11 +37,15 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
         }
     };
     return (
+
+        //RENDER CREATE CONVOCATIONS
         <Container>
             <Card style={{ maxWidth: '20em', margin: '0 auto' }}>
                 <div className="cardCreate">
                     <h2 style={{ textAlign: 'center', marginBottom: '1em' }}>Convocatoria</h2>
                     <div className="rowCreate">
+
+                        {/* PROGRAM SELECTOR */}
                         <strong>Curso:</strong>
                         <SelectPrograms
                             name="program_id"
@@ -56,6 +59,8 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                         />
                     </div>
                     <div className="rowCreate">
+
+                        {/* BEGINNING SELECTOR */}
                         <strong>Inicio:</strong>
                         <SelectDate
                             name="beginning"
@@ -69,6 +74,8 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                         />
                     </div>
                     <div className="rowCreate">
+
+                        {/* SCHEDULE SELECTOR */}
                         <strong>Horario:</strong>
                         <SelectSchedule
                             name="schedule_id"
@@ -81,6 +88,8 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                             }}
                         />
                     </div>
+
+                    {/* AKDEMY BUTTON */}
                     <div style={{ textAlign: 'center' }}>
                         <AkdemyButton
                             onClick={createApp}

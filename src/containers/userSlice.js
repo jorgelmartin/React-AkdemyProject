@@ -41,7 +41,7 @@ export const userSlice = createSlice({
 
 });
 
-//exporto las ACCIONES.....
+//EXPORT.....
 export const { login, logout } = userSlice.actions;
 
 export const userData = (state) => state.user;
