@@ -78,7 +78,7 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                         <strong>Horario:</strong>
                         <SelectSchedule
                             name="schedule_id"
-                            value={convocationData.schedule_id}
+                            value={convocationData.schedule}
                             handleChange={(value) => {
                                 setConvocationData({
                                     ...convocationData,

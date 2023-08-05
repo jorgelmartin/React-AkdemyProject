@@ -78,7 +78,7 @@ export const ConvocationDetail = () => {
             ) : (
 
                 // IF CLIC IN EDIT USE CREATECONVOCATION COMPONENT FOR EDIT THE ACTUAL CONVOCATION
-                <CreateConvocation isUpdate={true} updateData={convocationDetail}></CreateConvocation>
+                <CreateConvocation isUpdate={true} updateData={convocationDetail}/>
             )}
         </>
     );

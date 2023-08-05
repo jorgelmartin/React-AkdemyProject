@@ -30,7 +30,7 @@ export const RequestAccepted = () => {
             <p>Teléfono de contacto: +34-911 111 111</p>
 
             {/* AKDEMY BUTTON TO GO BACK */}
-            {/* <AkdemyButton text={"Volver"} onClick={handleBackClick} /> */}
+            <AkdemyButton text={"Volver"} onClick={handleBackClick}/>
         </div>
     );
 }

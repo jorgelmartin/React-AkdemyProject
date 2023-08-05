@@ -27,7 +27,7 @@ export const Home = () => {
                 <div key={program.id} className="productCardDesign">
                     <img
                         className="productImgDesign"
-                        src={`http://localhost:8000/${program.image}`}
+                        src={`https://laravel-akdemyproject-production.up.railway.app/${program.image}`}
                         alt={program.name}
                         onClick={() => navigate(`/programDetail/${program.id}`)}
                     />

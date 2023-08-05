@@ -4,8 +4,10 @@ import './AkdemyButton.css';
 //CREATE COMPONENT AKDEMY BUTTON
 export const AkdemyButton = ({ onClick, children, text }) => {
     return (
-        <button className="AkdemyButton"  onClick={onClick}>
+        <div className='borderAkdemy'>
+        <button className="akdemyButton"  onClick={onClick}>
             {children} {text}
         </button>
+        </div>
     );
 };

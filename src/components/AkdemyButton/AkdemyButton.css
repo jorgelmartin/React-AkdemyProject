@@ -1,4 +1,6 @@
-.AkdemyButton {
+
+
+.akdemyButton {
     background-color: #90a729fd;
     color: #ffffff;
     padding: 0.6em 0.9em;
@@ -10,6 +12,6 @@
     transition: transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: inset 0.04em 0.04em 0.5em 0.2em rgba(21, 61, 9, 0.532);
 }
-.AkdemyButton:hover{
-    transform: scale(1.06);
+.akdemyButton:hover{
+    transform: scale(0.96);
 }
