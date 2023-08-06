@@ -134,7 +134,7 @@ export const Profile = () => {
                     <div className="profileInfoRow">
                         <strong className="profileLabel">Email:</strong>
                         <div className="profileData">
-                            {editing ? (
+                            {editing && datos.data.role === 2 ? (
                                 <input
                                     type="text"
                                     name="email"
@@ -147,9 +147,8 @@ export const Profile = () => {
                             )}
                         </div>
                     </div>
-
                     {/* PROFILE PASSWORD, ONLY IF IS EDITING */}
-                    {editing && (
+                    {editing && datos.data.role === 2 && (
                         <div className="profileInfoRow">
                             <strong className="profileLabel">Contraseña:</strong>
                             <div className="profileData">
@@ -165,37 +164,37 @@ export const Profile = () => {
                 </div>
             </div>
             <div className="containerButtons">
-    {/* IF IS EDITING SHOW THIS BUTTON */}
-    {editing ? (
-        <div className="buttonGroup">
-            <AkdemyButton
-                onClick={() => editHandler(body, token)}
-                text={"Guardar"}
-            />
-        </div>
-    ) : (
-        <div>
-            <div className="buttonGroup">
-                <AkdemyButton
-                    onClick={() => setEditing(true)}
-                    text={"Editar"}
-                />
+                {/* IF IS EDITING SHOW THIS BUTTON */}
+                {editing ? (
+                    <div className="buttonGroup">
+                        <AkdemyButton
+                            onClick={() => editHandler(body, token)}
+                            text={"Guardar"}
+                        />
+                    </div>
+                ) : (
+                    <div>
+                        <div className="buttonGroup">
+                            <AkdemyButton
+                                onClick={() => setEditing(true)}
+                                text={"Editar"}
+                            />
 
-                {/* CHECK IF THE USER IS ADMIN TO HIDE DELETE BUTTON */}
-                {datos.data.role === 2 ? (
-                    <Button
-                        onClick={handleDeleteProfile}
-                        className={`deleteButton ${hovering ? 'hovered' : ''}`}
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        {hovering ? 'CUIDADO!' : 'Borrar perfil'}
-                    </Button>
-                ) : null}
+                            {/* CHECK IF THE USER IS ADMIN TO HIDE DELETE BUTTON */}
+                            {datos.data.role === 2 ? (
+                                <Button
+                                    onClick={handleDeleteProfile}
+                                    className={`deleteButton ${hovering ? 'hovered' : ''}`}
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}
+                                >
+                                    {hovering ? 'CUIDADO!' : 'Borrar perfil'}
+                                </Button>
+                            ) : null}
+                        </div>
+                    </div>
+                )}
             </div>
-        </div>
-    )}
-</div>
         </div>
     );
 };
