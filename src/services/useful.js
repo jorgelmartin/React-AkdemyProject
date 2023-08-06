@@ -26,24 +26,21 @@ export const checkError = (name, value) => {
             }
             return "";
 
-            //CHECKING PASSWORD ERROR
+        //CHECKING PASSWORD ERROR
         case "password":
         case "contraseña":
             if (value.length < 6) {
                 return "El password debe de tener 6 caracteres";
             }
-
-            //IN COMMENTS FOR THE DEPLOY
-        
-            // if (!/[A-Z]/.test(value)) {
-            //     return "El password debe contener al menos una letra mayúscula";
-            // }
+            if (!/[A-Z]/.test(value)) {
+                return "El password debe contener al menos una letra mayúscula";
+            }
             // if (!/\d/.test(value)) {
             //     return "El password debe contener al menos un número";
             // }
             return "";
 
-            //CHECKING NAME ERROR
+        //CHECKING NAME ERROR
         case "name":
             if (!/^[a-zA-Z]+$/.test(value)) {
                 return "El nombre debe contener solo letras";
@@ -53,7 +50,7 @@ export const checkError = (name, value) => {
             }
             return "";
 
-            //CHECKING SURNAME ERROR
+        //CHECKING SURNAME ERROR
         case "surname":
             if (!/^[a-zA-Z]+$/.test(value)) {
                 return "El apellido debe contener solo letras";
