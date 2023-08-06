@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useFetchUserRequest } from "../../../hooks/useFetchUserRequest";
 import { useFetchAcceptRequest } from "../../../hooks/useFetchAcceptRequest";
 import "../../App.css";
-import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
 import { AdminButton } from "../../components/AdminButton/AdminButton";
 
 export const UserRequest = () => {

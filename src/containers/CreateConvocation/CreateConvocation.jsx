@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import "./CreateConvocation.css";
-import { Container, Card, Button } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { SelectPrograms } from "../../../hooks/useFetchSelectPrograms";
 import { SelectDate } from "../../../hooks/useFetchSelectDate";

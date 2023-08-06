@@ -15,7 +15,7 @@ export const useFetchRequestAccepted = (userId) => {
             },
         };
 
-        fetch(`https://laravel-akdemyproject-production.up.railway.app/api/userConvo/getAccepted/${userId}`, config) // Agrega una barra antes de userId
+        fetch(`https://laravel-akdemyproject-production.up.railway.app/api/userConvo/getAccepted/${userId}`, config)
             .then(res => res.json())
             .then(res => {
                 setUsersRequest(res);

@@ -7,6 +7,7 @@ import { userData } from '../userSlice';
 import { useNavigate } from 'react-router-dom';
 import { AkdemyButton } from '../../components/AkdemyButton/AkdemyButton';
 import "./Inscription.css";
+import { useFetchRequestAccepted } from '../../../hooks/useFetchRequestAccepted';
 
 
 export const Inscription = () => {
@@ -16,6 +17,8 @@ export const Inscription = () => {
 
     const navigate = useNavigate();
 
+    // const usersReq = useFetchRequestAccepted(userId);
+    
     const userToken = datosCredencialesRedux?.credentials?.token;
     const userId = datosCredencialesRedux?.data?.userId;
 

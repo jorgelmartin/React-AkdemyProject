@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Container, Table, Button } from "react-bootstrap";
+import React from "react";
+import { Container, Table } from "react-bootstrap";
 import { useFetchRequestAccepted } from "../../../hooks/useFetchRequestAccepted";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
@@ -10,11 +10,11 @@ export const MyPrograms = () => {
     const datosCredencialesRedux = useSelector(userData);
 
     //GET THE ID FROM USER
-    const userId = datosCredencialesRedux.data.userId;
+    const userId = datosCredencialesRedux?.data?.userId;
 
     //GET THE REQUEST ACCEPTED
     const usersReq = useFetchRequestAccepted(userId);
-
+console.log("hello ",usersReq);
     if (!usersReq) {
         return <div>Loading...</div>;
     }
@@ -23,7 +23,9 @@ export const MyPrograms = () => {
 
         //RENDER MY PROGRAMS CONTAINER
         <Container className="mt-4">
+            <div className="requestUser">Mis cursos</div>
             <Table striped bordered hover responsive>
+                
                 <thead>
 
                     {/* TABLE OF USER PROGRAMS */}
@@ -36,8 +38,8 @@ export const MyPrograms = () => {
                 <tbody>
 
                     {/* DATA FROM USER PRORGAMS */}
-                    {usersReq.map((request, index) => (
-                        <tr key={index}>
+                    {usersReq.map((request, i) => (
+                        <tr key={i}>
                             <td>{request.user.name} {request.user.surname}</td>
                             <td>{request.program.name}</td>
                             <td>{request.convocation.beginning}</td>

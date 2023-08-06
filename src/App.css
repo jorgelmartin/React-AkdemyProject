@@ -30,13 +30,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .requestUser {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: bold;
   color: rgb(75, 65, 65);
 }
@@ -55,12 +57,12 @@
   background-color: #f0f0f0;
   font-weight: bold;
   border-bottom: 0.06em solid #aca7a7;
-  margin-right: 3.27em;
 }
 
 .tableHeaderCheck {
+  overflow: hidden;
   flex: 1;
-
+  min-width: 20%;
   padding: 0.6em;
   text-align: center;
   border-right: 0.06em solid #aca7a7;
@@ -78,7 +80,24 @@
 
 .tableDataCheck {
   flex: 1;
+  overflow: hidden;
   padding: 0.7em;
   text-align: center;
   border-right: 0.06em solid #aca7a7;
+  background-color: rgba(250, 235, 215, 0.396);
+}
+
+.tableHeaderRequest {
+  
+  background-color: rgba(211, 241, 195, 0.389);
+  flex: 1;
+  overflow: hidden;
+  padding: 0.7em;
+  text-align: center;
+  border-right: 0.06em solid #aca7a7;
+}
+.containerInputConvocations {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

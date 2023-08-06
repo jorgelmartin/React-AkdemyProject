@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useFetchConvocations } from "../../../hooks/useFetchConvocation";
 import { Container } from "react-bootstrap";
-import "./Convocation.css";
+import "../../App.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { userData } from "../../containers/userSlice";
 import { InputSearch } from "../../components/InputSearch/InputSearch";
+import { AdminButton } from "../../components/AdminButton/AdminButton";
 
 export const Convocation = () => {
-    const [searchText, setSearchText] = useState("");
     const convocations = useFetchConvocations();
     const [filteredConvocations, setFilteredConvocations] = useState([]);
     const navigate = useNavigate();
@@ -50,53 +50,44 @@ export const Convocation = () => {
         // RENDER THE CONVOCATIONS
         <Container className="mt-5">
 
-            {/* INPUTSEARCH */}
-            <div className="containerInput">
-                <InputSearch onSearch={handleSearch} />
+    <div className="requestUser">Convocatorias</div>
+
+    <div className="containerInputConvocations">
+        <InputSearch onSearch={handleSearch} />
+    </div>
+
+    <div className="tableContainerCheck mt-4 tableScroll">
+        <div className="">
+            <div className="tableDataRow">
+                <div className="tableHeaderRequest"><strong>ID</strong></div>
+                <div className="tableHeaderRequest"><strong>Programa</strong></div>
+                <div className="tableHeaderRequest"><strong>Inicio</strong></div>
+                <div className="tableHeaderRequest"><strong>Horarios</strong></div>
+                <div className="tableHeaderRequest"><strong>Detalle</strong></div>
             </div>
-
-            {/* SHOW THE CONVOCATIONS TABLE */}
-            <div className="tableContainer">
-                <table className="customTable">
-                    <thead>
-                        {/* TABLE NAMES */}
-                        <tr>
-                            <th className="customTitle">ID</th>
-                            <th className="customTitle">Programa</th>
-                            <th className="customTitle">Inicio</th>
-                            <th className="customTitle">Horarios</th>
-                            {/* <th className="customTitle">Editar</th> */}
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        {/* TABLE DATA */}
-                        {filteredConvocations.slice(0, 15).map((convocation) => (
-                            <tr key={convocation.id}>
-                                <td className="customData">{convocation.id}</td>
-                                <td className="customData">{convocation.program.name}</td>
-                                <td className="customData">{convocation.beginning}</td>
-                                <td className="customData">{convocation.schedule}
-
-                                    {/* IF THERE IS ADMIN SHOW THIS BUTTON */}
-                                    {userRole.data.role === 1 ? (
-                                        <div className="d-flex justify-content-end buttonsConvocations">
-                                            <button
-                                                className="buttonUpdate"
-                                                onClick={() => navigate(`/convodetail/${convocation.id}`)}
-                                            >
-                                                VER
-                                            </button>
-                                        </div>
-                                    ) : (
-                                        <>
-                                        </>
-                                    )}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+            {filteredConvocations.slice(0, 15).map((convocation) => (
+                <div className="tableDataRow" key={convocation.id}>
+                    <div className="tableDataCheck">{convocation.id}</div>
+                    <div className="tableDataCheck">{convocation.program.name}</div>
+                    <div className="tableDataCheck">{convocation.beginning}</div>
+                    <div className="tableDataCheck">{convocation.schedule}</div>
+                    <div className="tableDataCheck">
+                        {userRole.data.role === 1 ? (
+                            <div className="d-flex justify-content-center align-items mt-1 buttonsConvocations">
+                                <AdminButton
+                                    onClick={() => navigate(`/convodetail/${convocation.id}`)}
+                                    text={"VER"}
+                                />
+                            </div>
+                        ) : (
+                            <>
+                            </>
+                        )}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
         </Container>
     );
 };

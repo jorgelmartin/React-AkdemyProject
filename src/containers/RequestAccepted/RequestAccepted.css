@@ -1,25 +1,25 @@
 .messageInscription {
-    text-align: center;
-    border-radius: 2em;
-    margin: 0 auto;
-    margin-top: 4em;
-    max-width: 40em;
-    font-family: Arial, sans-serif;
-    padding: 2em;
-    box-shadow: inset 0.4em 0.4em 0.7em 0.1em rgba(0, 0, 0, 0.503);
-  }
-  
-  .messageInscription p {
-    list-style: none;
-    margin-bottom: 0.05em;
-  }
-  
-  .messageInscription ul {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-  }
-  
-  .messageInscription li {
-    margin-bottom: 0.01em;
-  }
+  text-align: center;
+  border-radius: 2em;
+  margin: 0 auto;
+  margin-top: 4em;
+  max-width: 40em;
+  font-family: Arial, sans-serif;
+  padding: 2em;
+  box-shadow: inset 0.4em 0.4em 0.7em 0.1em rgba(0, 0, 0, 0.503);
+}
+
+.messageInscription p {
+  list-style: none;
+  margin-bottom: 0.05em;
+}
+
+.messageInscription ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.messageInscription li {
+  margin-bottom: 0.01em;
+}

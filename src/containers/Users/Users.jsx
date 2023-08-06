@@ -12,8 +12,6 @@ export const Users = () => {
 
     //HANDLER SEARCH
     const handleSearch = (text) => {
-
-        //IF THERE IS TEXT
         if (text) {
 
             //FILTER TEXT IN USERS 
@@ -41,33 +39,30 @@ export const Users = () => {
     return (
 
         //RENDER USERS
-        <Container fluid className="mt-5">
+        <Container  className="mt-5">
+      {/* INPUT SEARCH */}
+      <InputSearch onSearch={handleSearch} />
 
-            {/* INPUT SEARCH */}
-            <InputSearch onSearch={handleSearch} />
-
-            {/* USERS TITLE */}
-            <div className="requestUser">Usuarios</div>
-            <div className="tableContainerCheck">
-                <div className="tableHeader ">
-
-                    {/* USERS TABLE */}
-                    <div className="tableHeaderCheck">Nombre</div>
-                    <div className="tableHeaderCheck">Apellidos</div>
-                    <div className="tableHeaderCheck">Email</div>
-                </div>
-                <div className="tableBodyCheck">
-
-                    {/* MAPPING USER DATA */}
-                    {displayedUsers.map((user) => (
-                        <div className="tableDataRow " key={user.id}>
-                            <div className="tableDataCheck">{user.name}</div>
-                            <div className="tableDataCheck">{user.surname}</div>
-                            <div className="tableDataCheck">{user.email}</div>
-                        </div>
-                    ))}
-                </div>
+      {/* USERS TITLE */}
+      <div className="requestUser">Usuarios</div>
+      <div className="tableContainerCheck">
+        <div className="tableHeader">
+          {/* USERS TABLE */}
+          <div className="tableHeaderRequest">Nombre</div>
+          <div className="tableHeaderRequest">Apellidos</div>
+          <div className="tableHeaderRequest">Email</div>
+        </div>
+        <div className="tableBodyCheck">
+          {/* MAPPING USER DATA */}
+          {displayedUsers.map((user) => (
+            <div className="tableDataRow" key={user.id}>
+              <div className="tableDataCheck">{user.name}</div>
+              <div className="tableDataCheck">{user.surname}</div>
+              <div className="tableDataCheck">{user.email}</div>
             </div>
-        </Container>
+          ))}
+        </div>
+      </div>
+    </Container>
     );
 }

@@ -1,0 +1,13 @@
+.AdminButton {
+    background-color: rgba(89, 89, 209, 0.608);
+    color: rgb(0, 0, 0);
+    width: 4em;
+    height: 1.4em;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.AdminButton:hover {
+    background-color: rgb(3, 3, 140);
+}
