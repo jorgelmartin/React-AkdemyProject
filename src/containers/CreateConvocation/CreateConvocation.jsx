@@ -17,7 +17,7 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
     const datos = useSelector(userData);
     const token = datos?.credentials?.token;
 
-    //UPDATE DATA
+    //BRING THE DATA FOR THE EDIT
     const [convocationData, setConvocationData] = useState(
         {
             ...updateData,

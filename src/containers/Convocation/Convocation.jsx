@@ -21,8 +21,6 @@ export const Convocation = () => {
 
     //HANDLE SEARCH BASED ON THE GIVEN TEXT
     const handleSearch = (text) => {
-
-        //IF THERE IS TEXT
         if (text) {
 
             //FILTER TEXT IN CONVOCATIONS 
@@ -50,44 +48,47 @@ export const Convocation = () => {
         // RENDER THE CONVOCATIONS
         <Container className="mt-5">
 
-    <div className="requestUser">Convocatorias</div>
+            <div className="requestUser">Convocatorias</div>
 
-    <div className="containerInputConvocations">
-        <InputSearch onSearch={handleSearch} />
-    </div>
-
-    <div className="tableContainerCheck mt-4 tableScroll">
-        <div className="">
-            <div className="tableDataRow">
-                <div className="tableHeaderRequest"><strong>ID</strong></div>
-                <div className="tableHeaderRequest"><strong>Programa</strong></div>
-                <div className="tableHeaderRequest"><strong>Inicio</strong></div>
-                <div className="tableHeaderRequest"><strong>Horarios</strong></div>
-                <div className="tableHeaderRequest"><strong>Detalle</strong></div>
+            <div className="containerInputConvocations">
+                <InputSearch onSearch={handleSearch} />
             </div>
-            {filteredConvocations.slice(0, 15).map((convocation) => (
-                <div className="tableDataRow" key={convocation.id}>
-                    <div className="tableDataCheck">{convocation.id}</div>
-                    <div className="tableDataCheck">{convocation.program.name}</div>
-                    <div className="tableDataCheck">{convocation.beginning}</div>
-                    <div className="tableDataCheck">{convocation.schedule}</div>
-                    <div className="tableDataCheck">
-                        {userRole.data.role === 1 ? (
-                            <div className="d-flex justify-content-center align-items mt-1 buttonsConvocations">
-                                <AdminButton
-                                    onClick={() => navigate(`/convodetail/${convocation.id}`)}
-                                    text={"VER"}
-                                />
-                            </div>
-                        ) : (
-                            <>
-                            </>
+
+            <div className="tableContainerCheck mt-4 tableScroll">
+                <div className="">
+                    <div className="tableDataRow">
+                        <div className="tableHeaderRequest"><strong>ID</strong></div>
+                        <div className="tableHeaderRequest"><strong>Programa</strong></div>
+                        <div className="tableHeaderRequest"><strong>Inicio</strong></div>
+                        <div className="tableHeaderRequest"><strong>Horarios</strong></div>
+
+                        {/* ONLY SHOW DETAIL BUTTON IF IS ADMIN */}
+                        {userRole.data.role === 1 && (
+                            <div className="tableHeaderRequest"><strong>Detalle</strong></div>
                         )}
                     </div>
+
+                    {filteredConvocations.slice(0, 15).map((convocation) => (
+                        <div className="tableDataRow" key={convocation.id}>
+                            <div className="tableDataCheck">{convocation.id}</div>
+                            <div className="tableDataCheck">{convocation.program.name}</div>
+                            <div className="tableDataCheck">{convocation.beginning}</div>
+                            <div className="tableDataCheck">{convocation.schedule}</div>
+                            {userRole.data.role === 1 && (
+                                <div className="tableDataCheck">
+                                    <div className="d-flex justify-content-center align-items mt-1 buttonsConvocations">
+                                    {/* ONLY SHOW DETAIL BUTTON IF IS ADMIN */}
+                                        <AdminButton
+                                            onClick={() => navigate(`/convodetail/${convocation.id}`)}
+                                            text={"VER"}
+                                        />
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    ))}
                 </div>
-            ))}
-        </div>
-    </div>
+            </div>
         </Container>
     );
 };

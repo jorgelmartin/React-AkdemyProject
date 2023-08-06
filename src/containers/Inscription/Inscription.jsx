@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Card, Button } from 'react-bootstrap';
+import { Container, Card } from 'react-bootstrap';
 import { createUserConvocation } from '../../services/apiCalls';
 import { useFetchConvocations } from '../../../hooks/useFetchConvocation';
 import { useSelector } from 'react-redux';
@@ -7,7 +7,6 @@ import { userData } from '../userSlice';
 import { useNavigate } from 'react-router-dom';
 import { AkdemyButton } from '../../components/AkdemyButton/AkdemyButton';
 import "./Inscription.css";
-import { useFetchRequestAccepted } from '../../../hooks/useFetchRequestAccepted';
 
 
 export const Inscription = () => {
@@ -18,11 +17,16 @@ export const Inscription = () => {
     const navigate = useNavigate();
 
     // const usersReq = useFetchRequestAccepted(userId);
-    
+
     const userToken = datosCredencialesRedux?.credentials?.token;
     const userId = datosCredencialesRedux?.data?.userId;
-
     const convocations = useFetchConvocations();
+
+
+
+    const availableConvocations = convocations
+    ? convocations.filter(convocation => !convocation.enrolledUsers || !convocation.enrolledUsers.includes(userId))
+    : [];
 
 
     //GETTING THE DATA FROM THE SELECTEDCONVOCATION 
@@ -85,14 +89,14 @@ export const Inscription = () => {
                                 style={{ width: '10em' }}
                             >
                                 <option value={0}>Seleccione una convocatoria</option>
-                                {upcomingConvocations.length > 0 ? (
-                                    upcomingConvocations.map((convocation) => (
+                                {availableConvocations.length > 0 ? (
+                                    availableConvocations.map(convocation => (
                                         <option key={convocation.id} value={convocation.id}>
                                             {convocation.program.name}
                                         </option>
                                     ))
                                 ) : (
-                                    <option disabled>No hay convocatorias próximas</option>
+                                    <option disabled>No hay convocatorias disponibles</option>
                                 )}
                             </select>
                         </div>
