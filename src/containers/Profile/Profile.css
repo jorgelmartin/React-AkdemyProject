@@ -1,40 +1,7 @@
-/* 
-
-.userCard {
-    display: flex;
-    justify-content: center;
-}
-
-
-.userCardTitle:hover {
-    background-color: rgba(45, 79, 134, 0.722);
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
-
-.convocations {
-    display: flex;
-    justify-content: center;
-    margin: 0.50em;
-
-} */
-/* 
-.profileHeader h3 {
-    font-size: 2em;
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-} */
-
-
-/* .profile-table {
-    width: 100%;
-    background-color: #ff6600;
-  } */
 
 .dataUser {
     display: flex;
-    
+    justify-content: center;
     border: 0.01em solid rgb(118, 71, 24);
     box-shadow: inset 1em 0.4em 0.7em 0.1em rgba(0, 0, 0, 0.503);
     align-items: center;
@@ -67,16 +34,34 @@
     box-shadow: inset 0.01em 0.01em 0.4em 0.1em rgba(10, 32, 14, 0.41); 
     border: 0.09em solid rgba(178, 137, 66, 0.706);
 }
-.deleteButton{
+
+.containerButtons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonGroup {
+    display: flex;
+    align-items: center;
+}
+
+.deleteButton {
     background-color: #90a729fd;
     color: #ffffff;
     padding: 0.6em 0.9em;
     border: none;
     border-radius: 1em;
     margin-left: 1em;
-    margin-bottom: 0.3em;
+    margin-bottom: -1.3em;
     font-size: 1em;
     cursor: pointer;
     border: 0.01em solid rgb(9, 71, 9);
     box-shadow: inset 0.04em 0.04em 0.5em 0.2em rgba(21, 61, 9, 0.532);
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.deleteButton.hovered {
+    background-color: #ff0000;
+    border-color: #ff0000;
+    box-shadow: inset 0.04em 0.04em 0.5em 0.2em rgba(176, 0, 0, 0.532);
 }

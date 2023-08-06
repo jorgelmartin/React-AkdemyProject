@@ -164,41 +164,38 @@ export const Profile = () => {
                     )}
                 </div>
             </div>
-            <div className="text-center">
+            <div className="containerButtons">
+    {/* IF IS EDITING SHOW THIS BUTTON */}
+    {editing ? (
+        <div className="buttonGroup">
+            <AkdemyButton
+                onClick={() => editHandler(body, token)}
+                text={"Guardar"}
+            />
+        </div>
+    ) : (
+        <div>
+            <div className="buttonGroup">
+                <AkdemyButton
+                    onClick={() => setEditing(true)}
+                    text={"Editar"}
+                />
 
-                {/* IF IS EDITING SHOW THIS BUTTON */}
-                {editing ? (
-                    <div>
-                        <AkdemyButton
-                            onClick={() => editHandler(body, token)} text={"Guardar"} />
-                    </div>
-                ) : (
-                    <div>
-                        <div>
-                            <AkdemyButton
-                                onClick={() => setEditing(true)}
-                                text={"Editar"}
-                            />
-
-                            {/* CHECK IF THE USER IS ADMIN  TO HIDE DELETE BUTTON */}
-                            {datos.data.role === 2 ? (
-                                <Button
-                                    onClick={handleDeleteProfile}
-                                    style={{
-                                        backgroundColor: hovering ? '#FF0000' : '#90a729fd',
-                                        borderColor: hovering ? '#FF0000' : '#13326fba',
-                                    }}
-                                    className="deleteButton"
-                                    onMouseEnter={handleMouseEnter}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    {hovering ? 'CUIDADO!' : 'Borrar perfil'}
-                                </Button>
-                            ) : null}
-                        </div>
-                    </div>
-                )}
+                {/* CHECK IF THE USER IS ADMIN TO HIDE DELETE BUTTON */}
+                {datos.data.role === 2 ? (
+                    <Button
+                        onClick={handleDeleteProfile}
+                        className={`deleteButton ${hovering ? 'hovered' : ''}`}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        {hovering ? 'CUIDADO!' : 'Borrar perfil'}
+                    </Button>
+                ) : null}
             </div>
+        </div>
+    )}
+</div>
         </div>
     );
 };
