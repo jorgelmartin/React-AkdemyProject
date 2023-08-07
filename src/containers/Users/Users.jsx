@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useFetchUsers } from "../../../hooks/useFetchUsers";
-import { Container, Table } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "./../../App.css";
 import { InputSearch } from "../../components/InputSearch/InputSearch";
 

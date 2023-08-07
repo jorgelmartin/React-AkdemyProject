@@ -9,14 +9,13 @@ export const Home = () => {
 
     //GET PROGRAMS
     const programs = useFetchPrograms();
-
     if (!programs) {
         return <div>Cargando...</div>;
     }
 
     return (
 
-        //RENDER HOME PAGE
+        //HOME PAGE
         <div className="productCardContainer">
 
             {/* AKDEMY NAME */}

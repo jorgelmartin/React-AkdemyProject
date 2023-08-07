@@ -23,6 +23,7 @@
 }
 
 .headerLink {
+    padding: 0.1em;
     font-weight: bolder;
     font-size: 1.2em;
     transition: 0.5s;
