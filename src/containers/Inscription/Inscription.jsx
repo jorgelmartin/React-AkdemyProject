@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { AkdemyButton } from '../../components/AkdemyButton/AkdemyButton';
 import "./Inscription.css";
 
-
 export const Inscription = () => {
     const [convocationData, setConvocationData] = useState({});
     const datosCredencialesRedux = useSelector(userData);
@@ -17,17 +16,10 @@ export const Inscription = () => {
     const navigate = useNavigate();
 
     // const usersReq = useFetchRequestAccepted(userId);
-
+    
     const userToken = datosCredencialesRedux?.credentials?.token;
     const userId = datosCredencialesRedux?.data?.userId;
     const convocations = useFetchConvocations();
-
-
-
-    const availableConvocations = convocations
-    ? convocations.filter(convocation => !convocation.enrolledUsers || !convocation.enrolledUsers.includes(userId))
-    : [];
-
 
     //GETTING THE DATA FROM THE SELECTEDCONVOCATION 
     const handleConvocationChange = (e) => {
@@ -89,14 +81,14 @@ export const Inscription = () => {
                                 style={{ width: '10em' }}
                             >
                                 <option value={0}>Seleccione una convocatoria</option>
-                                {availableConvocations.length > 0 ? (
-                                    availableConvocations.map(convocation => (
+                                {upcomingConvocations.length > 0 ? (
+                                    upcomingConvocations.map((convocation) => (
                                         <option key={convocation.id} value={convocation.id}>
                                             {convocation.program.name}
                                         </option>
                                     ))
                                 ) : (
-                                    <option disabled>No hay convocatorias disponibles</option>
+                                    <option disabled>No hay convocatorias próximas</option>
                                 )}
                             </select>
                         </div>

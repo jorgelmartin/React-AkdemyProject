@@ -48,12 +48,15 @@ export const Convocation = () => {
         // RENDER THE CONVOCATIONS
         <Container className="mt-5">
 
+            {/* TITLE */}
             <div className="requestUser">Convocatorias</div>
 
+            {/* INPUT SEARCH */}
             <div className="containerInputConvocations">
                 <InputSearch onSearch={handleSearch} />
             </div>
 
+            {/* TABLE HEADER */}
             <div className="tableContainerCheck mt-4 tableScroll">
                 <div className="">
                     <div className="tableDataRow">
@@ -68,16 +71,18 @@ export const Convocation = () => {
                         )}
                     </div>
 
+                    {/* MAPPING THE CONVOCATIONS */}
                     {filteredConvocations.slice(0, 15).map((convocation) => (
                         <div className="tableDataRow" key={convocation.id}>
                             <div className="tableDataCheck">{convocation.id}</div>
                             <div className="tableDataCheck">{convocation.program.name}</div>
                             <div className="tableDataCheck">{convocation.beginning}</div>
                             <div className="tableDataCheck">{convocation.schedule}</div>
+
+                            {/* ONLY SHOW DETAIL BUTTON IF IS ADMIN */}
                             {userRole.data.role === 1 && (
                                 <div className="tableDataCheck">
                                     <div className="d-flex justify-content-center align-items mt-1 buttonsConvocations">
-                                    {/* ONLY SHOW DETAIL BUTTON IF IS ADMIN */}
                                         <AdminButton
                                             onClick={() => navigate(`/convodetail/${convocation.id}`)}
                                             text={"VER"}

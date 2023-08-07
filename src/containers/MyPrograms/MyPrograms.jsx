@@ -14,7 +14,7 @@ export const MyPrograms = () => {
 
     //GET THE REQUEST ACCEPTED
     const usersReq = useFetchRequestAccepted(userId);
-console.log("hello ",usersReq);
+    console.log("hello ", usersReq);
     if (!usersReq) {
         return <div>Loading...</div>;
     }
@@ -25,10 +25,10 @@ console.log("hello ",usersReq);
         <Container className="mt-4">
             <div className="requestUser">Mis cursos</div>
             <Table striped bordered hover responsive>
-                
-                <thead>
 
-                    {/* TABLE OF USER PROGRAMS */}
+
+                {/* TABLE OF USER PROGRAMS */}
+                <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Curso</th>
