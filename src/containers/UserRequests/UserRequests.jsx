@@ -5,7 +5,7 @@ import { useFetchAcceptRequest } from "../../../hooks/useFetchAcceptRequest";
 import "../../App.css";
 import { AdminButton } from "../../components/AdminButton/AdminButton";
 
-export const UserRequest = () => {
+export const UserRequests = () => {
     const usersReq = useFetchUserRequest();
     const acceptUserRequest = useFetchAcceptRequest();
     const [requestAccepted, setRequestAccepted] = useState(false);

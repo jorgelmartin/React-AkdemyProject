@@ -14,7 +14,7 @@ import { Inscription } from "../Inscription/Inscription";
 import { MyPrograms } from "../MyPrograms/MyPrograms";
 import { ProgramDetail } from "../ProgramDetail/ProgramDetail";
 import { RequestAccepted } from "../RequestAccepted/RequestAccepted";
-import { UserRequest } from "../UserRequest/UserRequest";
+import { UserRequests } from "../UserRequests/UserRequests";
 
 
 export const Body = () => {
@@ -34,7 +34,7 @@ export const Body = () => {
                 <Route path="/convodetail/:id" element={<ConvocationDetail />} /> 
                 <Route path="/student" element={<Student />} /> 
                 <Route path="/inscription" element={<Inscription />} />
-                <Route path="/userReq" element={<UserRequest />} /> 
+                <Route path="/userReq" element={<UserRequests />} /> 
                 <Route path="/myPrograms" element={<MyPrograms />} /> 
                 <Route path="/programDetail/:id" element={<ProgramDetail />} /> 
                 <Route path="/requestAccepted" element={<RequestAccepted />} /> 
