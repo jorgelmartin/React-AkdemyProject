@@ -19,10 +19,12 @@ Akdemy es una aplicación de educación con múltiples programas y convocatorias
 
 Deploy frontend: https://react-academy-project-jorgemctin.vercel.app/
 
-Crea una cuenta como usuario y también puedes acceder como administrador para una experiencia mas completa:
+Puedes registrarte para una experiencia mas completa, o puedes acceder con estas credenciales: 
 
-Credenciales:
+Usuario:
+user@user.com - Hola1234
 
+Administrador:
 admin@admin.com - Hola1234
 
 ### REGISTRO/LOGIN
