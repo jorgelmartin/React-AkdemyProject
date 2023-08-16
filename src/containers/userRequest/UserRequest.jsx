@@ -11,7 +11,7 @@ export const UserRequest = () => {
     const [requestAccepted, setRequestAccepted] = useState(false);
     const [acceptedRequests, setAcceptedRequests] = useState([]);
 
-//UPDATE THE COMPONENTE EACH CLIC
+    //UPDATE THE COMPONENTE EACH CLIC
     useEffect(() => {
     }, [requestAccepted]);
 
@@ -33,8 +33,8 @@ export const UserRequest = () => {
     if (!usersReq) {
         return <div>Loading...</div>;
     }
-    
-    
+
+
     return (
         <Container className="mt-5">
             <div className="requestUser">Solicitudes pendientes</div>
@@ -66,7 +66,7 @@ export const UserRequest = () => {
                                 </div>
                             );
                         }
-                        return null; 
+                        return null;
                     })}
                 </div>
             </div>

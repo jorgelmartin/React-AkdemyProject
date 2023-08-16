@@ -14,7 +14,6 @@ export const MyPrograms = () => {
 
     //GET THE REQUEST ACCEPTED
     const usersReq = useFetchRequestAccepted(userId);
-    console.log("hello ", usersReq);
     if (!usersReq) {
         return <div>Loading...</div>;
     }
