@@ -2,7 +2,7 @@
 
 !['home'](./src/assets/home.jpeg)
 
-Enlace github Backend: https://github.com/jorgemctin/Laravel-AkdemyProject
+[Enlace Backend:](https://github.com/jorgemctin/Laravel-AkdemyProject)
 
 ### Tecnologías:
 
@@ -17,7 +17,7 @@ Enlace github Backend: https://github.com/jorgemctin/Laravel-AkdemyProject
 
 Akdemy es una aplicación de educación con múltiples programas y convocatorias. Los usuarios se registran y acceden a su perfil, donde pueden explorar programas académicos, solicitar inscripciones y editar su información personal. Los administradores gestionan las convocatorias y solicitudes de inscripción. Destacadas características incluyen ver convocatorias vigentes, rastrear el progreso académico y eliminar la cuenta si lo desean. Akdemy brinda una experiencia educativa completa y transparente, con un enfoque en la accesibilidad y facilidad de uso.
 
- [Deploy frontend:](https://react-akdemy-project.vercel.app/)
+[Deploy frontend:](https://react-akdemy-project.vercel.app/)
 
 Puedes registrarte para una experiencia mas completa, o puedes acceder con estas credenciales: 
 
