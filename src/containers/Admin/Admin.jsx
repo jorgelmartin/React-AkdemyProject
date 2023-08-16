@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import "./Admin.css";
 
 export const Admin = () => {
-    //USE NAVIGATE
     const navigate = useNavigate();
 
     return (
