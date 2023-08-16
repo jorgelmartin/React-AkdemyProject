@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./Register.css";
 import { InputText } from "../../components/InputText/InputText";
-import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
+import { Form, Card, Container, Row } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import { registerMe } from "../../services/apiCalls";
 import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
+import { registerMe } from "../../services/apiCalls";
 
 
 export const Register = () => {
