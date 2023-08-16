@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
-import { loginMe } from "../../services/apiCalls";
 import { Card, Col, Container, Row, Form } from "react-bootstrap";
-// import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../userSlice";
 import { InputText } from "../../components/InputText/InputText";
 import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
-// import { inputHandler } from "../../services/useful";
+import { loginMe } from "../../services/apiCalls";
 
 export const Login = () => {
 
