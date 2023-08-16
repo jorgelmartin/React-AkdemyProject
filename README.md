@@ -114,6 +114,18 @@ Una vez recibida y aprobada la documentación para la inscripción del alumno, e
 
 Agradezco a todos mis profesores y compañeros el tiempo dedicado a este proyecto.
 
+### Licencia y Copyright:
+
+En el desarrollo de este proyecto, he incorporado imágenes y el ícono de diversas fuentes, a las cuales se encuentran:
+
+- [IconFinder](https://www.iconfinder.com)
+- [Remove.bg](https://www.remove.bg/)
+- [PngHQ](https://pnghq.com/)
+- [Freepik](https://www.freepik.es/)
+- [ForCode](http://www.forcode.es/)
+- [PngEgg](https://www.pngegg.com/)
+- [LogoDownload](https://es.logodownload.org/)
+
 ### Autor:
 
 Jorge Luis Martin Lorenzo.
