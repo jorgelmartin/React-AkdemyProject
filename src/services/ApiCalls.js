@@ -10,8 +10,7 @@ export const loginMe = async (credentials) => {
 
 //REGISTER
 export const registerMe = async (credentials) => {
-    let res = await axios.post(`${URL}/api/register`, credentials);
-    return res.data;
+    return await axios.post(`${URL}/api/register`, credentials);
 }
 
 //GET PROFILE
