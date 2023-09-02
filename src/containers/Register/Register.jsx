@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
 import { registerMe } from "../../services/apiCalls";
 
-
 export const Register = () => {
 
     const navigate = useNavigate();

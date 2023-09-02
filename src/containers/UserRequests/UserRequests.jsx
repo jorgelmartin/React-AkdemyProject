@@ -37,9 +37,12 @@ export const UserRequests = () => {
 
     return (
         <Container className="mt-5">
+
+            {/* TITLE */}
             <div className="requestUser">Solicitudes pendientes</div>
             <div className="tableContainerCheck mt-4 tableScroll">
-             
+
+                {/* DATA REQUEST */}
                     <div className="tableDataRow">
                         <div className="tableHeaderRequest"><strong>Nombre</strong></div>
                         <div className="tableHeaderRequest"><strong>Email</strong></div>
@@ -47,6 +50,8 @@ export const UserRequests = () => {
                         <div className="tableHeaderRequest"><strong>Inicio</strong></div>
                         <div className="tableHeaderRequest"><strong>Aceptar</strong></div>
                     </div>
+
+                    {/* MAPPING USER REQUEST */}
                     {usersReq.slice(0, 7).map((request, i) => {
                         if (!acceptedRequests.includes(request.id)) {
                             return (
@@ -55,6 +60,8 @@ export const UserRequests = () => {
                                     <div className="tableDataCheck">{request.user.email}</div>
                                     <div className="tableDataCheck">{request.program.name}</div>
                                     <div className="tableDataCheck">{request.convocation.beginning}</div>
+
+                                    {/* ADMIN BUTTON TO ACCEPT REQUEST */}
                                     <div className="tableDataCheck">
                                         <AdminButton
                                             onClick={() => {
