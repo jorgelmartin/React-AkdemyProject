@@ -39,7 +39,7 @@ export const UserRequests = () => {
         <Container className="mt-5">
             <div className="requestUser">Solicitudes pendientes</div>
             <div className="tableContainerCheck mt-4 tableScroll">
-                <div className="">
+             
                     <div className="tableDataRow">
                         <div className="tableHeaderRequest"><strong>Nombre</strong></div>
                         <div className="tableHeaderRequest"><strong>Email</strong></div>
@@ -69,7 +69,6 @@ export const UserRequests = () => {
                         return null;
                     })}
                 </div>
-            </div>
         </Container>
     );
 };

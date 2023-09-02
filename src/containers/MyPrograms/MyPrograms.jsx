@@ -22,30 +22,26 @@ export const MyPrograms = () => {
 
         //RENDER MY PROGRAMS CONTAINER
         <Container className="mt-4">
-            <div className="requestUser">Mis cursos</div>
-            <Table striped bordered hover responsive>
+        <div className="requestUser">Mis cursos</div>
 
+        {/* TABLE OF USER PROGRAMS */}
+        <div className="tableContainerCheck mt-4">
+                <div className="tableDataRow">
+                    <div className="tableHeaderRequest"><strong>Nombre</strong></div>
+                    <div className="tableHeaderRequest"><strong>Curso</strong></div>
+                    <div className="tableHeaderRequest"><strong>Inicio</strong></div>
+                </div>
 
-                {/* TABLE OF USER PROGRAMS */}
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Curso</th>
-                        <th>Inicio</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    {/* DATA FROM USER PRORGAMS */}
-                    {usersReq.map((request, i) => (
-                        <tr key={i}>
-                            <td>{request.user.name} {request.user.surname}</td>
-                            <td>{request.program.name}</td>
-                            <td>{request.convocation.beginning}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
-        </Container>
+                {/* MAPPING USER PROGRAMS */}
+                {usersReq.map((request, i) => (
+                    <div className="tableDataRow" key={i}>
+                        <div className="tableDataCheck">{request.user.name} {request.user.surname}</div>
+                        <div className="tableDataCheck">{request.program.name}</div>
+                        <div className="tableDataCheck">{request.convocation.beginning}</div>
+                    </div>
+                ))}
+            </div>
+    
+    </Container>
     );
 };

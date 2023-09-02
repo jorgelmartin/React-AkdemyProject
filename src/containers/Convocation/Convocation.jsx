@@ -57,15 +57,14 @@ export const Convocation = () => {
             </div>
 
             {/* TABLE HEADER */}
-            <div className="tableContainerCheck mt-4 tableScroll">
-                <div className="">
+            <div className="tableContainerCheck mt-4">
                     <div className="tableDataRow">
                         <div className="tableHeaderRequest"><strong>ID</strong></div>
                         <div className="tableHeaderRequest"><strong>Programa</strong></div>
                         <div className="tableHeaderRequest"><strong>Inicio</strong></div>
                         <div className="tableHeaderRequest"><strong>Horarios</strong></div>
 
-                        {/* ONLY SHOW DETAIL BUTTON IF IS ADMIN */}
+                        {/* ONLY SHOW DETAIL IF IS ADMIN */}
                         {userRole.data.role === 1 && (
                             <div className="tableHeaderRequest"><strong>Detalle</strong></div>
                         )}
@@ -93,7 +92,6 @@ export const Convocation = () => {
                         </div>
                     ))}
                 </div>
-            </div>
         </Container>
     );
 };
