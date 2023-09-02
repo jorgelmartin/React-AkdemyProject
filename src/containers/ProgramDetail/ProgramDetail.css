@@ -21,8 +21,6 @@
 .DetailProgram1 img {
     border-radius: 2em;
     max-width: 100%;
-    height: auto;
-    padding: 1em;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 

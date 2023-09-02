@@ -8,7 +8,7 @@ import { InputText } from "../../components/InputText/InputText";
 import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
 import { loginMe } from "../../services/apiCalls";
 
-export const Login = () => {
+export const Login = () => {    
 
     const [user, setUser] = useState({});
     const [token, setToken] = useState("");
