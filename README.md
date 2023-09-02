@@ -101,7 +101,7 @@ Podrá ver todos los usuarios registrados en el sistema, teniendo la posibilidad
 Podrá crear las convocatorias necesarias, escogiendo curso, fecha inicio y horarios.
 
 ### DETALLE/EDITAR CONVOCATORIAS
-
+!['adminconvo'](./src/assets/adminconvo.png)
 !['detailconvo'](./src/assets/detailconvo.png)
 
 En la vista detalle podrá ver toda la información del curso, los alumnos matriculados en el mismo y en caso de necesitarlo también poder editar ya sea el horario, la fecha o el curso en sí.

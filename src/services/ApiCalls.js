@@ -4,7 +4,7 @@ const URL = "https://laravel-akdemyproject-production.up.railway.app";
 
 //LOGIN 
 export const loginMe = async (credentials) => {
-    return await axios.post(`${URL}/api/login`, credentials);
+    let res = await axios.post(`${URL}/api/login`, credentials);
     return res.data;
 }
 

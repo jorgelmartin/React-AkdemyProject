@@ -27,8 +27,8 @@ export const Login = () => {
         //SEND TOKEN AND DATA
         loginMe(body)
             .then((res) => {
-                setToken(res.data.token);
-                setUserLogin(res.data.data);
+                setToken(res.token);
+                setUserLogin(res.data);
             })
             .catch((error) => {
                 setUserError({ credentials: error.response.data.message });
@@ -40,6 +40,7 @@ export const Login = () => {
         if (token) {
             dispatch(
                 login({
+                    
                     token: token,
                     name: userLogin.name,
                     role: userLogin.role_id,
