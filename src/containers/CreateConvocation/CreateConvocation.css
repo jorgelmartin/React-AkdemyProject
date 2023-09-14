@@ -3,17 +3,26 @@
     width: 12em;
     height: 2.5em;
     border-radius: 2em;
+    background-color: rgba(142, 106, 53, 0.239);
+    border: 0.1em solid green;
 }
 .cardCreate{
     display: flex;
     flex-direction: column;
     background-color: rgba(142, 106, 53, 0.239);
-    border-radius: 0.3em;
+    border-radius: 2em;
     box-shadow:  0.3em 0.2em 0.4em 0.1em rgba(6, 32, 4, 0.476); 
+    padding: 0.4em;
 }
 
 .rowCreate {
     display: flex;
     margin: 1em;
     justify-content: end;
+}
+.nameSelectors{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.4em;
 }

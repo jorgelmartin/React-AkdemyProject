@@ -39,13 +39,13 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
 
         //RENDER CREATE CONVOCATIONS
         <Container>
-            <Card style={{ maxWidth: '20em', margin: '0 auto' }}>
+            <Card style={{ maxWidth: '20em', margin: '0 auto',  borderRadius: '2em', border:'solid 0.1em rgba(99, 189, 69, 0.805)' }}>
                 <div className="cardCreate">
-                    <h2 style={{ textAlign: 'center', marginBottom: '1em' }}>Convocatoria</h2>
+                    <h2 style={{ textAlign: 'center', marginBottom: '1em', textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)' }}>Convocatoria</h2>
                     <div className="rowCreate">
 
                         {/* PROGRAM SELECTOR */}
-                        <strong>Curso:</strong>
+                        <strong className="nameSelectors">Curso:</strong>
                         <SelectPrograms
                             name="program_id"
                             value={convocationData.program_id}
@@ -60,7 +60,7 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                     <div className="rowCreate">
 
                         {/* BEGINNING SELECTOR */}
-                        <strong>Inicio:</strong>
+                        <strong className="nameSelectors">Inicio:</strong>
                         <SelectDate
                             name="beginning"
                             value={convocationData.beginning}
@@ -75,7 +75,7 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                     <div className="rowCreate">
 
                         {/* SCHEDULE SELECTOR */}
-                        <strong>Horario:</strong>
+                        <strong className="nameSelectors">Horario:</strong>
                         <SelectSchedule
                             name="schedule_id"
                             value={convocationData.schedule}

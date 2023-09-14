@@ -102,7 +102,7 @@ Podrá crear las convocatorias necesarias, escogiendo curso, fecha inicio y hora
 
 ### DETALLE/EDITAR CONVOCATORIAS
 !['adminconvo'](./src/assets/adminconvo.png)
-!['detailconvo'](./src/assets/detailconvo.png)
+!['detailconvo'](./src/assets/detailconvo.jpeg)
 
 En la vista detalle podrá ver toda la información del curso, los alumnos matriculados en el mismo y en caso de necesitarlo también poder editar ya sea el horario, la fecha o el curso en sí.
 

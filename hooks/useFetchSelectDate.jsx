@@ -30,7 +30,7 @@ export const SelectDate = ({ handleChange, value }) => {
                 selected={selectedDate}
                 onChange={handleDateChange}
                 dateFormat="dd/MM/yyyy"
-                placeholderText="Selecciona una fecha"
+                placeholderText="Selecciona fecha"
                 showMonthDropdown
                 showYearDropdown
                 dropdownMode="select"

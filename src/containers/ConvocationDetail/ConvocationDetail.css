@@ -1,14 +1,14 @@
 .convocationDetail {
-    margin: 2em;
+    margin: 1em;
     margin-top: 4em;
-    padding: 2em;
+    padding: 0.3em;
     border: 1em solid #749b7381;
     border-radius: 2em;
     display: flex;
     flex-direction: column;
 }
-.program-info {
-    
+.programInfo {
+    /* padding: 0.2em; */
     border: 0.1em solid #749b7381;
     border-radius: 2em;
     display: flex;
@@ -16,29 +16,31 @@
     align-items: center;
 }
 
-.program-details {
-    margin-top: 0.3em;
+.programDetails {
+    /* margin-top: 0.3em; */
 }
 
-.detail-item {
+.detailItem {
     margin: 0.7em;
 }
 
-.user-list {
-    margin-top: 0.1em;
+.studentList {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1em; /* Espacio entre estudiantes */
 }
 
-.user-item {
-    margin-bottom: 0.2em;
+.studentItem {
+    /* flex: 1;  */
+    max-width: calc(50% - 20px); /* Establece el ancho máximo de cada columna (50% - espacio) */
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px; /* Espacio entre estudiantes */
+    overflow: hidden;
 }
-
-.user-item h4 {
-    margin: 0;
-    font-size: 1em;
-}
-
-.user-item p {
-    margin: 0;
-    font-size: 0.8em;
-    color: #818181;
+.titleDetail{
+    text-align: center;
+    text-shadow: 0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5);
 }

@@ -45,19 +45,19 @@ export const ConvocationDetail = () => {
 
                 //DETAIL PROGRAM GETTING FROM USEPARAMS
                 <div className="convocationDetail">
-                    <div className="program-info">
-                        <h2>Curso: {convocationDetail.program.name}</h2>
-                        <div className="program-details">
-                            <div className="detail-item">
+                    <div className="programInfo">
+                        <h2 className="titleDetail">Curso: {convocationDetail.program.name}</h2>
+                        <div className="programDetails">
+                            <div className="detailItem">
                                 <strong>Comienzo:</strong> {convocationDetail.beginning}
                             </div>
-                            <div className="detail-item">
+                            <div className="detailItem">
                                 <strong>Horarios:</strong> {convocationDetail.schedule}
                             </div>
-                            <div className="detail-item">
+                            <div className="detailItem">
                                 <strong>Descripción:</strong> {convocationDetail.program.description}
                             </div>
-                            <div className="detail-item">
+                            <div className="detailItem">
                                 <strong>Precio:</strong> {convocationDetail.program.price}
                             </div>
 
@@ -73,12 +73,12 @@ export const ConvocationDetail = () => {
                     </div>
 
                     {/* SHOW THE STUDENT BY CONVOCATION */}
-                    <h3>Alumnos:</h3>
-                    <div>
+                    <h3 className="titleDetail">Alumnos:</h3>
+                    <div className="studentList">
                         {studentAccepted.map((item) => {
                             if (item.status === 1) {
                                 return (
-                                    <div key={item.id}>
+                                    <div key={item.id} className="studentItem">
                                         <h5>{item.user.name} {item.user.surname}</h5>
                                         <p>{item.user.email}</p>
                                     </div>
