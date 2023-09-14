@@ -6,7 +6,7 @@ import { userData } from "../src/containers/userSlice";
 export const useFetchRequestAccepted = (userId) => {
     const [usersRequest, setUsersRequest] = useState(null);
     const datosCredencialesRedux = useSelector(userData);
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         let config = {
@@ -19,10 +19,10 @@ export const useFetchRequestAccepted = (userId) => {
             .then(res => res.json())
             .then(res => {
                 setUsersRequest(res);
-                setIsLoading(false);
+                // setIsLoading(false);
             })
             .catch(error => {
-                setIsLoading(false);
+                // setIsLoading(false);
                 console.log("Error fetching request:", error);
             });
     }, [userId, datosCredencialesRedux.credentials?.token]);

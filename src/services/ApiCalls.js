@@ -83,3 +83,16 @@ export const createUserConvocation = async (body, token) => {
     let res = await axios.post(`${URL}/api/userConvo/create`, body, config);
     return res;
 }
+
+// // GET ALL INSCRIPTIONS
+// export const getAllInscriptions = async (token) => {
+//     let config = {
+//         headers: {
+//             'Authorization': 'Bearer ' + token,
+//         }
+//     };
+    
+//     let res = await axios.get(`http://localhost:4000/api/userConvo/getAllInscriptions`, config);
+//     console.log(res, "res");
+//     return res;
+// }

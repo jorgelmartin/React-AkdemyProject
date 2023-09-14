@@ -4,6 +4,7 @@ import "./ConvocationDetail.css";
 import { CreateConvocation } from "../CreateConvocation/CreateConvocation";
 import { useFetchConvocations } from "../../../hooks/useFetchConvocation";
 import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
+import { useFetchInscriptions } from "../../../hooks/useFetchInscriptions";
 
 export const ConvocationDetail = () => {
 
@@ -14,8 +15,15 @@ export const ConvocationDetail = () => {
     const convocations = useFetchConvocations();
     const [convocationDetail, setConvocationDetail] = useState(null);
     const [editing, setEditing] = useState(false);
+    // const studentAccepted = useFetchInscriptions();
+    const allStudentAccepted = useFetchInscriptions();
+    console.log(allStudentAccepted, "Hola");
+
+    const studentAccepted = Array.isArray(allStudentAccepted) ? allStudentAccepted.filter((item) => item.convocation.id === parsedId) : [];
 
 
+    // Agrega un console.log para verificar studentAccepted
+    console.log("studentAccepted:", studentAccepted);
     //SEARCH IN THE ARRAY CONVOCATIONS COMPARING THE ID GETING FROM parsedId
     useEffect(() => {
         if (convocations && Array.isArray(convocations)) {
@@ -27,6 +35,7 @@ export const ConvocationDetail = () => {
             }
         }
     }, [parsedId, convocations]);
+
 
     return (
         <>
@@ -65,19 +74,24 @@ export const ConvocationDetail = () => {
 
                     {/* SHOW THE STUDENT BY CONVOCATION */}
                     <h3>Alumnos:</h3>
-                    <div className="user-list">
-                        {convocationDetail.user.map((user) => (
-                            <div className="user-item" key={user.id}>
-                                <h4>{user.name} {user.surname}</h4>
-                                <p>Email: {user.email}</p>
-                            </div>
-                        ))}
+                    <div>
+                        {studentAccepted.map((item) => {
+                            if (item.status === 1) {
+                                return (
+                                    <div key={item.id}>
+                                        <h5>{item.user.name} {item.user.surname}</h5>
+                                        <p>{item.user.email}</p>
+                                    </div>
+                                );
+                            }
+                            return null; // Omitir estudiantes con status diferente de true
+                        })}
                     </div>
                 </div>
             ) : (
 
                 // IF CLIC IN EDIT USE CREATECONVOCATION COMPONENT FOR EDIT THE ACTUAL CONVOCATION
-                <CreateConvocation isUpdate={true} updateData={convocationDetail}/>
+                <CreateConvocation isUpdate={true} updateData={convocationDetail} />
             )}
         </>
     );
