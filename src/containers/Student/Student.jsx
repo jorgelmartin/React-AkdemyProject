@@ -53,20 +53,6 @@ export const Student = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
-                        <div className="adminCardTitle1">
-                            <div>
-
-                                {/* FORUM */}
-                            <Button
-                                    className="w-100 userCardTitle"
-                                    onClick={() => navigate("/forum")}
-                                >
-                                    FORO
-                                </Button>
-                            </div>
-                        </div>
-                    </Col>
                 </Row>
             </Container>
     );

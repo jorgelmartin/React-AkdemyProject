@@ -65,22 +65,25 @@ export const Inscription = () => {
 
         //RENDER INSCRIPTION CONTAINER
         <Container >
-            <Card style={{ maxWidth: '25em', margin: '0 auto', backgroundColor: '#9f512121', border: 'green solid 0.1em' }}>
+            <Card style={{ maxWidth: '25em', margin: '0 auto', backgroundColor: '#9f512121', border: 'green solid 0.1em',
+        boxShadow: 'rgb(38, 57, 77) 0em 1.25em 1.875em -0.625em'
+        }}>
                 <Card.Body>
 
                     {/* INSCRIPTION TITLE */}
                     <h2 className="textInscription mb-3 display-5">Inscripción:</h2>
-                    <div className="grid-container">
-                        <div className="grid-item">
+                    <div className="gridContainer">
+                        <div className="gridItem">
 
                             {/* GETTING UPCOMING CONVOCATIONS */}
                             <div className="labelCreate">Convocatorias:</div>
                             <select
+                            className='inscriptionSelector'
                                 value={convocationData.convocation_id}
                                 onChange={handleConvocationChange}
                                 style={{ width: '10em' }}
                             >
-                                <option value={0}>Seleccione una convocatoria</option>
+                                <option value={0}>Selecciona convocatoria</option>
                                 {upcomingConvocations.length > 0 ? (
                                     upcomingConvocations.map((convocation) => (
                                         <option key={convocation.id} value={convocation.id}>
@@ -94,19 +97,19 @@ export const Inscription = () => {
                         </div>
 
                         {/* DISPLAY THE BEGINNING DATE */}
-                        <div className="grid-item">
+                        <div className="gridItem">
                             <div className="labelCreate">Inicio:</div>
                             <span>{convocationData.beginning}</span>
                         </div>
 
                         {/* DISPLAY SCHELUDE */}
-                        <div className="grid-item">
+                        <div className="gridItem">
                             <div className="labelCreate">Horarios:</div>
                             <span>{convocationData.schedule}</span>
                         </div>
 
                         {/* DISPLAY THE PRICE */}
-                        <div className="grid-item">
+                        <div className="gridItem">
                             <div className="labelCreate">Precio:</div>
                             <span>{convocationData.program && convocationData.program.price}</span>
                         </div>
