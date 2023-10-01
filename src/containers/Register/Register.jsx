@@ -26,8 +26,7 @@ export const Register = () => {
 
     return (
         //RENDER REGISTER
-        <div className="registerDesign">
-            <Container className="d-flex justify-content-center align-items-center mt-4">
+            <Container className="d-flex justify-content-center align-items-center">
                 <Card className="registerCard" style={{
                     backgroundColor: '#9f512121', maxWidth: '25em',
                 }}>
@@ -108,7 +107,6 @@ export const Register = () => {
                             <div className="text-center">
                                 <AkdemyButton
                                     onClick={(e) => submitHandler(e, user)}
-                                    style={{ backgroundColor: '#13326fba' }}
                                     type="submit"
                                     text={"Registrarme!"}
                                 />
@@ -117,6 +115,5 @@ export const Register = () => {
                     </Card.Body>
                 </Card>
             </Container>
-        </div>
     );
 };
