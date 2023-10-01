@@ -11,7 +11,7 @@ export const useFetchRequestAccepted = (userId) => {
     useEffect(() => {
         let config = {
             headers: {
-                Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,
+                Authorization: `Bearer ${datosCredencialesRedux?.credentials?.token}`,
             },
         };
 
@@ -19,13 +19,11 @@ export const useFetchRequestAccepted = (userId) => {
             .then(res => res.json())
             .then(res => {
                 setUsersRequest(res);
-                // setIsLoading(false);
             })
             .catch(error => {
-                // setIsLoading(false);
                 console.log("Error fetching request:", error);
             });
-    }, [userId, datosCredencialesRedux.credentials?.token]);
+    }, [userId, datosCredencialesRedux?.credentials?.token]);
 
     return usersRequest;
 };

@@ -2,34 +2,35 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { userData } from "../src/containers/userSlice";
 
-export function useFetchInscriptions() {
+export const useFetchInscriptions = () => {
     const datosCredencialesRedux = useSelector(userData);
     const [studentAccepted, setStudentAccepted] = useState({});
 
-    useEffect(() => {
-        async function fetchInscriptions() {
-            try {
-                let config = {
-                    headers: {
-                        Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,
-                    },
-                };
+    const fetchInscriptions = () => {
+        let config = {
+            headers: {
+                Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,
+            },
+        };
 
-                const response = await fetch('https://laravel-akdemyproject-production.up.railway.app/api/userConvo/getAllInscriptions', config);
-
+        fetch('https://laravel-akdemyproject-production.up.railway.app/api/userConvo/getAllInscriptions', config)
+            .then((response) => {
                 if (!response.ok) {
-                    throw new Error("Error al obtener las inscripciones");
+                    throw new Error("Network response was not ok");
                 }
+                return response.json();
+            })
+            .then((data) => {
+                setStudentAccepted(data);
+            })
+            .catch((error) => {
+                console.error("Error fetching request:", error);
+            });
+    };
 
-                const inscriptionsData = await response.json();
-                setStudentAccepted(inscriptionsData);
-            } catch (error) {
-                console.error("Error al obtener las inscripciones:", error);
-            }
-        }
-
+    useEffect(() => {
         fetchInscriptions();
     }, [datosCredencialesRedux.credentials?.token]);
 
     return studentAccepted;
-}
+};

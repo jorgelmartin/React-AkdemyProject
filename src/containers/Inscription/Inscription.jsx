@@ -7,16 +7,18 @@ import { userData } from '../userSlice';
 import { useNavigate } from 'react-router-dom';
 import { AkdemyButton } from '../../components/AkdemyButton/AkdemyButton';
 import "./Inscription.css";
+import { useFetchInscriptions } from '../../../hooks/useFetchInscriptions';
+import { ModalAkdemy } from '../../components/ModalAkdemy/ModalAkdemy';
 
 export const Inscription = () => {
     const [convocationData, setConvocationData] = useState({});
     const datosCredencialesRedux = useSelector(userData);
     const [selectedConvocationId, setSelectedConvocationId] = useState({});
+    const allInscriptions = useFetchInscriptions();
+    const [showModal, setShowModal] = useState(false);
 
     const navigate = useNavigate();
 
-    // const usersReq = useFetchRequestAccepted(userId);
-    
     const userToken = datosCredencialesRedux?.credentials?.token;
     const userId = datosCredencialesRedux?.data?.userId;
     const convocations = useFetchConvocations();
@@ -45,14 +47,25 @@ export const Inscription = () => {
     const handleInscription = async (e) => {
         e.preventDefault();
 
-        //PERPARE DATA TO BE SEND IN THE REQUEST BODY
-        const body = {
-            convocation_id: selectedConvocationId,
-            user_id: userId,
-        };
-        navigate('/requestAccepted');
-        const result = await createUserConvocation(body, userToken);
-        console.log("User-Convocation created:", result);
+        // VERIFY IF THE USER IS ALREADY IN THE CONVO
+        const isAlreadyInscribed = allInscriptions.some(
+            (inscription) =>
+                inscription.user.id === userId &&
+                inscription.convocation.id === selectedConvocationId
+        );
+        if (isAlreadyInscribed) {
+            setShowModal(true);
+        } else {
+
+            //MAKE THE INSCRIPTION
+            const body = {
+                convocation_id: selectedConvocationId,
+                user_id: userId,
+            };
+            navigate('/requestAccepted');
+            const result = await createUserConvocation(body, userToken);
+            console.log("Inscription created:", result);
+        }
     };
 
     //FILTER AND SHOW ONLY UPCOMING CONVOCATIONS
@@ -65,9 +78,10 @@ export const Inscription = () => {
 
         //RENDER INSCRIPTION CONTAINER
         <Container >
-            <Card style={{ maxWidth: '25em', margin: '0 auto', backgroundColor: '#9f512121', border: 'green solid 0.1em',
-        boxShadow: 'rgb(38, 57, 77) 0em 1.25em 1.875em -0.625em'
-        }}>
+            <Card style={{
+                maxWidth: '25em', margin: '0 auto', backgroundColor: '#9f512121', border: 'green solid 0.1em',
+                boxShadow: 'rgb(38, 57, 77) 0em 1.25em 1.875em -0.625em'
+            }}>
                 <Card.Body>
 
                     {/* INSCRIPTION TITLE */}
@@ -78,7 +92,7 @@ export const Inscription = () => {
                             {/* GETTING UPCOMING CONVOCATIONS */}
                             <div className="labelCreate">Convocatorias:</div>
                             <select
-                            className='inscriptionSelector'
+                                className='inscriptionSelector'
                                 value={convocationData.convocation_id}
                                 onChange={handleConvocationChange}
                                 style={{ width: '10em' }}
@@ -121,6 +135,10 @@ export const Inscription = () => {
                     </div>
                 </Card.Body>
             </Card>
+
+            {/* SHOW MODAL */}
+            <ModalAkdemy show={showModal} onClose={() => setShowModal(false)} />
+
         </Container>
     );
 };
