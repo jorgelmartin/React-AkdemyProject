@@ -1,0 +1,40 @@
+.containerForum{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messageContainer {
+    max-width: 30em;
+    margin: 0 auto;
+    padding: 1em;
+    background-color: #f5f5f5;
+    border-radius: 1em;
+    max-width: 20em;
+    min-width: 20em;
+    /* flex-direction: row; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.messageItem {
+    margin: 0.5em;
+    padding: 0.5em;
+    border-radius: 1em;
+}
+
+.messageItem p {
+    margin: 0;
+}
+
+.messageSend {
+    background-color: #DCF8C6;
+    align-self: flex-end;
+}
+
+.messageFrom {
+    background-color: #EAEAEA;
+    align-self: flex-start;
+}
