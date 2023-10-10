@@ -83,3 +83,26 @@ export const createUserConvocation = async (body, token) => {
     let res = await axios.post(`${URL}/api/userConvo/create`, body, config);
     return res;
 }
+
+//CREATE USER-CONVOCATION
+export const createMessage = async (body, token) => {
+    let config = {
+        headers: {
+            'Authorization': 'Bearer ' + token,
+        }
+    };
+    let res = await axios.post(`${URL}/api/message/create`, body, config);
+    return res;
+}
+
+//CREATE REPLY TO COMMENT
+export const createReply = async (commentId, body, token) => {
+    let config = {
+        headers: {
+            'Authorization': 'Bearer ' + token,
+        }
+    };
+
+    let res = await axios.post(`${URL}/api/message/${commentId}/reply`, body, config);
+    return res;
+}
