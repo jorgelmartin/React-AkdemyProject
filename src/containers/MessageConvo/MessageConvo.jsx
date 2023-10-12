@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import './MessageConvo.css';
 import { createMessage, createReply } from "../../services/apiCalls";
 import { format } from 'date-fns';
@@ -23,11 +23,11 @@ export const MessageConvo = () => {
     const [updateMessages, setUpdateMessages] = useState(false);
     // const [showResponses, setShowResponses] = useState(false);
     // const responses = useFetchGetAllResponses();
+    // const containerRef = useRef(null);
 
     const currentDate = new Date();
     const formattedDate = format(currentDate, 'yyyy-MM-dd');
-
-
+    
     // Función para manejar el clic en un botón (o evento)
     const handleClick = () => {
         // Cambia el estado para forzar una actualización del componente
@@ -116,64 +116,71 @@ export const MessageConvo = () => {
     return (
         <div className="containerForum">
             <ProgramSelection programs={inscriptions[0]} onSelectProgram={handleProgramSelect} />
+
             <div className="messageContainer">
-            {filteredMessages.map((messageItem) => (
-    <div
-        key={messageItem.id}
-        className={`messageItem ${messageItem.user_id === userId ? "messageSend" : "messageFrom"}`}
-    >
-        
-        {/* Verifica si este mensaje es una respuesta */}
-        {messageItem.parent_id !== null && (
-            <div className="responseInfo">
-                <p>En respuesta a: {getUserInfo(messageItem.parent_id)}</p>
-            </div>
-        )}
-        <p>{messageItem.user.name} {messageItem.user.surname} {messageItem.date}</p>
-        <p>{messageItem.message}</p>
+                <div className="messageText">
 
-        {!isReplying && (
-            <button onClick={() => startReplying(messageItem.id)}>Responder</button>
-        )}
+                    {filteredMessages.map((messageItem) => (
+                        <div
+                            key={messageItem.id}
+                            className={`messageItem ${
+                                messageItem.user_id === userId ? "messageSend" : "messageFrom"}`
+                            }>
 
-        {isReplying && selectedCommentId === messageItem.id && (
-            <div>
-                <InputText
-                    type="text"
-                    placeholder="Escribe tu respuesta aquí"
-                    name="replyContent"
-                    value={replyContent}
-                    state={setReplyContent}
-                />
-                <AkdemyButton
-                onClick={(e) => {
-                    handleReplySubmit(e);
-                    handleClick();
-                }}
-            
-                    // onClick={handleReplySubmit}
-                    text="Enviar Respuesta"
-                />
+                            {/* Verifica si este mensaje es una respuesta */}
+                            {messageItem.parent_id !== null && (
+                                <div className="responseInfo">
+                                    <p>En respuesta a: {getUserInfo(messageItem.parent_id)}</p>
+                                </div>
+                            )}
+                            <p>{messageItem.user.name} {messageItem.user.surname} {messageItem.date}</p>
+                            <p>{messageItem.message}</p>
+
+                            {!isReplying && (
+                                <button onClick={() => startReplying(messageItem.id)}>Responder</button>
+                            )}
+
+                            {isReplying && selectedCommentId === messageItem.id && (
+                                <div>
+                                    <InputText
+                                        type="text"
+                                        placeholder="Escribe tu respuesta aquí"
+                                        name="replyContent"
+                                        value={replyContent}
+                                        state={setReplyContent}
+                                    />
+                                    <AkdemyButton
+                                        onClick={(e) => {
+                                            handleReplySubmit(e);
+                                            handleClick();
+                                        }}
+                                        text="Enviar Respuesta"
+                                    />
+                                </div>
+                            )}
+                        </div>
+                    ))}</div>
+                <div
+                    style={{
+                        display: "flex",
+                    }}>
+                    <InputText
+                        type="text"
+                        placeholder="Escribe tu mensaje aquí"
+                        name="message"
+                        value={message}
+                        state={setMessage}
+                    />
+                    <AkdemyButton
+                        onClick={(e) => {
+                            handleMessageSubmit(e);
+                            handleClick();
+                        }}
+                        text="Enviar"
+                    />
+                </div>
             </div>
-        )}
-    </div>
-))}
-            </div>
-            <InputText
-                type="text"
-                placeholder="Escribe tu mensaje aquí"
-                name="message"
-                value={message}
-                state={setMessage}
-            />
-            <AkdemyButton
-    onClick={(e) => {
-        handleMessageSubmit(e); 
-        handleClick();
-    }}
-    text="Enviar"
-/>
-        </div>
+        </div>  
     );
 };
    {/* {showResponses && responses && responses.length > 0 && (
