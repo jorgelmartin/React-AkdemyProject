@@ -9,7 +9,6 @@ import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
 import { loginMe } from "../../services/apiCalls";
 
 export const Login = () => {
-
     const [user, setUser] = useState({});
     const [token, setToken] = useState("");
     const [userError, setUserError] = useState({});
@@ -40,7 +39,6 @@ export const Login = () => {
         if (token) {
             dispatch(
                 login({
-
                     token: token,
                     name: userLogin.name,
                     role: userLogin.role_id,

@@ -6,7 +6,6 @@ import { userData } from "../src/containers/userSlice";
 export const useFetchRequestAccepted = (userId) => {
     const [usersRequest, setUsersRequest] = useState(null);
     const datosCredencialesRedux = useSelector(userData);
-    // const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         let config = {

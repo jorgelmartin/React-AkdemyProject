@@ -21,5 +21,4 @@ export const useFetchGetAllMessages = () => {
             .catch(error => console.log(error))
     }, [])
     return messages;
-    console.log(messages);
 }

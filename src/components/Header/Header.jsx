@@ -31,7 +31,7 @@ export const Header = () => {
                     {datosCredencialesRedux.data.role === 2 ? (
                         <>
                             <div className="headerLink" onClick={() => navigate("/profile")}>Perfil</div>
-                            <div className="headerLink" onClick={() => navigate("/student")}>Convocatorias</div>
+                            <div className="headerLink" onClick={() => navigate("/student")}>Menú</div>
                             <div className="headerLink" onClick={handleLogout}>Salir</div>
                         </>
                     ) : datosCredencialesRedux.data.role === 1 ? (

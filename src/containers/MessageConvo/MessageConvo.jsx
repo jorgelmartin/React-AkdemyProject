@@ -76,7 +76,7 @@ export const MessageConvo = () => {
         e.preventDefault();
 
         if (!replyContent || !selectedProgram || !userId || !selectedCommentId) {
-            alert("Por favor, completa todos los campos antes de enviar la respuesta.");
+            alert("Por favor, escribe antes de enviar la respuesta.");
             return;
         }
         console.log("ID de comentario seleccionado:", selectedCommentId);
@@ -130,18 +130,29 @@ export const MessageConvo = () => {
                             {/* Verifica si este mensaje es una respuesta */}
                             {messageItem.parent_id !== null && (
                                 <div className="responseInfo">
-                                    <p>En respuesta a: {getUserInfo(messageItem.parent_id)}</p>
+                                    <p>En respuesta a: <strong style={{ fontSize: '0.86em' }}
+                                    >{getUserInfo(messageItem.parent_id)}</strong></p>
                                 </div>
                             )}
-                            <p>{messageItem.user.name} {messageItem.user.surname} {messageItem.date}</p>
+                            <p><strong>{messageItem.user.name} {messageItem.user.surname} </strong><span
+                                style={{ fontSize: '0.8em' }}
+                            >{messageItem.date}
+                            </span>
+                            </p>
                             <p>{messageItem.message}</p>
 
                             {!isReplying && (
-                                <button onClick={() => startReplying(messageItem.id)}>Responder</button>
+                                <div onClick={() => startReplying(messageItem.id)}
+                                style={{ color:'brown',
+                                    cursor:'pointer',
+                                    fontSize: '0.86em',
+                                    width:'4em'
+                            }}
+                                >Responder</div>
                             )}
 
                             {isReplying && selectedCommentId === messageItem.id && (
-                                <div>
+                                <div className="d-flex" style={{ height: '3em' }}>
                                     <InputText
                                         type="text"
                                         placeholder="Escribe tu respuesta aquí"
@@ -149,13 +160,14 @@ export const MessageConvo = () => {
                                         value={replyContent}
                                         state={setReplyContent}
                                     />
+                                    <div style={{ marginTop:'-1.2em' }}>
                                     <AkdemyButton
                                         onClick={(e) => {
                                             handleReplySubmit(e);
                                             handleClick();
                                         }}
                                         text="Enviar Respuesta"
-                                    />
+                                    /></div>
                                 </div>
                             )}
                         </div>
@@ -163,6 +175,7 @@ export const MessageConvo = () => {
                 <div
                     style={{
                         display: "flex",
+                        height: '3em' 
                     }}>
                     <InputText
                         type="text"
@@ -171,13 +184,14 @@ export const MessageConvo = () => {
                         value={message}
                         state={setMessage}
                     />
+                    <div style={{ marginTop:'-1.2em' }}>
                     <AkdemyButton
                         onClick={(e) => {
                             handleMessageSubmit(e);
                             handleClick();
                         }}
                         text="Enviar"
-                    />
+                    /></div>
                 </div>
             </div>
         </div>  

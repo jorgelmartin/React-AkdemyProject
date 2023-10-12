@@ -1,9 +1,10 @@
 .programContainer {
     /* display: flex; */
     /* flex-wrap: wrap; */
-    justify-content: center;
-    align-items: center;
-    min-width: 12em;
+    /* justify-content: center;
+    align-items: center; */
+    /* min-width: 12em; */
+    height: 100%;
     text-align: center;
 }
 
