@@ -1,0 +1,49 @@
+.InputMessageContainer {
+    /* position: sticky; */
+    background-color: rgba(179, 190, 200, 0.312);
+    width: 20em;
+    height: 3em;
+    position: fixed;
+    bottom: 0;
+    border-radius: 0.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-content: center;
+    border: 0.08em solid rgb(62, 61, 59);
+    box-shadow:
+        0.04em 0.04em 0.5em 0.2em rgba(110, 29, 2, 0.532),
+        inset 0.04em 0.04em 0.5em 0.2em rgba(59, 194, 18, 0.532),
+        0.0em 0.02em 0.1em 0.1em rgba(203, 59, 30, 0.286);
+}
+
+.InputMessage {
+    width: 100%;
+    padding: 0.5rem;
+    padding-bottom: 0.5em;
+    border-radius: 0.5em 0em 0em 0.5em;
+    font-size: 1em;
+    background-color: #b4e2cb21;
+    box-shadow: inset 0.01em 0.01em 0.4em 0.1em rgba(34, 132, 52, 0.299);
+    border: 0.1em solid rgb(141, 91, 5);
+}
+
+
+button {
+    background-color: #7f7c7591;
+    color: #ffffff;
+    border: 0.01em solid rgba(132, 4, 4, 0.464);
+    border-radius: 0em 0.5em 0.5em 0em;
+    cursor: pointer;
+    text-shadow: 0.09em 0.09em 0.1em rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow:
+        inset 0.04em 0.04em 0.5em 0.2em rgba(21, 61, 9, 0.532),
+        0.0em 0.02em 0.1em 0.1em rgba(21, 61, 9, 0.286);
+}
+
+button:hover {
+    box-shadow: inset 0.04em 0.04em 0.5em 0.2em rgba(21, 61, 9, 0.532);
+    text-shadow: none;
+    /* transform: scale(0.96); */
+}
