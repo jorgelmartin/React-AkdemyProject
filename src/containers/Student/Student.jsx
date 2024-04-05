@@ -60,9 +60,9 @@ export const Student = () => {
                                 {/* REQUEST */}
                             <Button
                                     className="w-100 userCardTitle"
-                                    onClick={() => navigate("/messageConvo")}
+                                    onClick={() => navigate("/MessageApp")}
                                 >
-                                    Foro
+                                    Sala
                                 </Button>
                             </div>
                         </div>

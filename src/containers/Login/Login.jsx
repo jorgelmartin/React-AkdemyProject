@@ -63,13 +63,14 @@ export const Login = () => {
                     {/* LOGIN TITLE */}
                     <Card.Title className="text-center mb-2 display-5"><strong>Iniciar sesión</strong></Card.Title>
                     <Card.Body className="loginDataUser">
-                        <Row className="justify-content-center align-items-center">
+                        <Row className="d-flex justify-content-center align-items-center">
                             <Col xs={10} md={6}>
                                 <Form as={Row}>
 
                                     {/* EMAIL LOGIN */}
                                     <Form.Group className="mt-3">
-                                        <div className="labelLogin">Email:</div>
+                                    <Form.Label htmlFor="email"className="labelLogin">Email:</Form.Label>
+                                        {/* <div className="">Email:</div> */}
                                         <Col>
                                             <InputText
                                                 type={"email"}
@@ -78,6 +79,7 @@ export const Login = () => {
                                                 placeholder={"user@user.com"}
                                                 state={setUser}
                                                 errorState={setUserError}
+                                                autoCompleteValue={"email"}
                                             />
                                             <div className="errorText">{userError.emailError}</div>
                                         </Col>
@@ -85,7 +87,7 @@ export const Login = () => {
 
                                     {/* PASSWORD LOGIN */}
                                     <Form.Group className="mb-3">
-                                        <div className="labelLogin">Contraseña:</div>
+                                    <Form.Label htmlFor="password"className="labelLogin">Contraseña:</Form.Label>
                                         <Col>
                                             <InputText
                                                 type={"password"}
@@ -94,6 +96,7 @@ export const Login = () => {
                                                 placeholder={"Hola1234"}
                                                 state={setUser}
                                                 errorState={setUserError}
+                                                autoCompleteValue={"current-password"}
                                             />
                                             <div className="errorText">{userError.passwordError}</div>
                                         </Col>

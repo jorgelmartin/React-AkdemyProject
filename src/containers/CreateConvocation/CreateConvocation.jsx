@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import "./CreateConvocation.css";
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { SelectPrograms } from "../../../hooks/useFetchSelectPrograms";
 import { SelectDate } from "../../../hooks/useFetchSelectDate";
@@ -45,7 +45,8 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                     <div className="rowCreate">
 
                         {/* PROGRAM SELECTOR */}
-                        <strong className="nameSelectors">Curso:</strong>
+                        <Form.Label htmlFor="programSelect" className="nameSelectors"><strong>Curso:</strong></Form.Label>
+                        {/* <strong >Curso:</strong> */}
                         <SelectPrograms
                             name="program_id"
                             value={convocationData.program_id}
@@ -60,7 +61,8 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                     <div className="rowCreate">
 
                         {/* BEGINNING SELECTOR */}
-                        <strong className="nameSelectors">Inicio:</strong>
+                        <Form.Label htmlFor="dateSelect" className="nameSelectors"><strong>Inicio:</strong></Form.Label>
+                        {/* <strong className="nameSelectors">Inicio:</strong> */}
                         <SelectDate
                             name="beginning"
                             value={convocationData.beginning}
@@ -75,7 +77,8 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                     <div className="rowCreate">
 
                         {/* SCHEDULE SELECTOR */}
-                        <strong className="nameSelectors">Horario:</strong>
+                        <Form.Label htmlFor="scheduleSelect" className="nameSelectors"><strong>Horario:</strong></Form.Label>
+                        {/* <strong className="nameSelectors">Horario:</strong> */}
                         <SelectSchedule
                             name="schedule_id"
                             value={convocationData.schedule}

@@ -1,24 +1,19 @@
 import React from 'react';
 import './InputMessage.css';
 
-export const InputMessage = ({ type, placeholder, name, state, onSubmit, children, text }) => {
+export const InputMessage = ({ type, placeholder, name, state, onClick, children, text }) => {
 
     //INPUTHANDLER FUNCTION
-    const inputHandler = ({ target }, state) => {
-        //BRING THE NAME AND THE VALUE FROM THE ELEMENT THAT START THE EVENT
+    const inputHandler = ({ target }) => {
+        // Bring the name and the value from the element that started the event
         const { name, value } = target;
-        //UPDATE THE STAGE OF THE COMPONENT
+        // Update the state of the component
         state((prevState) => ({
-            //MAKE A COPY FROM THE LAST STAGE
+            // Make a copy from the last stage
             ...prevState,
-            //SET THE NEW STATE
+            // Set the new state
             [name]: value,
         }));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        onSubmit(e); // CALL THE onSubmit FUNCTION PASSED AS PROP
     };
 
     return (
@@ -31,7 +26,10 @@ export const InputMessage = ({ type, placeholder, name, state, onSubmit, childre
                 name={name}
                 onChange={(e) => inputHandler(e, state)}
             />
-            <button onClick={handleSubmit}>
+            <button
+            className='inputMessageButton'
+                onClick={onClick}
+            >
                 {children} {text}
             </button>
             </div>

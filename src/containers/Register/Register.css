@@ -7,6 +7,7 @@
 .dataUserRegister {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border: 0.01em solid rgb(118, 71, 24);
     box-shadow: inset 1em 0.4em 0.7em 0.1em rgba(0, 0, 0, 0.503);
     border-radius: 0.5em;
@@ -16,8 +17,8 @@
 }
 
 .profileLabelRegister {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     font-weight: bold;
     font-size: 0.9em;
     text-align: center;
@@ -29,6 +30,7 @@
 }
 
 .dataRegister {
+    align-self: flex-end;
     border-radius: 0.5em;
     font-size: 1em;
     background-color: #d2eeca4d;

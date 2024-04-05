@@ -15,8 +15,7 @@ import { MyPrograms } from "../MyPrograms/MyPrograms";
 import { ProgramDetail } from "../ProgramDetail/ProgramDetail";
 import { RequestAccepted } from "../RequestAccepted/RequestAccepted";
 import { UserRequests } from "../UserRequests/UserRequests";
-import { MessageConvo } from "../MessageConvo/MessageConvo";
-
+import { MessageApp } from "../MessageApp/MessageApp";
 
 export const Body = () => {
     return (
@@ -39,7 +38,7 @@ export const Body = () => {
                 <Route path="/myPrograms" element={<MyPrograms />} /> 
                 <Route path="/programDetail/:id" element={<ProgramDetail />} /> 
                 <Route path="/requestAccepted" element={<RequestAccepted />} /> 
-                <Route path="/messageConvo" element={<MessageConvo />} /> 
+                <Route path="/messageApp" element={<MessageApp />} /> 
             </Routes>
         </>
     );

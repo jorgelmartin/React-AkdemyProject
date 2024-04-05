@@ -33,12 +33,16 @@ export const Register = () => {
                     <Card.Body>
 
                         {/* REGISTER TITLE */}
-                        <Card.Title className="text-center mb-3 display-5"><strong>Registro</strong></Card.Title>
+                        <Card.Title className="text-center mb-3 display-5" style={{textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)'
+
+                        }}
+                        
+                        ><strong>Registro</strong></Card.Title>
                             <Form as={Row}>
 
                             {/* Nombre */}
                         <div className="dataUserRegister">
-                            <div className="profileLabelRegister">Nombre:</div>
+                        <Form.Label htmlFor="name"className="profileLabelRegister">Nombre:</Form.Label>
                                 <div className="dataRegister">
                                     <InputText
                                         type={"text"}
@@ -47,6 +51,7 @@ export const Register = () => {
                                         name={"name"}
                                         state={setUser}
                                         errorState={setUserError}
+                                        autoCompleteValue={"name"}
                                     />
                                     <div className="errorText">{userError.nameError}</div>
                                 </div>
@@ -54,7 +59,7 @@ export const Register = () => {
 
                             {/* Apellido */}
                             <div className="dataUserRegister">
-                                <div className="profileLabelRegister">Apellido:</div>
+                                <Form.Label htmlFor="surname"className="profileLabelRegister">Apellido:</Form.Label>
                                 <div className="dataRegister">
                                     <InputText
                                         type={"text"}
@@ -63,6 +68,7 @@ export const Register = () => {
                                         name={"surname"}
                                         state={setUser}
                                         errorState={setUserError}
+                                        autoCompleteValue={"family-name"}
                                     />
                                     <div className="errorText">{userError.surnameError}</div>
                                 </div>
@@ -70,7 +76,7 @@ export const Register = () => {
 
                             {/* Email */}
                             <div className="dataUserRegister">
-                                <div className="profileLabelRegister">Email:</div>
+                                <Form.Label htmlFor="email"className="profileLabelRegister">Email:</Form.Label>
                                 <div className="dataRegister">
                                     <InputText
                                         type={"email"}
@@ -79,13 +85,15 @@ export const Register = () => {
                                         name={"email"}
                                         state={setUser}
                                         errorState={setUserError}
+                                        autoCompleteValue={"email"}
                                     />
                                     <div className="errorText">{userError.emailError}</div>
                                 </div>
                             </div>
+
                             {/* Contraseña */}
                             <div className="dataUserRegister">
-                                <div className="profileLabelRegister">Contraseña:</div>
+                                <Form.Label htmlFor="password"className="profileLabelRegister">Contraseña:</Form.Label>
                                 <div className="dataRegister">
                                     <InputText
                                         type={"password"}
@@ -94,6 +102,7 @@ export const Register = () => {
                                         name={"password"}
                                         state={setUser}
                                         errorState={setUserError}
+                                        autoCompleteValue={"current-password"}
                                     />
                                     <div className="errorText">{userError.passwordError}</div>
                                 </div>

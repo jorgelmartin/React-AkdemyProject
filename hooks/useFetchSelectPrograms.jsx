@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 //SELECTING SERVICES FOR THE APPOINTMENT
-export const SelectPrograms = ({handleChange, value}) => {
+export const SelectPrograms = ({ handleChange, value }) => {
 
     //USER SELECTED SERVICE FROM THE FATHER COMPONENT
     const [selectedService, setSelectedService] = useState(value);
@@ -18,9 +18,14 @@ export const SelectPrograms = ({handleChange, value}) => {
 
     return (
         <>
-            <select className="inputConvocation" value={selectedService} onChange={(e) => {
-                handleChange(e.target.value); 
-                setSelectedService(e.target.value)}}>
+            <select
+                id={"programSelect"}
+                className="inputConvocation"
+                value={selectedService}
+                onChange={(e) => {
+                    handleChange(e.target.value);
+                    setSelectedService(e.target.value)
+                }}>
                 <option value="">Cursos</option>
                 {services.map((service) => (
                     <option key={service.id} value={service.id}>

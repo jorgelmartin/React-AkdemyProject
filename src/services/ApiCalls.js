@@ -37,17 +37,13 @@ export const updateProfile = async (body, token) => {
 
 //DELETE PROFILE
 export const deleteProfile = async (token) => {
-    try {
-        let config = {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        };
-        let res = await axios.delete(`${URL}/api/user/delete`, config);
-        return res.data;
-    } catch (error) {
-        throw error;
-    }
+    let config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    };
+    let res = await axios.delete(`${URL}/api/user/delete`, config);
+    return res.data;
 };
 
 //CREATE CONVOCATION
@@ -77,7 +73,7 @@ export const updateConvocation = async (token, id, bodyApp) => {
 export const createUserConvocation = async (body, token) => {
     let config = {
         headers: {
-            'Authorization': 'Bearer ' + token,
+            'Authorization': `Bearer ${token}`,
         }
     };
     let res = await axios.post(`${URL}/api/userConvo/create`, body, config);
@@ -88,21 +84,35 @@ export const createUserConvocation = async (body, token) => {
 export const createMessage = async (body, token) => {
     let config = {
         headers: {
-            'Authorization': 'Bearer ' + token,
+            'Authorization': `Bearer ${token}`,
         }
     };
     let res = await axios.post(`${URL}/api/message/create`, body, config);
-    return res;
+    return res.data.data;
+
 }
 
 //CREATE REPLY TO COMMENT
 export const createReply = async (commentId, body, token) => {
     let config = {
         headers: {
-            'Authorization': 'Bearer ' + token,
+            'Authorization': `Bearer ${token}`,
         }
     };
-
     let res = await axios.post(`${URL}/api/message/${commentId}/reply`, body, config);
     return res;
 }
+
+export const deleteMessage = async (messageId, token) => {
+
+    const config = {
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        }
+    };
+
+    const res = await axios.delete(`${URL}/api/message/delete/${messageId}`, config);
+
+    return res.data;
+
+};

@@ -8,7 +8,10 @@ export const useFetchGetAllMessages = () => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
+        fetchMessages();
+    }, []); 
 
+    const fetchMessages = () => {
         let config = {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -18,7 +21,8 @@ export const useFetchGetAllMessages = () => {
         fetch('https://laravel-akdemyproject-production.up.railway.app/api/message/getAll', config)
             .then(res => res.json())
             .then(res => setMessages(res.data))
-            .catch(error => console.log(error))
-    }, [])
-    return messages;
+            .catch(error => console.log(error));
+    };
+
+    return [messages, fetchMessages];
 }

@@ -96,6 +96,7 @@ export const Inscription = () => {
                                 value={convocationData.convocation_id}
                                 onChange={handleConvocationChange}
                                 style={{ width: '10em' }}
+                                name="convocationSelect"
                             >
                                 <option value={0}>Selecciona convocatoria</option>
                                 {upcomingConvocations.length > 0 ? (

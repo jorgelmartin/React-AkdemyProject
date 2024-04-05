@@ -26,13 +26,12 @@ export const SelectDate = ({ handleChange, value }) => {
     return (
         <>
             <DatePicker
+                id="dateSelect"
                 className="inputConvocation"
                 selected={selectedDate}
                 onChange={handleDateChange}
                 dateFormat="dd/MM/yyyy"
                 placeholderText="Selecciona fecha"
-                showMonthDropdown
-                showYearDropdown
                 dropdownMode="select"
                 isClearable
             />

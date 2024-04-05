@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Table } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useFetchRequestAccepted } from "../../../hooks/useFetchRequestAccepted";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";

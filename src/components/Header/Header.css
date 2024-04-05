@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     height: 8vh;
-    width: 100vw;
+    width: 100%;
     background-color: #98a84ed3;
     display: flex;
     flex-direction: row;

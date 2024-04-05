@@ -78,13 +78,14 @@ export const Profile = () => {
         // RENDER PROFILE CONTAINER
         <div style={{ minWidth: '20em' }}>
             {/* MAKING ALERT WITH RED COLOR BEFORE DELETE PROFILE */}
-            <div className="text-center mb-3  display-3 mt-5" style={{
-                backgroundColor: hovering ? '#FF0000' : '#699f216c',
-                padding: '1rem',
-                border: '0.01em solid green',
-                borderRadius: '0.5rem',
-                text: "Editar"
-            }}>
+            <div className="text-center mb-3  display-3 mt-5"
+                style={{
+                    backgroundColor: hovering ? '#FF0000' : '#699f216c',
+                    padding: '1rem',
+                    border: '0.01em solid green',
+                    borderRadius: '0.5rem',
+                    text: "Editar"
+                }}>
 
                 {/* PROFILE TITLE */}
                 <strong>Perfil</strong>
@@ -104,6 +105,7 @@ export const Profile = () => {
                                         className="form-control"
                                         defaultValue={user.name}
                                         onChange={(e) => inputHandler(e, setBody)}
+                                        autoComplete="name"
                                     />
                                 </div>
                             ) : (
@@ -123,6 +125,7 @@ export const Profile = () => {
                                     className="form-control"
                                     defaultValue={user.surname}
                                     onChange={(e) => inputHandler(e, setBody)}
+                                    autoComplete="family-name"
                                 />
                             ) : (
                                 <div>{user.surname}</div>
@@ -141,6 +144,7 @@ export const Profile = () => {
                                     className="form-control"
                                     defaultValue={user.email}
                                     onChange={(e) => inputHandler(e, setBody)}
+                                    autoComplete="email"
                                 />
                             ) : (
                                 <div>{user.email}</div>
@@ -157,6 +161,7 @@ export const Profile = () => {
                                     name="password"
                                     className="form-control"
                                     onChange={(e) => inputHandler(e, setBody)}
+                                    autoComplete="current-password"
                                 />
                             </div>
                         </div>

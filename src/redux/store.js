@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import persistStore from 'redux-persist/es/persistStore';
 
 const persistConfig = {
-    key: root,
+    key: 'root',
     storage
 }
 
