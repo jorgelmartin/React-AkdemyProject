@@ -1,4 +1,3 @@
-import React from 'react';
 import './AdminButton.css';
 
 export const AdminButton = ({ onClick, children, text }) => {

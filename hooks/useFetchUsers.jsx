@@ -4,7 +4,7 @@ import { userData } from "../src/containers/userSlice";
 
 //GET ALL USERS FROM THE API
 export const useFetchUsers = () => {
-    const [users, setUsers] = useState(null);
+    const [users, setUsers] = useState('');
     const datosCredencialesRedux = useSelector(userData);
     useEffect(() => {
             let config = {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./Student.css";
 import { useNavigate } from 'react-router-dom';
@@ -7,17 +6,16 @@ export const Student = () => {
     const navigate = useNavigate();
 
     return (
-
         //RENDER STUDENT CONTAINER
-        <Container> 
-                <Row className="d-flex justify-content-center mt-5">
-                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1" >
-                    <div className="adminCardTitle1">
+            <Container className='mt-5'>
+                <Row> 
+                    <Col className="d-flex justify-content-center g-1" >
+                        <div className="menuCard">
                             <div>
 
                                 {/* CONVOCATIONS BUTTON */}
-                            <Button
-                                    className="w-100 userCardTitle"
+                                <Button
+                                    className="w-100 menuCardTitle"
                                     onClick={() => navigate("/convocation")}
                                 >
                                     CONVOCATORIAS
@@ -25,13 +23,13 @@ export const Student = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
-                        <div className="adminCardTitle1">
+                    <Col className="d-flex justify-content-center g-1">
+                        <div className="menuCard">
                             <div>
 
                                 {/* MY PROGRAMS BUTTON */}
-                            <Button
-                                    className="w-100 userCardTitle"
+                                <Button
+                                    className="w-100 menuCardTitle"
                                     onClick={() => navigate("/myPrograms")}
                                 >
                                     MIS CURSOS
@@ -39,13 +37,13 @@ export const Student = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
-                        <div className="adminCardTitle1">
+                    <Col className="d-flex justify-content-center g-1">
+                        <div className="menuCard">
                             <div>
 
                                 {/* REQUEST */}
-                            <Button
-                                    className="w-100 userCardTitle"
+                                <Button
+                                    className="w-100 menuCardTitle"
                                     onClick={() => navigate("/inscription")}
                                 >
                                     SOLICITAR INSCRIPCIÓN
@@ -53,13 +51,13 @@ export const Student = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col xs={10} md={5} lg={3} className="d-flex justify-content-center g-1">
-                        <div className="adminCardTitle1">
+                    <Col className="d-flex justify-content-center g-1">
+                        <div className="menuCard">
                             <div>
 
-                                {/* REQUEST */}
-                            <Button
-                                    className="w-100 userCardTitle"
+                                {/* STUDENDS MESSAGES */}
+                                <Button
+                                    className="w-100 menuCardTitle"
                                     onClick={() => navigate("/MessageApp")}
                                 >
                                     Sala
@@ -67,7 +65,7 @@ export const Student = () => {
                             </div>
                         </div>
                     </Col>
-                </Row>
+                </Row> 
             </Container>
     );
 }

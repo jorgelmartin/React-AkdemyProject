@@ -1,12 +1,5 @@
-.adminContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    min-width: 100vw;
-}
 
-.adminCardTitle1{
+.menuCard{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +17,7 @@
     transition: transform 0.3s ease, font-size 0.2s ease, background-color 0.3s ease;
 }
 
-.adminCardTitle {
+.menuCardTitle {
     margin: 0.1em;
     border-radius: 1em;
     width: 18em; 
@@ -38,14 +31,14 @@
     transition: transform 0.3s ease, font-size 0.2s ease, background-color 0.3s ease;
 }
 
-.adminCardTitle:hover{
+.menuCardTitle:hover{
     font-size: 1.25em;
     background-color: #5f9ea0a4;
     transform: scale(1.1);
     
 }
 
-.adminCardTitle1:hover {
+.menuCard:hover {
     font-size: 1.25em;
     background-color: #5f9ea0a4;
     transform: scale(1.1);

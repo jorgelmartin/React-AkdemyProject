@@ -1,4 +1,3 @@
-import React from "react";
 import { useFetchPrograms } from "../../../hooks/useFetchPrograms";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
@@ -16,7 +15,7 @@ export const Home = () => {
     return (
 
         //HOME PAGE
-        <div className="productCardContainer">
+        <div className="productCardContainer mt-4">
 
             {/* AKDEMY NAME */}
             <div className="akdemyTitle" style={{ textShadow: '0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5)' }}>AKDEMY</div>

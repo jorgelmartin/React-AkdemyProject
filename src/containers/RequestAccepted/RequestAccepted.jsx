@@ -1,4 +1,3 @@
-import React from 'react';
 import './RequestAccepted.css'; 
 import { AkdemyButton } from '../../components/AkdemyButton/AkdemyButton';
 import { useNavigate } from "react-router-dom";
@@ -22,7 +21,7 @@ export const RequestAccepted = () => {
                 <li>Documento de identidad (Por ambas caras).</li>
                 <li>Depósito bancario indicando nombre completo y curso a la siguiente cuenta: XXXX XXXX XXXX XXXX.</li>
             </ul>
-            <p>Tenga en cuenta que podrá llevar un registro detallado de sus cursos en el apartado "Mis cursos" de nuestra plataforma.</p>
+            <p>Tenga en cuenta que podrá llevar un registro detallado de sus cursos en el apartado &quot;Mis cursos&quot; de nuestra plataforma.</p>
             <p>Si surgiera cualquier inquietud o si necesita asistencia adicional, no dude en ponerse en contacto con nosotros. Estamos a su disposición para brindarle toda la ayuda que requiera.</p>
             <p>Gracias por confiar en nosotros. Esperamos recibir su documentación pronto.</p>
             <p>Atentamente,</p>

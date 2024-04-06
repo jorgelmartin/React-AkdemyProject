@@ -1,39 +1,40 @@
-.DetailProgram {
+/* .DetailProgram {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     min-width: 100vw;
-}
+} */
 
-.DetailProgram1 {
+.detailProgram {
     box-shadow: inset 0 0 2em #98a84e92;
-    margin-top: 3.8em; 
+
+    margin-top: 3.4em; 
     border-radius: 2em;
-    padding: 1em; 
+    padding: 0.8em; 
     text-align: center;
     color: #834016;
     max-width: 100em; 
     width: 90%; 
-    overflow: hidden; 
+    /* overflow: hidden;  */
 }
 
-.DetailProgram1 img {
+.detailProgram img {
     border-radius: 2em;
     max-width: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.DetailProgram1 h2 {
+.detailProgram h2 {
     font-size: 1.8em; 
     margin-bottom: 0.5em;
 }
 
-.DetailProgram1 h4 {
+.detailProgram h4 {
     margin-top: 0.3em;
     font-size: 1em; 
 }
 
-.DetailProgram1 img:hover {
+.detailProgram img:hover {
     transform: scale(0.9); 
 }

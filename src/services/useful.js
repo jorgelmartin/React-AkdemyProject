@@ -1,21 +1,4 @@
-import Pusher from 'pusher-js';
-import Echo from 'laravel-echo';
 
-window.Pusher = Pusher;
-
-export const echo = new Echo({
-    broadcaster: 'pusher',
-    key: '858c49e52e57440e0710',
-    cluster: 'eu',
-    encrypted: true,
-  });
-
-//   import Pusher from 'pusher-js';
-
-// export const pusher = new Pusher('858c49e52e57440e0710', {
-//   cluster: 'eu',
-//   encrypted: true, // Use HTTPS
-// });
 
 //INPUTHANDLER
 export const inputHandler = ({ target }, state) => {

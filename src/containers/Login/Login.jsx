@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Login.css";
 import { Card, Col, Container, Row, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../userSlice";
 import { InputText } from "../../components/InputText/InputText";
 import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
-import { loginMe } from "../../services/apiCalls";
+import { loginMe } from "../../services/ApiCalls";
 
 export const Login = () => {
     const [user, setUser] = useState({});
@@ -51,7 +51,7 @@ export const Login = () => {
 
     return (
         //RENDER LOGIN CONTAINER
-        <Container className="d-flex justify-content-center align-items-center mt-4">
+        <Container className="d-flex justify-content-center align-items-center" style={{height:'100%', width:'100%'}}>
             <Row>
                 <Card
                     style={{

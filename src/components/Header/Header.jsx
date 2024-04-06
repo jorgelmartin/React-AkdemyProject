@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import "./Header.css";
 import { useSelector, useDispatch } from "react-redux";
 import { userData, logout } from "../../containers/userSlice";

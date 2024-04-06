@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Register.css";
 import { InputText } from "../../components/InputText/InputText";
 import { Form, Card, Container, Row } from 'react-bootstrap';
-import { useNavigate } from "react-router-dom";
 import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
-import { registerMe } from "../../services/apiCalls";
+
+import { useNavigate } from "react-router-dom";
+import { registerMe } from "../../services/ApiCalls";
+
+
 
 export const Register = () => {
 
@@ -15,6 +18,7 @@ export const Register = () => {
     //REGISTER FUNCTION
     const submitHandler = (e, body) => {
         e.preventDefault();
+
         registerMe(body)
             .then(() => {
                 navigate("/login");
@@ -26,7 +30,7 @@ export const Register = () => {
 
     return (
         //RENDER REGISTER
-            <Container className="d-flex justify-content-center align-items-center">
+            <Container className="d-flex justify-content-center align-items-center" style={{height:'100%', width:'100%'}}>
                 <Card className="registerCard" style={{
                     backgroundColor: '#9f512121', maxWidth: '25em',
                 }}>

@@ -1,4 +1,3 @@
-import React from 'react';
 import './InputText.css';
 import { checkError } from '../../services/useful';
 import { Form } from 'react-bootstrap';

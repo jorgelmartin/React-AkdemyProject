@@ -10,7 +10,8 @@ export const loginMe = async (credentials) => {
 
 //REGISTER
 export const registerMe = async (credentials) => {
-    return await axios.post(`${URL}/api/register`, credentials);
+    let res = await axios.post(`${URL}/api/register`, credentials);
+    return res.data;
 }
 
 //GET PROFILE
@@ -103,6 +104,7 @@ export const createReply = async (commentId, body, token) => {
     return res;
 }
 
+//DELETE A MESSAGE 
 export const deleteMessage = async (messageId, token) => {
 
     const config = {
@@ -110,9 +112,6 @@ export const deleteMessage = async (messageId, token) => {
             'Authorization': `Bearer ${token}`,
         }
     };
-
-    const res = await axios.delete(`${URL}/api/message/delete/${messageId}`, config);
-
+    let res = await axios.delete(`${URL}/api/message/delete/${messageId}`, config);
     return res.data;
-
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useFetchConvocations } from "../../../hooks/useFetchConvocation";
 import { Container } from "react-bootstrap";
 import "../../App.css";
@@ -46,10 +46,10 @@ export const Convocation = () => {
 
     return (
         // RENDER THE CONVOCATIONS
-        <Container className="mt-5">
+        <Container>
 
             {/* TITLE */}
-            <div className="requestUser">Convocatorias</div>
+            <div className="requestUser mt-5">Convocatorias</div>
 
             {/* INPUT SEARCH */}
             <div className="containerInputConvocations">

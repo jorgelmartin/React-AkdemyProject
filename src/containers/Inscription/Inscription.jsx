@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Container, Card } from 'react-bootstrap';
-import { createUserConvocation } from '../../services/apiCalls';
 import { useFetchConvocations } from '../../../hooks/useFetchConvocation';
 import { useSelector } from 'react-redux';
 import { userData } from '../userSlice';
@@ -9,6 +8,7 @@ import { AkdemyButton } from '../../components/AkdemyButton/AkdemyButton';
 import "./Inscription.css";
 import { useFetchInscriptions } from '../../../hooks/useFetchInscriptions';
 import { ModalAkdemy } from '../../components/ModalAkdemy/ModalAkdemy';
+import { createUserConvocation } from '../../services/ApiCalls';
 
 export const Inscription = () => {
     const [convocationData, setConvocationData] = useState({});
@@ -43,28 +43,36 @@ export const Inscription = () => {
         setSelectedConvocationId(selectedId);
     };
 
-    //INSCRIPTION HANDLER
-    const handleInscription = async (e) => {
-        e.preventDefault();
+ // VERIFY IF THE USER IS ALREADY IN THE CONVO
+    const isAlreadyInscribed = Array.isArray(allInscriptions) && !!allInscriptions.find(
+        (inscription) =>
+            inscription.user.id === userId &&
+            inscription.convocation.id === selectedConvocationId
+    );
 
-        // VERIFY IF THE USER IS ALREADY IN THE CONVO
-        const isAlreadyInscribed = allInscriptions.some(
-            (inscription) =>
-                inscription.user.id === userId &&
-                inscription.convocation.id === selectedConvocationId
-        );
+
+    //INSCRIPTION HANDLER
+    const handleInscription = (e) => {
+        e.preventDefault();
+    
         if (isAlreadyInscribed) {
             setShowModal(true);
         } else {
-
-            //MAKE THE INSCRIPTION
+            
+            // MAKE THE INSCRIPTION
             const body = {
                 convocation_id: selectedConvocationId,
                 user_id: userId,
             };
-            navigate('/requestAccepted');
-            const result = await createUserConvocation(body, userToken);
-            console.log("Inscription created:", result);
+            
+            createUserConvocation(body, userToken)
+                .then(result => {
+                    console.log("Inscription created:", result);
+                    navigate('/requestAccepted');
+                })
+                .catch(error => {
+                    console.error(error.message);
+                });
         }
     };
 
@@ -77,17 +85,20 @@ export const Inscription = () => {
     return (
 
         //RENDER INSCRIPTION CONTAINER
-        <Container >
+        <Container 
+        className="d-flex justify-content-center align-items-center" 
+        style={{height:'100%', width:'100%'}}
+        >
             <Card style={{
-                maxWidth: '25em', margin: '0 auto', backgroundColor: '#9f512121', border: 'green solid 0.1em',
+                backgroundColor: '#9f512121', border: 'green solid 0.1em',
                 boxShadow: 'rgb(38, 57, 77) 0em 1.25em 1.875em -0.625em'
             }}>
                 <Card.Body>
 
                     {/* INSCRIPTION TITLE */}
                     <h2 className="textInscription mb-3 display-5">Inscripción:</h2>
-                    <div className="gridContainer">
-                        <div className="gridItem">
+                    <div className="inscriptionContainer">
+                        <div className="dataInscription">
 
                             {/* GETTING UPCOMING CONVOCATIONS */}
                             <div className="labelCreate">Convocatorias:</div>
@@ -112,19 +123,19 @@ export const Inscription = () => {
                         </div>
 
                         {/* DISPLAY THE BEGINNING DATE */}
-                        <div className="gridItem">
+                        <div className="dataInscription">
                             <div className="labelCreate">Inicio:</div>
                             <span>{convocationData.beginning}</span>
                         </div>
 
                         {/* DISPLAY SCHELUDE */}
-                        <div className="gridItem">
+                        <div className="dataInscription">
                             <div className="labelCreate">Horarios:</div>
                             <span>{convocationData.schedule}</span>
                         </div>
 
                         {/* DISPLAY THE PRICE */}
-                        <div className="gridItem">
+                        <div className="dataInscription">
                             <div className="labelCreate">Precio:</div>
                             <span>{convocationData.program && convocationData.program.price}</span>
                         </div>
@@ -139,7 +150,6 @@ export const Inscription = () => {
 
             {/* SHOW MODAL */}
             <ModalAkdemy show={showModal} onClose={() => setShowModal(false)} />
-
         </Container>
     );
 };

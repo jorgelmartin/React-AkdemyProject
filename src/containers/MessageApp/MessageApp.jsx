@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import './MessageApp.css';
-import { createMessage, createReply, deleteMessage } from "../../services/apiCalls";
 import { format } from 'date-fns';
 import { useSelector } from "react-redux";
 import { useFetchGetAllMessages } from "../../../hooks/useFetchGetAllMessages";
 import { ProgramSelection } from "../../components/ProgramSelection/ProgramSelection";
 import { useFetchPrograms } from "../../../hooks/useFetchPrograms";
 import { InputMessage } from "../../components/InputMessage/InputMessage";
+import { createMessage, createReply, deleteMessage } from "../../services/ApiCalls";
 
 export const MessageApp = () => {
     const userId = useSelector((state) => state.user.data.userId);

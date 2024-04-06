@@ -1,9 +1,9 @@
-.userContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* min-height: 100vh;
-    min-width: 100vw; */
+/* .userContainer {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 }
 
 .userCardTitle1{
@@ -48,4 +48,4 @@
     font-size: 1.25em;
     background-color: #5f9ea0a4;
     transform: scale(1.1);
-}
+} */

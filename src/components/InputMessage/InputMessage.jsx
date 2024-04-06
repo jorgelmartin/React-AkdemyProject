@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './InputMessage.css';
 
 export const InputMessage = ({ type, placeholder, name, state, onClick, children, text }) => {

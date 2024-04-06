@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useFetchUsers } from "../../../hooks/useFetchUsers";
 import { Container } from "react-bootstrap";
 import "./../../App.css";
@@ -39,7 +39,7 @@ export const Users = () => {
     return (
 
         //RENDER USERS
-        <Container  className="mt-5">
+        <Container  className="mt-4">
       {/* INPUT SEARCH */}
       <InputSearch onSearch={handleSearch} />
 
@@ -49,15 +49,15 @@ export const Users = () => {
         <div className="tableHeader">
           {/* USERS TABLE */}
           <div className="tableHeaderRequest">Nombre</div>
-          <div className="tableHeaderRequest">Apellidos</div>
+          {/* <div className="tableHeaderRequest">Apellidos</div> */}
           <div className="tableHeaderRequest">Email</div>
         </div>
         <div className="tableBodyCheck">
           {/* MAPPING USER DATA */}
           {displayedUsers.map((user) => (
             <div className="tableDataRow" key={user.id}>
-              <div className="tableDataCheck">{user.name}</div>
-              <div className="tableDataCheck">{user.surname}</div>
+              <div className="tableDataCheck">{user.name} {user.surname}</div>
+              {/* <div className="tableDataCheck"></div> */}
               <div className="tableDataCheck">{user.email}</div>
             </div>
           ))}

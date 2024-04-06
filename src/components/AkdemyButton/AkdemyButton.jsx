@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './AkdemyButton.css';
 
 //CREATE COMPONENT AKDEMY BUTTON

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./ProgramDetail.css";
 import { useFetchPrograms } from "../../../hooks/useFetchPrograms";
@@ -15,7 +15,7 @@ export const ProgramDetail = () => {
 
     //ASSIGN PROGRAMS
     const programs = useFetchPrograms();
-    const [programDetail, setProgramDetail] = useState(null);
+    const [programDetail, setProgramDetail] = useState('');
 
     useEffect(() => {
         // FOUND THE PROGRAM WITH THE ID GET IT FROM THE ARRAY
@@ -40,8 +40,8 @@ export const ProgramDetail = () => {
     
     return (
         //RENDER DETAIL VIEW
-        <div className="DetailProgram">
-            <div className="DetailProgram1">
+     
+            <div className="detailProgram">
                 {programDetail ? (
                     <>
                         <h2>{programDetail.name}</h2>
@@ -56,6 +56,6 @@ export const ProgramDetail = () => {
                     <p>Cargando...</p>
                 )}
             </div>
-        </div>
+    
     );
 };

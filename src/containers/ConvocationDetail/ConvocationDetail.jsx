@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./ConvocationDetail.css";
 import { CreateConvocation } from "../CreateConvocation/CreateConvocation";
@@ -15,15 +15,10 @@ export const ConvocationDetail = () => {
     const convocations = useFetchConvocations();
     const [convocationDetail, setConvocationDetail] = useState(null);
     const [editing, setEditing] = useState(false);
-    // const studentAccepted = useFetchInscriptions();
     const allStudentAccepted = useFetchInscriptions();
-    console.log(allStudentAccepted, "Hola");
 
     const studentAccepted = Array.isArray(allStudentAccepted) ? allStudentAccepted.filter((item) => item.convocation.id === parsedId) : [];
 
-
-    // Agrega un console.log para verificar studentAccepted
-    console.log("studentAccepted:", studentAccepted);
     //SEARCH IN THE ARRAY CONVOCATIONS COMPARING THE ID GETING FROM parsedId
     useEffect(() => {
         if (convocations && Array.isArray(convocations)) {
@@ -84,7 +79,7 @@ export const ConvocationDetail = () => {
                                     </div>
                                 );
                             }
-                            return null; // Omitir estudiantes con status diferente de true
+                            return '';
                         })}
                     </div>
                 </div>

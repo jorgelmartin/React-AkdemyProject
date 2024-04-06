@@ -1,21 +1,21 @@
-import React from "react";
+
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Home } from "../Home/Home";
 import { Login } from "../Login/Login";
 import { Register } from "../Register/Register";
-import { Profile } from "../Profile/Profile";
-import { Admin } from "../Admin/Admin";
-import { Users } from "../Users/Users";
-import { Convocation } from "../Convocation/Convocation";
 import { CreateConvocation } from "../CreateConvocation/CreateConvocation";
 import { ConvocationDetail } from "../ConvocationDetail/ConvocationDetail";
 import { Student } from "../Student/Student";
 import { Inscription } from "../Inscription/Inscription";
+import { UserRequests } from "../UserRequests/UserRequests";
 import { MyPrograms } from "../MyPrograms/MyPrograms";
 import { ProgramDetail } from "../ProgramDetail/ProgramDetail";
 import { RequestAccepted } from "../RequestAccepted/RequestAccepted";
-import { UserRequests } from "../UserRequests/UserRequests";
 import { MessageApp } from "../MessageApp/MessageApp";
+import { Admin } from "../Admin/Admin";
+import { Users } from "../Users/Users";
+import { Convocation } from "../Convocation/Convocation";
+import { Profile } from "../Profile/Profile";
 
 export const Body = () => {
     return (

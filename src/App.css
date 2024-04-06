@@ -1,15 +1,15 @@
 #root {
-  /* height: auto; */
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   width: 100vw;
-  margin: auto;
+  margin: 0;
   padding: 0;
   background-color: #b4de7a19;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
-
 .InputSearch {
   margin-top: 2em;
   border: 0.2em solid black;
@@ -46,7 +46,7 @@
 .tableContainerCheck {
   border: 0.1em solid #aca7a7;
   border-radius: 0.2em;
-  overflow-x: auto;
+  overflow-x: hidden;
 
 }
 
@@ -59,14 +59,14 @@
   border-bottom: 0.06em solid #aca7a7;
 }
 
-.tableHeaderCheck {
+/* .tableHeaderCheck {
   overflow: hidden;
   flex: 1;
   min-width: 20%;
   padding: 0.6em;
   text-align: center;
   border-right: 0.06em solid #aca7a7;
-}
+} */
 
 .tableBodyCheck {
   display: flex;
@@ -81,7 +81,7 @@
 .tableDataCheck {
   flex: 1;
   overflow: hidden;
-  padding: 0.7em;
+  padding: 0.5em;
   text-align: center;
   border-right: 0.06em solid #aca7a7;
   background-color: rgba(250, 235, 215, 0.396);
@@ -95,8 +95,4 @@
   text-align: center;
   border-right: 0.06em solid #aca7a7;
 }
-.containerInputConvocations {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+

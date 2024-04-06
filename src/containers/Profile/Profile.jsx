@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { deleteProfile, getProfile, updateProfile } from "../../services/apiCalls";
+import { useState, useEffect } from "react";
 import "./Profile.css";
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
@@ -9,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../containers/userSlice";
 import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
+import { deleteProfile, getProfile, updateProfile } from "../../services/ApiCalls";
 
 export const Profile = () => {
     const [user, setUser] = useState({});
@@ -46,7 +46,7 @@ export const Profile = () => {
     };
 
     //DELETE PROFILE
-    const handleDeleteProfile = () => {
+    const handleDeleteProfile = (e) => {
         e.preventDefault();
         const userToken = token;
         dispatch(logout({ credentials: "" }));

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useFetchUserRequest } from "../../../hooks/useFetchUserRequest";
 import { useFetchAcceptRequest } from "../../../hooks/useFetchAcceptRequest";
@@ -19,7 +19,6 @@ export const UserRequests = () => {
     const handleAcceptRequest = (id) => {
         acceptUserRequest(id)
             .then(() => {
-                console.log("Solicitud aceptada correctamente");
                 setRequestAccepted(true);
 
                 // FEAT THE ACCEPT REQUEST TO STATE acceptedRequests
@@ -33,7 +32,6 @@ export const UserRequests = () => {
     if (!usersReq) {
         return <div>Loading...</div>;
     }
-
 
     return (
         <Container className="mt-5">

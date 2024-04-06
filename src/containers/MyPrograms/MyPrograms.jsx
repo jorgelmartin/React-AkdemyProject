@@ -1,4 +1,3 @@
-import React from "react";
 import { Container } from "react-bootstrap";
 import { useFetchRequestAccepted } from "../../../hooks/useFetchRequestAccepted";
 import { useSelector } from "react-redux";

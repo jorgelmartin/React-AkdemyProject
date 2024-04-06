@@ -1,4 +1,4 @@
-.gridContainer {
+.inscriptionContainer {
   margin-top: 2em;
   display: grid;
   grid-template-columns: auto auto;
@@ -8,13 +8,12 @@
   border-radius: 2em;
   padding: 2em;
   border: 0.01em solid rgb(118, 71, 24);
-  box-shadow: inset 1em 0.4em 0.7em 0.1em rgba(0, 0, 0, 0.503);
-  
+  box-shadow: inset 1em 0.4em 0.7em 0.1em rgba(0, 0, 0, 0.503); 
 }
 
-.gridItem {
+.dataInscription {
   box-shadow: 0.3em 0.2em 0.4em 0.1em rgba(6, 32, 4, 0.476);
-  margin: 0.3em;
+  margin: 0.4em;
   display: flex;
   flex-direction: column;
   border: 0.01em solid rgb(20, 18, 16);
@@ -25,7 +24,7 @@
 
 .labelCreate {
   font-weight: bold;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.3em;
 }
 
 .textInscription {
