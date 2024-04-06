@@ -9,7 +9,7 @@ export const ModalAkdemy = ({ show, onClose }) => {
                     Inscripción ya solicitada
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body className=''>
+            <Modal.Body>
                 <p>Tu solicitud de inscripción para esta convocatoria ya ha sido registrada.</p>
                 <AkdemyButton
                     onClick={onClose}

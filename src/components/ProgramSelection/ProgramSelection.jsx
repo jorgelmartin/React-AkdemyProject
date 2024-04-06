@@ -14,6 +14,7 @@ export const ProgramSelection = ({ onSelectProgram, selectedProgram }) => {
         setIsOpen(false);
     };
 
+    // PROGRAM SELECTOR FOR CHAT ROOM
     return (
         <div className="programContainer" >
             <h3 className="programItemTitle" onClick={() => setIsOpen(!isOpen)}>{selectedProgramName || "Selecciona una sala"}</h3>

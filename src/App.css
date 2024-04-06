@@ -10,6 +10,7 @@
   align-items: center;
   text-align: center;
 }
+
 .InputSearch {
   margin-top: 2em;
   border: 0.2em solid black;
@@ -47,7 +48,6 @@
   border: 0.1em solid #aca7a7;
   border-radius: 0.2em;
   overflow-x: hidden;
-
 }
 
 .tableHeader {
@@ -58,15 +58,6 @@
   font-weight: bold;
   border-bottom: 0.06em solid #aca7a7;
 }
-
-/* .tableHeaderCheck {
-  overflow: hidden;
-  flex: 1;
-  min-width: 20%;
-  padding: 0.6em;
-  text-align: center;
-  border-right: 0.06em solid #aca7a7;
-} */
 
 .tableBodyCheck {
   display: flex;
@@ -79,20 +70,22 @@
 }
 
 .tableDataCheck {
+  text-align: center;
+  padding: 0.5em 0.2em 0.5em 0.3em;
+  font-size: 0.93em;
   flex: 1;
   overflow: hidden;
-  padding: 0.5em;
   text-align: center;
   border-right: 0.06em solid #aca7a7;
-  background-color: rgba(250, 235, 215, 0.396);
+  background-color: rgba(250, 235, 215, 0.35);
+  text-overflow: ellipsis;
 }
 
 .tableHeaderRequest {
+  padding: 0.5em 0.2em 0.5em 0.1em;
   background-color: rgba(211, 241, 195, 0.389);
   flex: 1;
   overflow: hidden;
-  padding: 0.7em;
   text-align: center;
   border-right: 0.06em solid #aca7a7;
 }
-

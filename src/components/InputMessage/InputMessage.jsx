@@ -1,20 +1,8 @@
 
+import { inputHandler } from '../../services/useful';
 import './InputMessage.css';
 
-export const InputMessage = ({ type, placeholder, name, state, onClick, children, text }) => {
-
-    //INPUTHANDLER FUNCTION
-    const inputHandler = ({ target }) => {
-        // Bring the name and the value from the element that started the event
-        const { name, value } = target;
-        // Update the state of the component
-        state((prevState) => ({
-            // Make a copy from the last stage
-            ...prevState,
-            // Set the new state
-            [name]: value,
-        }));
-    };
+export const InputMessage = ({ type, placeholder, name, state, onClick, text }) => {
 
     return (
         // RENDER THE INPUT
@@ -30,7 +18,7 @@ export const InputMessage = ({ type, placeholder, name, state, onClick, children
             className='inputMessageButton'
                 onClick={onClick}
             >
-                {children} {text}
+                {text}
             </button>
             </div>
     )

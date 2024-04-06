@@ -1,61 +1,40 @@
-.containerForum{
+.containerForum {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* margin-top: 6em; */
-    /* position: relative; */
     min-height: 100vh;
     min-width: 100vw;
-    
 }
 
-/* .programSelectionContainer {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1; 
-} */
-
 .messageContainer {
-    /* width: 100%; */
     display: flex;
     flex-direction: column;
-    /* padding: 1rem; */
     margin-top: 1em;
-    /* margin-bottom: 6em; */
     padding-top: 0.5em;
-    /* width: 90%; */
-    /* width: 100% ; */
     border: 0.1em solid rgb(125, 6, 6);
     background-color: #f5f5f5;
     border-radius: 0.5em;
-    /* display: flex;
+}
+
+.messageText {
+    padding-bottom: 0.5em;
+    height: 28em;
+    overflow-y: auto;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;  */
-    
-    
-    
-}
-.messageText{
-        padding-bottom: 0.5em;
-        height: 28em; 
-        overflow-y: auto; 
-        display: flex;
-        flex-direction: column;
 }
 
-
-
-.responseInfo{
+.responseInfo {
     background-color: rgba(78, 126, 99, 0.198);
     border-radius: 0.5em;
     padding: 0.3em;
     display: inline-block;
+    border: 0.01em solid rgb(123, 121, 121);
 }
+
 .messageItem {
-    
+    border: 0.001em solid rgb(51, 86, 16);
     margin: 0.5em;
     padding: 0.7em;
     border-radius: 1em;
@@ -66,32 +45,33 @@
     margin: 0;
 }
 
-.deleteMessageButton{
+.deleteMessageButton {
     font-size: 0.8em;
-text-align: center;
-background-color: #DCF8C6;
-        /* background-color: rgba(109, 10, 155, 0.608); */
-        color: rgb(246, 0, 0);
-        width: 1.5em;
-        height: 1.7em;
-        border-radius: 50%;
-        cursor: pointer;
-        border: 0.1em solid rgb(159, 3, 3);
+    text-align: center;
+    background-color: #DCF8C6;
+    color: rgb(246, 0, 0);
+    width: 1.5em;
+    height: 1.7em;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0.0001em solid rgb(63, 3, 3);
 }
 
 .deleteMessageButton:hover {
     background-color: rgb(66, 104, 12);
     color: white;
 }
+
 .messageSend {
     background-color: #DCF8C6;
     align-self: flex-end;
+    text-align: start;
     max-width: 70%;
 }
 
 .messageFrom {
     background-color: #EAEAEA;
     max-width: 70%;
-    /* width: 70%; */
+    text-align: start;
     align-self: flex-start;
 }

@@ -59,7 +59,7 @@ export const Convocation = () => {
             {/* TABLE HEADER */}
             <div className="tableContainerCheck mt-4">
                     <div className="tableDataRow">
-                        <div className="tableHeaderRequest"><strong>ID</strong></div>
+                        {/* <div className="tableHeaderRequest"><strong>ID</strong></div> */}
                         <div className="tableHeaderRequest"><strong>Programa</strong></div>
                         <div className="tableHeaderRequest"><strong>Inicio</strong></div>
                         <div className="tableHeaderRequest"><strong>Horarios</strong></div>
@@ -73,7 +73,7 @@ export const Convocation = () => {
                     {/* MAPPING THE CONVOCATIONS */}
                     {filteredConvocations.slice(0, 15).map((convocation) => (
                         <div className="tableDataRow" key={convocation.id}>
-                            <div className="tableDataCheck">{convocation.id}</div>
+                            {/* <div className="tableDataCheck">{convocation.id}</div> */}
                             <div className="tableDataCheck">{convocation.program.name}</div>
                             <div className="tableDataCheck">{convocation.beginning}</div>
                             <div className="tableDataCheck">{convocation.schedule}</div>

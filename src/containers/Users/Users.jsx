@@ -5,41 +5,41 @@ import "./../../App.css";
 import { InputSearch } from "../../components/InputSearch/InputSearch";
 
 export const Users = () => {
-    const [filteredUsers, setFilteredUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
 
-    //GET THE USERS
-    const users = useFetchUsers();
+  //GET THE USERS
+  const users = useFetchUsers();
 
-    //HANDLER SEARCH
-    const handleSearch = (text) => {
-        if (text) {
+  //HANDLER SEARCH
+  const handleSearch = (text) => {
+    if (text) {
 
-            //FILTER TEXT IN USERS 
-            const filtered = users.filter(
-                (user) =>
-                    user.name.includes(text) ||
-                    user.email.includes(text) ||
-                    user.id.toString().includes(text)
-            );
+      //FILTER TEXT IN USERS 
+      const filtered = users.filter(
+        (user) =>
+          user.name.includes(text) ||
+          user.email.includes(text) ||
+          user.id.toString().includes(text)
+      );
 
-            //UPDATE WITH THE FILTERED ARRAY FROM USERS
-            setFilteredUsers(filtered);
-        } else {
-            setFilteredUsers([]);
-        }
-    };
-
-    if (!users) {
-        return <div>Cargando...</div>;
+      //UPDATE WITH THE FILTERED ARRAY FROM USERS
+      setFilteredUsers(filtered);
+    } else {
+      setFilteredUsers([]);
     }
+  };
 
-    //ASSIGN THE VALUE FROM FILTERED USERS, IF THERE IS NOT, SHOW USERS
-    const displayedUsers = filteredUsers.length > 0 ? filteredUsers : users;
+  if (!users) {
+    return <div>Cargando...</div>;
+  }
 
-    return (
+  //ASSIGN THE VALUE FROM FILTERED USERS, IF THERE IS NOT, SHOW USERS
+  const displayedUsers = filteredUsers.length > 0 ? filteredUsers : users;
 
-        //RENDER USERS
-        <Container  className="mt-4">
+  return (
+
+    //RENDER USERS
+    <Container className="mt-4">
       {/* INPUT SEARCH */}
       <InputSearch onSearch={handleSearch} />
 
@@ -64,5 +64,5 @@ export const Users = () => {
         </div>
       </div>
     </Container>
-    );
+  );
 }

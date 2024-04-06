@@ -25,9 +25,9 @@ export const MessageApp = () => {
         setSelectedProgram(programId);
     };
 
+    // CREATE MESSAGE
     const handleMessageSubmit = (e) => {
         e.preventDefault();
-
         if (!message) {
             return;
         }
@@ -39,11 +39,11 @@ export const MessageApp = () => {
             date: formattedDate
         }, token, selectedProgram)
             .then((res) => {
-                console.log("Mensaje creado:", res);
                 setMessage("");
                 fetchMessages();
             })
-            .catch((error) => console.log(error));
+            .catch((error) =>
+                console.log(error));
     };
 
     const startReplying = (commentId) => {
@@ -51,9 +51,9 @@ export const MessageApp = () => {
         setSelectedCommentId(commentId);
     };
 
+    // REPLY MESSAGE
     const handleReplySubmit = (e) => {
         e.preventDefault();
-
         if (!replyContent) {
             return;
         }
@@ -65,7 +65,6 @@ export const MessageApp = () => {
             date: formattedDate,
         }, token)
             .then((res) => {
-                console.log("Respuesta del servidor:", res);
                 setReplyContent("");
                 setIsReplying(false);
                 setSelectedCommentId('');
@@ -74,6 +73,7 @@ export const MessageApp = () => {
             .catch((error) => console.log(error));
     };
 
+    // DELETE MESSAGE
     const handleDeleteMessage = (messageId) => {
         const confirmDelete = window.confirm('¿Estás seguro de que deseas eliminar este mensaje?');
         if (!confirmDelete) {
@@ -92,46 +92,46 @@ export const MessageApp = () => {
         return messageItem.program.id === selectedProgram;
     });
 
+    // GET USER DATA FOR RESPONSE
     const getUserInfo = (parentId) => {
-        // Buscar el mensaje al que se responde en filteredMessages
         const respondingMessage = filteredMessages.find(message => message.id === parentId);
         return `${respondingMessage.user.name} ${respondingMessage.user.surname}`;
-        // if (respondingMessage) {
-        //     return `${respondingMessage.user.name} ${respondingMessage.user.surname}`;
-        // } else {
-        //     return "Usuario desconocido";
-        // }
     };
 
-    console.log(filteredMessages, "filteredMessages");
     return (
         <div className="containerForum">
 
+            {/* PROGRAM SELECTION */}
             <ProgramSelection programs={inscriptions[0]} onSelectProgram={handleProgramSelect} />
 
             {selectedProgram && (
                 <div className="messageContainer col-lg-10 col-12">
                     <div className="messageText">
+
+                        {/* SHOW FILTERED MESSAGES */}
                         {filteredMessages.map((messageItem) => (
+
+                            // CHECK WHO SEND THE MESSAGE
                             <div
                                 key={messageItem.id}
                                 className={`messageItem ${messageItem.user_id === userId ? "messageSend" : "messageFrom"}`}
                             >
-                                {/* Verifica si este mensaje es una respuesta */}
+                                {/* CHECK IF THE MESSAGE IS AN ANSWER */}
                                 {messageItem.parent_id && (
-                                    <div className="responseInfo">
+                                    <div className="responseInfo" style={{ fontSize: '0.86em' }}>
                                         <p>En respuesta a:
-                                            <strong style={{ fontSize: '0.86em' }}>
+                                            <strong style={{ marginLeft: '0.3em', fontSize: '1em' }}>
                                                 {getUserInfo(messageItem.parent_id)}
                                             </strong>
                                         </p>
                                     </div>
                                 )}
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center'
-                                    }}>
+                                <div style={{
+                                    display: 'flex',
+                                    alignItems: 'center'
+                                }}>
+
+
                                     <strong>{messageItem.user.name} {messageItem.user.surname}</strong>
                                     <div
                                         style={{
@@ -142,6 +142,7 @@ export const MessageApp = () => {
 
                                     </div>
 
+                                    {/* IF IS NOT REPLYING SHOW OPTION TO REPLAY */}
                                     {!isReplying && (
                                         <div
                                             onClick={() => startReplying(messageItem.id)}
@@ -156,20 +157,23 @@ export const MessageApp = () => {
                                         </div>
                                     )}
                                 </div>
+
+                                {/* SHOW MESSAGE */}
                                 <p>{messageItem.message}</p>
+
+                                {/* SHOW DELETE MESSAGE OPTION IN MESSAGE IF IS THE SAME USER ID */}
                                 {messageItem.user_id === userId && (
-                                    <div
-                                        style={{
-                                            display: 'flex',
-                                            justifyContent: 'flex-end',
-                                        }}>
-                                        <button
+                                    <div style={{
+                                        display: 'flex',
+                                        justifyContent: 'flex-end',
+                                    }}>
+                                        <div
                                             onClick={() => handleDeleteMessage(messageItem.id)}
                                             className="deleteMessageButton"
 
                                         >
                                             X
-                                        </button>
+                                        </div>
                                     </div>
                                 )}
                             </div>
@@ -178,7 +182,7 @@ export const MessageApp = () => {
                 </div>
             )}
 
-            {/* Renderización condicional de InputMessage */}
+            {/* INPUTMESSAGE */}
             {selectedProgram && (
                 <div style={{}}>
                     {isReplying ? (

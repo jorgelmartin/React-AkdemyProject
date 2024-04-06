@@ -195,7 +195,7 @@ export const Profile = () => {
                                 >
                                     {hovering ? 'CUIDADO!' : 'Borrar perfil'}
                                 </Button>
-                            ) : null}
+                            ) : ''}
                         </div>
                     </div>
                 )}

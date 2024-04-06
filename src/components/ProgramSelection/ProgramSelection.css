@@ -5,7 +5,6 @@
     top:2em;
     position: fixed;
     flex-direction: column;
-    /* height: 100%; */
     width: 100%;
     text-align: center;
 }
@@ -15,8 +14,6 @@
     background-color: #500404b7;
     border: 0.03em solid #de1616;
     padding: 0.4em;
-    /* width: 70%; */
-    /* margin: 0.3em; */
     cursor: pointer;
     border-radius: 1em;
     transition: background-color 0.3s ease;
@@ -41,13 +38,10 @@
     background-color: #f2f2f262;
     border: 0.01em solid #400202;
     padding: 0.5em;
-    /* width: 70%; */
     margin: 0.5em;
     cursor: pointer;
     border-radius: 1em;
     transition: background-color 0.3s ease;
-    /* color: #fff; */
-
 }
 
 .programItem:hover {

@@ -1,9 +1,9 @@
 import './AdminButton.css';
 
-export const AdminButton = ({ onClick, children, text }) => {
+export const AdminButton = ({ onClick, text }) => {
     return (
         <button className="AdminButton"  onClick={onClick}>
-            {children} {text}
+            {text}
         </button>
     );
 };
