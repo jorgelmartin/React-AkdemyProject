@@ -1,0 +1,30 @@
+.pageButton {
+    background-color: #219b27fd;
+    color: #ffffff;
+    padding: 0.3em 0.3em;
+    border: 0.01em solid rgb(9, 71, 9);
+    font-size: 1em;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+    box-shadow:
+        rgba(21, 61, 9, 0.532) 0.04em 0.04em 0.5em 0.2em inset,
+        rgba(130, 186, 24, 0.532) 0em -3em 2.2em 0em inset,
+        rgba(0, 0, 0, 0.2) 0em 0.125em 0.25em,
+        rgba(0, 0, 0, 0.09) 0em -0.5em 1em 0em;
+    text-shadow: 0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5);
+}
+
+.pageButton:hover {
+    box-shadow:
+        rgba(130, 186, 24, 0.532) 0em -3em 2.2em 0em inset,
+        rgba(96, 147, 13, 0.532) 0em -4.9375em 2.5em 0em inset,
+        rgba(0, 0, 0, 0.2) 0em 0.125em 0.25em;
+}
+
+.pageRight {
+    border-radius: 0 1em 1em 0;
+}
+
+.pageLeft {
+    border-radius: 1em 0 0 1em;
+}
