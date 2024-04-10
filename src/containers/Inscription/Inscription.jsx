@@ -66,8 +66,7 @@ export const Inscription = () => {
             };
             
             createUserConvocation(body, userToken)
-                .then(result => {
-                    console.log("Inscription created:", result);
+                .then(res => {
                     navigate('/requestAccepted');
                 })
                 .catch(error => {

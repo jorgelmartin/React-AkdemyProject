@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { userData } from "../src/containers/userSlice";
 
 //GET THE REQUEST ACCEPTED
 export const useFetchRequestAccepted = (userId) => {
-    const [usersRequest, setUsersRequest] = useState(null);
-    const datosCredencialesRedux = useSelector(userData);
+    const [usersRequest, setUsersRequest] = useState('');
+    const token = useSelector((state) => state.user.credentials.token);
 
     useEffect(() => {
         let config = {
             headers: {
-                Authorization: `Bearer ${datosCredencialesRedux?.credentials?.token}`,
+                Authorization: `Bearer ${token}`,
             },
         };
 
@@ -22,7 +21,7 @@ export const useFetchRequestAccepted = (userId) => {
             .catch(error => {
                 console.log("Error fetching request:", error);
             });
-    }, [userId, datosCredencialesRedux?.credentials?.token]);
+    }, [userId]);
 
     return usersRequest;
 };

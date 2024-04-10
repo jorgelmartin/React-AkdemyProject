@@ -4,27 +4,25 @@ import { userData } from "../src/containers/userSlice";
 
 //GET USER REQUEST FROM THE API
 export const useFetchUserRequest = () => {
-    const datosCredencialesRedux = useSelector(userData);
-    const [usersReq, setUsersReq] = useState(null); 
+    const token = useSelector((state) => state.user.credentials.token);
+    const [usersReq, setUsersReq] = useState(null);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const config = {
-                    headers: {
-                        Authorization: `Bearer ${datosCredencialesRedux.credentials?.token}`,
-                    },
-                };
-                const response = await fetch('https://laravel-akdemyproject-production.up.railway.app/api/userConvo/getPending', config);
-                const data = await response.json();
-                setUsersReq(data); 
-            } catch (error) {
-                console.error("Error fetching request:", error);
-            }
-        };
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            };
 
-        fetchData();
-    }, [datosCredencialesRedux.credentials?.token]); 
+            fetch('https://laravel-akdemyproject-production.up.railway.app/api/userConvo/getPending', config)
+                .then(res => res.json())
+                .then(data => {
+                    setUsersReq(data);
+                })
+                .catch(error => {
+                    console.error("Error fetching request:", error);
+                });
+    }, []);
 
     return usersReq;
 };

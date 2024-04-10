@@ -89,3 +89,11 @@
   text-align: center;
   border-right: 0.06em solid #aca7a7;
 }
+
+.numberPage{
+  height: 1.8em;
+  width: 1.8em;
+  background-color: #98a84e8d;
+  border: 0.06em solid #123200;
+  font-size: 1.2em;
+}

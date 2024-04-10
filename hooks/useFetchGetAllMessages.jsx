@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 //GETTING MESSAGES FROM THE API
 export const useFetchGetAllMessages = () => {
     const token = useSelector((state) => state.user.credentials.token);
-
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {

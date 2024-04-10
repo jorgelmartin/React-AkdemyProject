@@ -7,14 +7,15 @@ import { useSelector } from 'react-redux';
 import { userData } from "../../containers/userSlice";
 import { InputSearch } from "../../components/InputSearch/InputSearch";
 import { AdminButton } from "../../components/AdminButton/AdminButton";
+import { PageButton } from "../../components/PageButton/PageButton";
 
 export const Convocation = () => {
     const convocations = useFetchConvocations();
     const [filteredConvocations, setFilteredConvocations] = useState([]);
     const navigate = useNavigate();
     const userRole = useSelector(userData);
+    const [currentPage, setCurrentPage] = useState(1);
 
-    //UPDATE SETFILTEREDCONVOCATIONS WITH CONVOCATIONS
     useEffect(() => {
         setFilteredConvocations(convocations);
     }, [convocations]);
@@ -22,22 +23,24 @@ export const Convocation = () => {
     //HANDLE SEARCH BASED ON THE GIVEN TEXT
     const handleSearch = (text) => {
         if (text) {
-
-            //FILTER TEXT IN CONVOCATIONS 
+            const searchText = text.toLowerCase();
             const filtered = convocations.filter(
                 (convocation) =>
-                    convocation.program.name.includes(text) ||
-                    convocation.beginning.includes(text) ||
-                    convocation.schedule.includes(text) ||
-                    convocation.id.toString().includes(text)
+                    convocation.program.name.toLowerCase().includes(searchText) ||
+                    convocation.beginning.toLowerCase().includes(searchText) ||
+                    convocation.schedule.toLowerCase().includes(searchText) ||
+                    convocation.id.toString().toLowerCase().includes(searchText)
             );
-            //UPDATE WITH THE FILTERED ARRAY FROM CONVOCATIONS
             setFilteredConvocations(filtered);
+            setCurrentPage(1);
         } else {
-            //IF THERE IS NO TEXT, SHOW CONVOCATIONS
             setFilteredConvocations(convocations);
-        }
+        };
     };
+
+    // CALCULATE START AND END INDEX FOR CURRENT PAGE
+    const startIndex = (currentPage - 1) * 7;
+    const endIndex = currentPage * 7;
 
     //IF THE API DONT WORK SHOW CARGANDO...
     if (!filteredConvocations) {
@@ -52,28 +55,25 @@ export const Convocation = () => {
             <div className="requestUser mt-5">Convocatorias</div>
 
             {/* INPUT SEARCH */}
-            <div className="containerInputConvocations">
-                <InputSearch onSearch={handleSearch} />
-            </div>
+            <InputSearch onSearch={handleSearch} />
 
             {/* TABLE HEADER */}
             <div className="tableContainerCheck mt-4">
-                    <div className="tableDataRow">
-                        {/* <div className="tableHeaderRequest"><strong>ID</strong></div> */}
-                        <div className="tableHeaderRequest"><strong>Programa</strong></div>
-                        <div className="tableHeaderRequest"><strong>Inicio</strong></div>
-                        <div className="tableHeaderRequest"><strong>Horarios</strong></div>
+                <div className="tableDataRow">
+                    <div className="tableHeaderRequest"><strong>Programa</strong></div>
+                    <div className="tableHeaderRequest"><strong>Inicio</strong></div>
+                    <div className="tableHeaderRequest"><strong>Horarios</strong></div>
 
-                        {/* ONLY SHOW DETAIL IF IS ADMIN */}
-                        {userRole.data.role === 1 && (
-                            <div className="tableHeaderRequest"><strong>Detalle</strong></div>
-                        )}
-                    </div>
+                    {/* ONLY SHOW DETAIL IF IS ADMIN */}
+                    {userRole.data.role === 1 && (
+                        <div className="tableHeaderRequest"><strong>Detalle</strong></div>
+                    )}
+                </div>
 
-                    {/* MAPPING THE CONVOCATIONS */}
-                    {filteredConvocations.slice(0, 15).map((convocation) => (
+                {/* MAPPING THE CONVOCATIONS */}
+                {filteredConvocations.slice(startIndex, endIndex).map((convocation) => {
+                    return (
                         <div className="tableDataRow" key={convocation.id}>
-                            {/* <div className="tableDataCheck">{convocation.id}</div> */}
                             <div className="tableDataCheck">{convocation.program.name}</div>
                             <div className="tableDataCheck">{convocation.beginning}</div>
                             <div className="tableDataCheck">{convocation.schedule}</div>
@@ -90,8 +90,26 @@ export const Convocation = () => {
                                 </div>
                             )}
                         </div>
-                    ))}
-                </div>
+                    );
+                })}
+            </div>
+
+            {/* PAGINATION */}
+            <div className="d-flex justify-content-center align-items-center mt-4">
+                <PageButton
+                    onClick={() => setCurrentPage(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    text={'🡰'}
+                    design="left"
+                />
+                <div className="numberPage">{currentPage}</div>
+                <PageButton
+                    onClick={() => setCurrentPage(currentPage + 1)}
+                    disabled={endIndex >= filteredConvocations.length}
+                    text={'🡲'}
+                    design="right"
+                />
+            </div>
         </Container>
     );
 };

@@ -15,7 +15,10 @@ export const SelectSchedule = ({ handleChange, value }) => {
             onChange={(e) => handleChange(e.target.value)}>
             <option value="">Selecciona horario</option>
             {schedules.map((schedule) => (
-                <option key={schedule.id} value={schedule.schedule}>
+                <option
+                    key={schedule.id}
+                    value={schedule.schedule}
+                >
                     {schedule.schedule}
                 </option>
             ))}
