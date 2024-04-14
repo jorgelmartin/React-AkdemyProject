@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./CreateConvocation.css";
-import { Card, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { SelectPrograms } from "../../../hooks/useFetchSelectPrograms";
 import { SelectDate } from "../../../hooks/useFetchSelectDate";
@@ -11,7 +11,6 @@ import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
 import { createConvocation, updateConvocation } from "../../services/ApiCalls";
 
 export const CreateConvocation = ({ isUpdate, updateData }) => {
-
     const navigate = useNavigate();
     const datos = useSelector(userData);
     const token = datos?.credentials?.token;
@@ -35,10 +34,8 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
         }
     };
     return (
-
         //RENDER CREATE CONVOCATIONS
-        <div className="convocationCreateContainer">
-            <Card
+            <div
                 style={{
                     maxWidth: '20em',
                     margin: '0 auto',
@@ -107,7 +104,6 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                         />
                     </div>
                 </div>
-            </Card>
-        </div>
+            </div>
     );
 };

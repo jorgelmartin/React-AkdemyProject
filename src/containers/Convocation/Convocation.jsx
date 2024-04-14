@@ -16,8 +16,12 @@ export const Convocation = () => {
     const userRole = useSelector(userData);
     const [currentPage, setCurrentPage] = useState(1);
 
+    // GET THE RECENT CONVOCATION
     useEffect(() => {
-        setFilteredConvocations(convocations);
+        if (!Array.isArray(convocations)) {
+            return;
+        }
+        setFilteredConvocations(convocations.reverse());
     }, [convocations]);
 
     //HANDLE SEARCH BASED ON THE GIVEN TEXT

@@ -43,7 +43,7 @@ export const Inscription = () => {
         setSelectedConvocationId(selectedId);
     };
 
- // VERIFY IF THE USER IS ALREADY IN THE CONVO
+    // VERIFY IF THE USER IS ALREADY IN THE CONVO
     const isAlreadyInscribed = Array.isArray(allInscriptions) && !!allInscriptions.find(
         (inscription) =>
             inscription.user.id === userId &&
@@ -54,17 +54,17 @@ export const Inscription = () => {
     //INSCRIPTION HANDLER
     const handleInscription = (e) => {
         e.preventDefault();
-    
+
         if (isAlreadyInscribed) {
             setShowModal(true);
         } else {
-            
+
             // MAKE THE INSCRIPTION
             const body = {
                 convocation_id: selectedConvocationId,
                 user_id: userId,
             };
-            
+
             createUserConvocation(body, userToken)
                 .then(res => {
                     navigate('/requestAccepted');
@@ -84,9 +84,9 @@ export const Inscription = () => {
     return (
 
         //RENDER INSCRIPTION CONTAINER
-        <Container 
-        className="d-flex justify-content-center align-items-center" 
-        style={{height:'100%', width:'100%'}}
+        <Container
+            className="d-flex justify-content-center align-items-center"
+            style={{ height: '100%', width: '100%' }}
         >
             <Card style={{
                 backgroundColor: '#9f512121', border: 'green solid 0.1em',
@@ -148,7 +148,11 @@ export const Inscription = () => {
             </Card>
 
             {/* SHOW MODAL */}
-            <ModalAkdemy show={showModal} onClose={() => setShowModal(false)} />
+            <ModalAkdemy
+                show={showModal} onClose={() => setShowModal(false)}
+                title={'Inscripción ya solicitada'}
+                text={'Tu solicitud de inscripción para esta convocatoria ya ha sido registrada.'}
+            />
         </Container>
     );
 };
