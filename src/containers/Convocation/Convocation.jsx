@@ -53,24 +53,26 @@ export const Convocation = () => {
 
     return (
         // RENDER THE CONVOCATIONS
-        <Container>
+        <Container className="containerData">
 
             {/* TITLE */}
-            <div className="requestUser mt-5">Convocatorias</div>
+            <div className="dataBorder">
+                <div className="dataTitle">Convocatorias</div>
+            </div>
 
             {/* INPUT SEARCH */}
             <InputSearch onSearch={handleSearch} />
 
             {/* TABLE HEADER */}
-            <div className="tableContainerCheck mt-4">
+            <div className="tableContainerData mt-4">
                 <div className="tableDataRow">
-                    <div className="tableHeaderRequest"><strong>Programa</strong></div>
-                    <div className="tableHeaderRequest"><strong>Inicio</strong></div>
-                    <div className="tableHeaderRequest"><strong>Horarios</strong></div>
+                    <div className="tableDataHeader">Programa</div>
+                    <div className="tableDataHeader">Inicio</div>
+                    <div className="tableDataHeader">Horarios</div>
 
                     {/* ONLY SHOW DETAIL IF IS ADMIN */}
                     {userRole.data.role === 1 && (
-                        <div className="tableHeaderRequest"><strong>Detalle</strong></div>
+                        <div className="tableDataHeader">Detalle</div>
                     )}
                 </div>
 
@@ -78,13 +80,13 @@ export const Convocation = () => {
                 {filteredConvocations.slice(startIndex, endIndex).map((convocation) => {
                     return (
                         <div className="tableDataRow" key={convocation.id}>
-                            <div className="tableDataCheck">{convocation.program.name}</div>
-                            <div className="tableDataCheck">{convocation.beginning}</div>
-                            <div className="tableDataCheck">{convocation.schedule}</div>
+                            <div className="tableDataData">{convocation.program.name}</div>
+                            <div className="tableDataData">{convocation.beginning}</div>
+                            <div className="tableDataData">{convocation.schedule}</div>
 
                             {/* ONLY SHOW DETAIL BUTTON IF IS ADMIN */}
                             {userRole.data.role === 1 && (
-                                <div className="tableDataCheck">
+                                <div className="tableDataData">
                                     <div className="d-flex justify-content-center align-items mt-1 buttonsConvocations">
                                         <AdminButton
                                             onClick={() => navigate(`/convodetail/${convocation.id}`)}
@@ -99,7 +101,7 @@ export const Convocation = () => {
             </div>
 
             {/* PAGINATION */}
-            <div className="d-flex justify-content-center align-items-center mt-4">
+            <div className="d-flex justify-content-center align-items-center mt-4 mb-2">
                 <PageButton
                     onClick={() => setCurrentPage(currentPage - 1)}
                     disabled={currentPage === 1}

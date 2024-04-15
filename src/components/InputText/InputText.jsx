@@ -1,29 +1,8 @@
 import './InputText.css';
-import { checkError } from '../../services/useful';
+import { inputCheck, inputHandler } from '../../services/useful';
 import { Form } from 'react-bootstrap';
 
 export const InputText = ({ type, design, placeholder, name, state, errorState, autoCompleteValue  }) => {
-
-    //INPUTHANDLER FUNCTION
-    const inputHandler = ({ target }, state) => {
-        //BRING THE NAME AND THE VALUE FROM THE ELEMENT THAT START THE EVENT
-        const { name, value } = target;
-        //UPDATE THE STAGE OF THE COMPONENT
-        state((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
-
-    //CHECKERROR FUNCTION
-    const inputCheck = ({ target }, state) => {
-        let { name, value } = target;
-        let errorMessage = checkError(name, value)
-        state(prevState => ({
-            ...prevState,
-            [name + "Error"]: errorMessage
-        }))
-    }
 
     //GETTING INPUT CLASS NORMAL AND ERROR
     const getInputClass = () => {

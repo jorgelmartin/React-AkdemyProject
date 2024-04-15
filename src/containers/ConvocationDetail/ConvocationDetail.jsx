@@ -7,17 +7,19 @@ import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
 import { useFetchInscriptions } from "../../../hooks/useFetchInscriptions";
 
 export const ConvocationDetail = () => {
-
     //GET THE ID VALUE FROM THE URL
     let { id } = useParams();
     const parsedId = parseInt(id);
-
     const convocations = useFetchConvocations();
     const [convocationDetail, setConvocationDetail] = useState('');
     const [editing, setEditing] = useState(false);
-    const allStudentAccepted = useFetchInscriptions();
+    const allStudentInscriptions = useFetchInscriptions();
 
-    const studentAccepted = Array.isArray(allStudentAccepted) ? allStudentAccepted.filter((item) => item.convocation.id === parsedId) : [];
+    //FILTER ALL STUDENT ACCEPTED BY CONVOCATION
+    const studentAccepted = Array.isArray(allStudentInscriptions) ? allStudentInscriptions
+        .filter((item) => item.convocation.id === parsedId && item.status === 1
+        )
+        : [];
 
     //SEARCH IN THE ARRAY CONVOCATIONS COMPARING THE ID GETING FROM parsedId
     useEffect(() => {
@@ -31,7 +33,6 @@ export const ConvocationDetail = () => {
         }
     }, [parsedId, convocations]);
 
-
     return (
         <>
             {/* IF IS NOT EDITING SHOW */}
@@ -41,7 +42,7 @@ export const ConvocationDetail = () => {
                         //DETAIL PROGRAM GETTING FROM USEPARAMS
                         <div className="convocationDetail">
                             <div className="programInfo">
-                                <h2 className="titleDetail">Curso: {convocationDetail.program.name}</h2>
+                                <h2 className="titleDetail">{convocationDetail.program.name}</h2>
                                 <div className="programDetails">
                                     <div className="detailItem">
                                         <strong>Comienzo:</strong> {convocationDetail.beginning}
@@ -62,17 +63,22 @@ export const ConvocationDetail = () => {
                                 />
                             </div>
                             {/* SHOW THE STUDENT BY CONVOCATION */}
-                            <h3 className="titleDetail">Alumnos:</h3>
-                            <div className="studentList">
+                            <h3 className="titleDetail">Alumnos</h3>
+
+                            <div className="tableContainerData">
+                                <div className="tableDataRow">
+
+                                    {/* USERS TABLE */}
+                                    <div className="tableDataHeader">Nombre</div>
+                                    <div className="tableDataHeader">Email</div>
+                                </div>
                                 {studentAccepted.map((item) => {
-                                    if (item.status === 1) {
                                         return (
-                                            <div key={item.id} className="studentItem">
-                                                <h5>{item.user.name} {item.user.surname}</h5>
-                                                <p>{item.user.email}</p>
+                                            <div key={item.id} className="tableDataRow">
+                                                <div className="tableDataData">{item.user.name} {item.user.surname}</div>
+                                                <div className="tableDataData">{item.user.email}</div>
                                             </div>
                                         );
-                                    }
                                     return '';
                                 })}
                             </div>

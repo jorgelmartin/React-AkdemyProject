@@ -14,10 +14,6 @@ export const UserRequests = () => {
     const [acceptedRequests, setAcceptedRequests] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
 
-    // UPDATE THE COMPONENT EACH CLICK
-    // useEffect(() => {
-    // }, [currentPage]);
-
     // ACCEPT REQUEST HANDLER
     const handleAcceptRequest = (id) => {
         acceptUserRequest(id)
@@ -41,18 +37,21 @@ export const UserRequests = () => {
     }
 
     return (
-        <Container className="mt-5">
+        <Container className="containerData mt-2">
             {/* TITLE */}
-            <div className="requestUser">Solicitudes pendientes</div>
-            <div className="tableContainerCheck mt-4">
+            <div className="dataBorder">
+                <div className="dataTitle">Solicitudes</div>
+            </div>
 
-                {/* DATA REQUEST */}
+
+            {/* DATA REQUEST */}
+            <div className="tableContainerData mt-4">
                 <div className="tableDataRow">
-                    <div className="tableHeaderRequest"><strong>Nombre</strong></div>
-                    <div className="tableHeaderRequest"><strong>Email</strong></div>
-                    <div className="tableHeaderRequest"><strong>Curso</strong></div>
-                    <div className="tableHeaderRequest"><strong>Inicio</strong></div>
-                    <div className="tableHeaderRequest"><strong>Aceptar</strong></div>
+                    <div className="tableDataHeader">Nombre</div>
+                    <div className="tableDataHeader">Email</div>
+                    <div className="tableDataHeader">Curso</div>
+                    <div className="tableDataHeader">Inicio</div>
+                    <div className="tableDataHeader">Aceptar</div>
                 </div>
 
                 {/* MAPPING USER REQUEST */}
@@ -60,13 +59,13 @@ export const UserRequests = () => {
                     if (!acceptedRequests.includes(request.id)) {
                         return (
                             <div className="tableDataRow" key={request.id}>
-                                <div className="tableDataCheck">{request.user.name} {request.user.surname}</div>
-                                <div className="tableDataCheck">{request.user.email}</div>
-                                <div className="tableDataCheck">{request.program.name}</div>
-                                <div className="tableDataCheck">{request.convocation.beginning}</div>
+                                <div className="tableDataData">{request.user.name} {request.user.surname}</div>
+                                <div className="tableDataData">{request.user.email}</div>
+                                <div className="tableDataData">{request.program.name}</div>
+                                <div className="tableDataData">{request.convocation.beginning}</div>
 
                                 {/* ADMIN BUTTON TO ACCEPT REQUEST */}
-                                <div className="tableDataCheck">
+                                <div className="tableDataData">
                                     <AdminButton
                                         onClick={() => {
                                             handleAcceptRequest(request.id);
@@ -82,7 +81,7 @@ export const UserRequests = () => {
             </div>
 
             {/* PAGINATION */}
-            <div className="d-flex justify-content-center align-items-center mt-4">
+            <div className="d-flex justify-content-center align-items-center mt-4 mb-3">
                 <PageButton
                     onClick={() => setCurrentPage(currentPage - 1)}
                     disabled={currentPage === 1}

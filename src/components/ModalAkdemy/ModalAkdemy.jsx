@@ -1,7 +1,7 @@
 import { Modal } from 'react-bootstrap';
 import { AkdemyButton } from '../AkdemyButton/AkdemyButton';
 
-export const ModalAkdemy = ({ show, onClose, onDeleteConfirm, title, text }) => {
+export const ModalAkdemy = ({ show, onClose, onDeleteConfirm, title, text, showConfirmButton }) => {
     return (
         <Modal show={show} onHide={onClose}>
             <Modal.Header closeButton>
@@ -16,10 +16,12 @@ export const ModalAkdemy = ({ show, onClose, onDeleteConfirm, title, text }) => 
                     onClick={onClose}
                     text={'Cerrar'}
                 />
-                <AkdemyButton 
-                onClick={onDeleteConfirm} 
-                text={'Confirmar'} 
-                />
+                {showConfirmButton && (
+                        <AkdemyButton
+                            onClick={onDeleteConfirm}
+                            text={'Confirmar'}
+                        />
+                    )}
                 </div>
             </Modal.Body>
         </Modal>

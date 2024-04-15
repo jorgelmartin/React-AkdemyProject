@@ -3,11 +3,8 @@ import "./Register.css";
 import { InputText } from "../../components/InputText/InputText";
 import { Form, Card, Container, Row } from 'react-bootstrap';
 import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
-
 import { useNavigate } from "react-router-dom";
 import { registerMe } from "../../services/ApiCalls";
-
-
 
 export const Register = () => {
 

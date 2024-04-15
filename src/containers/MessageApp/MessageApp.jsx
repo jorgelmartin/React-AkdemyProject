@@ -7,6 +7,7 @@ import { ProgramSelection } from "../../components/ProgramSelection/ProgramSelec
 import { useFetchPrograms } from "../../../hooks/useFetchPrograms";
 import { InputMessage } from "../../components/InputMessage/InputMessage";
 import { createMessage, createReply, deleteMessage } from "../../services/ApiCalls";
+import { ModalAkdemy } from "../../components/ModalAkdemy/ModalAkdemy";
 
 export const MessageApp = () => {
     const userId = useSelector((state) => state.user.data.userId);
@@ -20,6 +21,7 @@ export const MessageApp = () => {
     const [selectedCommentId, setSelectedCommentId] = useState('');
     const currentDate = new Date();
     const formattedDate = format(currentDate, 'yyyy-MM-dd');
+    const [showModal, setShowModal] = useState(false);
 
     const handleProgramSelect = (programId) => {
         setSelectedProgram(programId);
@@ -31,14 +33,13 @@ export const MessageApp = () => {
         if (!message) {
             return;
         }
-
         createMessage({
             message: message.message,
             user_id: userId,
             program_id: selectedProgram,
             date: formattedDate
         }, token, selectedProgram)
-            .then((res) => {
+            .then(() => {
                 setMessage("");
                 fetchMessages();
             })
@@ -57,14 +58,13 @@ export const MessageApp = () => {
         if (!replyContent) {
             return;
         }
-
         createReply(selectedCommentId, {
             message: replyContent.replyContent,
             user_id: userId,
             program_id: selectedProgram,
             date: formattedDate,
         }, token)
-            .then((res) => {
+            .then(() => {
                 setReplyContent("");
                 setIsReplying(false);
                 setSelectedCommentId('');
@@ -75,14 +75,9 @@ export const MessageApp = () => {
 
     // DELETE MESSAGE
     const handleDeleteMessage = (messageId) => {
-        const confirmDelete = window.confirm('¿Estás seguro de que deseas eliminar este mensaje?');
-        if (!confirmDelete) {
-            return;
-        }
-
+        setShowModal(false);
         deleteMessage(messageId, token)
-            .then((res) => {
-                console.log("Mensaje eliminado:", res);
+            .then(() => {
                 fetchMessages();
             })
             .catch((error) => console.error("Error al eliminar el mensaje:", error));
@@ -168,9 +163,11 @@ export const MessageApp = () => {
                                         justifyContent: 'flex-end',
                                     }}>
                                         <div
-                                            onClick={() => handleDeleteMessage(messageItem.id)}
+                                            onClick={() => {
+                                                setSelectedCommentId(messageItem.id);
+                                                setShowModal(true);
+                                            }}
                                             className="deleteMessageButton"
-
                                         >
                                             X
                                         </div>
@@ -206,6 +203,15 @@ export const MessageApp = () => {
                     )}
                 </div>
             )}
+            {/* MODAL */}
+            <ModalAkdemy
+                show={showModal}
+                onClose={() => setShowModal(false)}
+                onDeleteConfirm={() => handleDeleteMessage(selectedCommentId)}
+                title={'¿Seguro que deseas borrar el mensaje?'}
+                text={'El mensaje se eliminará permanentemente.'}
+                showConfirmButton={true}
+            />
         </div>
     );
 };

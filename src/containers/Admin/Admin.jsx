@@ -1,6 +1,6 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
-import "./Admin.css";
+import "../../App.css";
 
 export const Admin = () => {
     const navigate = useNavigate();
@@ -11,53 +11,49 @@ export const Admin = () => {
             <Row>
                 <Col className="d-flex justify-content-center g-1" >
                     <div className="menuCard">
-                        <div>
-                            {/* SHOW BUTTON TO GO TO USERS */}
-                            <Button
-                                className="w-100 menuCardTitle"
-                                onClick={() => navigate("/users")}
-                            >
-                                USUARIOS
-                            </Button>
+
+                        {/* SHOW BUTTON TO GO TO USERS */}
+                        <div
+                            className="menuCardTitle"
+                            onClick={() => navigate("/users")}
+                        >
+                            USUARIOS
                         </div>
                     </div>
                 </Col>
                 <Col className="d-flex justify-content-center g-1">
                     <div className="menuCard">
-                        <div>
-                            {/* SHOW BUTTON TO GO TO CONVOCATIONS */}
-                            <Button
-                                className="w-100 menuCardTitle"
-                                onClick={() => navigate("/convocation")}
-                            >
-                                CONVOCATORIAS
-                            </Button>
+
+                        {/* SHOW BUTTON TO GO TO CONVOCATIONS */}
+                        <div
+                            className="menuCardTitle"
+                            onClick={() => navigate("/convocation")}
+                        >
+                            CONVOCATORIAS
                         </div>
                     </div>
                 </Col>
                 <Col className="d-flex justify-content-center g-1">
                     <div className="menuCard">
-                        <div>
-                            {/* SHOW BUTTON TO GO TO CREATE CONVOCATIONS */}
-                            <Button
-                                className="w-100 menuCardTitle"
-                                onClick={() => navigate("/createConvocation")}
-                            >
-                                CREAR C.
-                            </Button>
+
+                        {/* SHOW BUTTON TO GO TO CREATE CONVOCATIONS */}
+                        <div
+                            className="menuCardTitle"
+                            onClick={() => navigate("/createConvocation")}
+                        >
+                            CREAR C.
                         </div>
                     </div>
                 </Col>
                 <Col className="d-flex justify-content-center g-1">
                     <div className="menuCard" >
-                        <div>
-                            {/* SHOW BUTTON TO GO TO REQUESTS */}
-                            <Button
-                                className="w-100 menuCardTitle"
-                                onClick={() => navigate("/userReq")}
-                            >
-                                SOLICITUDES
-                            </Button>
+
+                        {/* SHOW BUTTON TO GO TO REQUESTS */}
+                        <div
+                            className="menuCardTitle"
+                            onClick={() => navigate("/userReq")}
+                        >
+                            SOLICITUDES
                         </div>
                     </div>
                 </Col>

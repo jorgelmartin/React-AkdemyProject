@@ -6,7 +6,6 @@
     border-radius: 1em;
     font-size: 1em;
     cursor: pointer;
-    margin-top: 1.3em;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow:
         rgba(21, 61, 9, 0.532) 0.04em 0.04em 0.5em 0.2em inset,

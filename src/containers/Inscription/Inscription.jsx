@@ -141,7 +141,7 @@ export const Inscription = () => {
                     </div>
 
                     {/* AKDEMY BUTTON */}
-                    <div className="d-flex justify-content-center">
+                    <div className="d-flex justify-content-center mt-4">
                         <AkdemyButton onClick={handleInscription} text="Solicitar" />
                     </div>
                 </Card.Body>
@@ -149,9 +149,11 @@ export const Inscription = () => {
 
             {/* SHOW MODAL */}
             <ModalAkdemy
-                show={showModal} onClose={() => setShowModal(false)}
+                show={showModal} 
+                onClose={() => setShowModal(false)}
                 title={'Inscripción ya solicitada'}
                 text={'Tu solicitud de inscripción para esta convocatoria ya ha sido registrada.'}
+                showConfirmButton={false}
             />
         </Container>
     );

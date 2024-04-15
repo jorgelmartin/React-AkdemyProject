@@ -27,7 +27,6 @@ export const ProgramDetail = () => {
         }
     }, [parsedId, programs]);
 
-
     //CHECK IF THE USER IS REGISTERED
     const handleClick = () => {
         if (!datosCredencialesRedux.credentials?.token) {
@@ -37,25 +36,25 @@ export const ProgramDetail = () => {
         }
     };
 
-    
     return (
         //RENDER DETAIL VIEW
-     
-            <div className="detailProgram">
-                {programDetail ? (
-                    <>
-                        <h2>{programDetail.name}</h2>
-                        <img src={`https://laravel-akdemyproject-production.up.railway.app/${programDetail.image}`} alt="" />
-                        <h4>{programDetail.description}</h4>
-                        <h5>Precio: {programDetail.price}</h5>
 
-                        {/* BUTTON TO GO TO REQUEST INSCRIPTION */}
-                        <AkdemyButton onClick={handleClick} text={"Solicitar Inscripción"}/>
-                    </>
-                ) : (
-                    <p>Cargando...</p>
-                )}
-            </div>
-    
+        <div className="detailProgram">
+            {programDetail ? (
+                <>
+                    <h2>{programDetail.name}</h2>
+                    <img src={`https://laravel-akdemyproject-production.up.railway.app/${programDetail.image}`} alt="" />
+                    <h4>{programDetail.description}</h4>
+                    <h5>Precio: {programDetail.price}</h5>
+
+                    {/* BUTTON TO GO TO REQUEST INSCRIPTION */}
+                    <div className="mt-3">
+                        <AkdemyButton onClick={handleClick} text={"Solicitar Inscripción"} />
+                    </div>
+                </>
+            ) : (
+                <p>Cargando...</p>
+            )}
+        </div>
     );
 };

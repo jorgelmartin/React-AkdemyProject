@@ -1,6 +1,6 @@
 import './PageButton.css';
 
-//CREATE COMPONENT AKDEMY BUTTON
+//CREATE COMPONENT PAGE BUTTON
 export const PageButton = ({ onClick, text, disabled, design }) => {
 
     const buttonClasses = ["pageButton"];

@@ -18,29 +18,32 @@ export const MyPrograms = () => {
     }
 
     return (
-
         //RENDER MY PROGRAMS CONTAINER
-        <Container className="mt-4">
-        <div className="requestUser">Mis cursos</div>
+        <Container className="containerData">
 
-        {/* TABLE OF USER PROGRAMS */}
-        <div className="tableContainerCheck mt-4">
+            <div className="dataBorder">
+                <div className="dataTitle">Mis cursos</div>
+            </div>
+
+
+            {/* TABLE OF USER PROGRAMS */}
+            <div className="tableContainerData mt-4">
                 <div className="tableDataRow">
-                    <div className="tableHeaderRequest"><strong>Nombre</strong></div>
-                    <div className="tableHeaderRequest"><strong>Curso</strong></div>
-                    <div className="tableHeaderRequest"><strong>Inicio</strong></div>
+                    <div className="tableDataHeader">Nombre</div>
+                    <div className="tableDataHeader">Curso</div>
+                    <div className="tableDataHeader">Inicio</div>
                 </div>
 
                 {/* MAPPING USER PROGRAMS */}
                 {usersReq.map((request, i) => (
                     <div className="tableDataRow" key={i}>
-                        <div className="tableDataCheck">{request.user.name} {request.user.surname}</div>
-                        <div className="tableDataCheck">{request.program.name}</div>
-                        <div className="tableDataCheck">{request.convocation.beginning}</div>
+                        <div className="tableDataData">{request.user.name} {request.user.surname}</div>
+                        <div className="tableDataData">{request.program.name}</div>
+                        <div className="tableDataData">{request.convocation.beginning}</div>
                     </div>
                 ))}
             </div>
-    
-    </Container>
+
+        </Container>
     );
 };

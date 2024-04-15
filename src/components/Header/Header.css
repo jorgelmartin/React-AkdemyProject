@@ -9,6 +9,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+    text-shadow: 0.05em 0.05em 0.06em #dcfc49;
 }
 .linksDesign {
     display: flex;
@@ -23,16 +24,19 @@
 }
 
 .headerLink {
-    padding: 0.1em;
+    border: 0.01em solid #8da03cd3;
+    border-radius: 0.5em;
+    padding: 0.2em;
     font-weight: bolder;
     font-size: 1.2em;
     transition: 0.5s;
     cursor: pointer;
-    margin-bottom: 0.3em;
-    margin-right: 0.5em;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-right: 0.3em;
 }
 
 .headerLink:hover {
-    transition: 0.5s;
-    color: darkgrey;
+    background-color: transparent;
+    box-shadow: inset 0.2em 0.2em 0.7em 0.1em rgba(0, 0, 0, 0.503);
+    color: rgb(120, 120, 120);
 } 

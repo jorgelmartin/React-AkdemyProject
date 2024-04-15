@@ -16,7 +16,7 @@ export const RequestAccepted = () => {
         <div className="messageInscription">
             <p>Estimado/a,</p>
             <p>Nos complace informarle que hemos recibido su solicitud y estamos encantados de poder asistirle en su proceso de formación.</p>
-            <p>Para proceder con el trámite, le solicitamos amablemente que nos haga llegar la siguiente documentación, ya sea de manera presencial o por correo electrónico a akdemyproject@outlook.com:</p>
+            <p>Para proceder con el trámite, le solicitamos amablemente que nos haga llegar la siguiente documentación, ya sea de manera presencial o por correo electrónico a akdemyproject@email.com:</p>
             <ul>
                 <li>Documento de identidad (Por ambas caras).</li>
                 <li>Depósito bancario indicando nombre completo y curso a la siguiente cuenta: XXXX XXXX XXXX XXXX.</li>

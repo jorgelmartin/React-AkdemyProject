@@ -96,7 +96,7 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                     </div>
 
                     {/* AKDEMY BUTTON */}
-                    <div style={{ textAlign: 'center' }}>
+                    <div style={{ textAlign: 'center', marginTop:'1.2em' }}>
                         <AkdemyButton
                             onClick={createApp}
                             style={{ backgroundColor: '#13326fba' }}

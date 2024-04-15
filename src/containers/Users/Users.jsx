@@ -38,37 +38,39 @@ export const Users = () => {
 
   return (
     //RENDER USERS
-    <Container className="mt-4">
+    <Container className="containerData">
 
       {/* USERS TITLE */}
-      <div className="requestUser">Usuarios</div>
+      <div className="dataBorder">
+        <div className="dataTitle">Usuarios</div>
+      </div>
+
 
       {/* INPUT SEARCH */}
       <InputSearch onSearch={handleSearch} />
 
-      <div className="tableContainerCheck mt-4">
-        <div className="tableHeader">
+      <div className="tableContainerData mt-4">
+        <div className="tableDataRow">
 
           {/* USERS TABLE */}
-          <div className="tableHeaderRequest">Nombre</div>
-          <div className="tableHeaderRequest">Email</div>
+          <div className="tableDataHeader">Nombre</div>
+          <div className="tableDataHeader">Email</div>
         </div>
-        <div className="tableBodyCheck">
 
-          {/* MAPPING USER DATA */}
-          {filteredUsers.slice(startIndex, endIndex).map((user) => {
-            return (
-              <div className="tableDataRow" key={user.id}>
-                <div className="tableDataCheck">{user.name} {user.surname}</div>
-                <div className="tableDataCheck">{user.email}</div>
-              </div>
-            )
-          })}
-        </div>
+
+        {/* MAPPING USER DATA */}
+        {filteredUsers.slice(startIndex, endIndex).map((user) => {
+          return (
+            <div className="tableDataRow" key={user.id}>
+              <div className="tableDataData">{user.name} {user.surname}</div>
+              <div className="tableDataData">{user.email}</div>
+            </div>
+          )
+        })}
       </div>
 
       {/* PAGINATION */}
-      <div className="d-flex justify-content-center align-items-center mt-4">
+      <div className="d-flex justify-content-center align-items-center mt-4 mb-2">
         <PageButton
           onClick={() => setCurrentPage(currentPage - 1)}
           disabled={currentPage === 1}

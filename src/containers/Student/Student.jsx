@@ -1,67 +1,59 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
-import "./Student.css";
+import { Col, Container, Row } from "react-bootstrap";
+import "../../App.css";
 import { useNavigate } from 'react-router-dom';
 
 export const Student = () => {
     const navigate = useNavigate();
 
     return (
-        //RENDER STUDENT CONTAINER
+        //RENDER STUDENT'S MENU
             <Container className='mt-5'>
                 <Row> 
                     <Col className="d-flex justify-content-center g-1" >
-                        <div className="menuCard">
-                            <div>
-
+                            <div className="menuCard">
+                                
                                 {/* CONVOCATIONS BUTTON */}
-                                <Button
-                                    className="w-100 menuCardTitle"
+                                <div
+                                    className=" menuCardTitle"
                                     onClick={() => navigate("/convocation")}
                                 >
                                     CONVOCATORIAS
-                                </Button>
                             </div>
                         </div>
                     </Col>
                     <Col className="d-flex justify-content-center g-1">
                         <div className="menuCard">
-                            <div>
 
                                 {/* MY PROGRAMS BUTTON */}
-                                <Button
-                                    className="w-100 menuCardTitle"
+                                <div
+                                    className="menuCardTitle"
                                     onClick={() => navigate("/myPrograms")}
                                 >
                                     MIS CURSOS
-                                </Button>
-                            </div>
+                                </div>
                         </div>
                     </Col>
                     <Col className="d-flex justify-content-center g-1">
-                        <div className="menuCard">
-                            <div>
+                            <div className="menuCard">
 
                                 {/* REQUEST */}
-                                <Button
-                                    className="w-100 menuCardTitle"
+                                <div
+                                    className="menuCardTitle"
                                     onClick={() => navigate("/inscription")}
                                 >
                                     SOLICITAR INSCRIPCIÓN
-                                </Button>
-                            </div>
+                                </div>
                         </div>
                     </Col>
                     <Col className="d-flex justify-content-center g-1">
                         <div className="menuCard">
-                            <div>
 
                                 {/* STUDENDS MESSAGES */}
-                                <Button
-                                    className="w-100 menuCardTitle"
+                                <div
+                                    className="menuCardTitle"
                                     onClick={() => navigate("/MessageApp")}
                                 >
-                                    Sala
-                                </Button>
+                                    SALAS👥💬
                             </div>
                         </div>
                     </Col>

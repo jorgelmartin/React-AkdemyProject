@@ -1,5 +1,4 @@
 #root {
-  height: auto;
   min-height: 100vh;
   width: 100vw;
   margin: 0;
@@ -12,7 +11,7 @@
 }
 
 .InputSearch {
-  margin-top: 2em;
+  margin-top: 1em;
   border: 0.2em solid black;
   border-radius: 0.6em;
   height: 2.4em;
@@ -25,17 +24,32 @@
   font-size: 0.75em;
 }
 
-.userContainer {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+/* DATA STYLE */
+.containerData {
+  position: fixed;
+  top: 3em;
+  overflow-y: auto;
+  max-height: calc(100vh - 3em);
 }
 
-.requestUser {
-  width: 100%;
+.dataTitle {
+  border: 0.01em solid #123200;
+  box-shadow:
+    inset -0.1em -0.01em 0.4em 0.3em rgba(74, 74, 4, 0.26),
+    inset 0.1em 0.1em 0.5em 0.2em rgba(43, 108, 2, 0.309),
+    rgba(183, 228, 178, 0.06) 0em 0.125em 0.0625em,
+    rgba(130, 167, 18, 0.09) 0em 0.25em 0.125em,
+    rgba(155, 193, 19, 0.09) 0em 0.5em 0.25em,
+    rgba(138, 186, 7, 0.09) 0em 1em 0.5em,
+    rgba(155, 206, 15, 0.09) 0em 2em 1em;
+  margin-top: 0.5em;
+  padding: 0.06em 0.3em;
+  text-shadow: 0.05em 0.05em 0.06em #ededec;
+  background-color: #b4de7a4f;
+  border-radius: 0.3em;
+}
+
+.dataBorder {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,24 +58,9 @@
   color: rgb(75, 65, 65);
 }
 
-.tableContainerCheck {
+.tableContainerData {
   border: 0.1em solid #aca7a7;
   border-radius: 0.2em;
-  overflow-x: hidden;
-}
-
-.tableHeader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
-  font-weight: bold;
-  border-bottom: 0.06em solid #aca7a7;
-}
-
-.tableBodyCheck {
-  display: flex;
-  flex-direction: column;
 }
 
 .tableDataRow {
@@ -69,7 +68,7 @@
   border-bottom: 0.06em solid #aca7a7;
 }
 
-.tableDataCheck {
+.tableDataData {
   text-align: center;
   padding: 0.5em 0.2em 0.5em 0.3em;
   font-size: 0.93em;
@@ -81,19 +80,69 @@
   text-overflow: ellipsis;
 }
 
-.tableHeaderRequest {
+.tableDataHeader {
   padding: 0.5em 0.2em 0.5em 0.1em;
   background-color: rgba(211, 241, 195, 0.389);
   flex: 1;
-  overflow: hidden;
   text-align: center;
   border-right: 0.06em solid #aca7a7;
+  font-weight: bold;
 }
 
-.numberPage{
+/* PAGINATION */
+.numberPage {
   height: 1.8em;
   width: 1.8em;
   background-color: #98a84e8d;
   border: 0.06em solid #123200;
   font-size: 1.2em;
+}
+
+/* MENU'S */
+.menuCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+  height: 8.5em;
+  width: 13em;
+  box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 1em;
+  font-size: 1.2em;
+  background-color: #9f52216c;
+  box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.1);
+  border: 0.07em solid #9f52216c;
+  transition: transform 0.3s ease, font-size 0.2s ease, background-color 0.3s ease;
+}
+
+.menuCardTitle {
+  border: 0.07em solid #699f21c6;
+  margin: 0.1em;
+  border-radius: 1em;
+  width: 18em;
+  cursor: pointer;
+  padding: 1em;
+  font-size: 1.2em;
+  background-color: #699f216c;
+  font-weight: bold;
+  color: black;
+  text-shadow: 0.05em 0.05em 0.06em rgba(243, 243, 243, 0.5);
+  box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, font-size 0.2s ease, background-color 0.3s ease;
+}
+
+.menuCardTitle:hover {
+  font-size: 1.25em;
+  background-color: #5f9ea0a4;
+  transform: scale(1.1);
+  border: none;
+  color: white;
+  text-shadow: 0.05em 0.05em 0.06em rgba(14, 14, 14, 0.5);
+}
+
+.menuCard:hover {
+  font-size: 1.25em;
+  background-color: #5f9ea0a4;
+  transform: scale(1.1);
 }
