@@ -41,7 +41,7 @@ export const Register = () => {
                     <Card.Title
                         className="text-center mb-3 display-5"
                         style={{
-                            textShadow: '0.03em 0.03em 0.06em rgba(0, 0, 0, 0.5)'
+                            textShadow: '0.03em 0.03em 0.06em rgba(255, 255, 255, 0.503)'
                         }}>
                         <strong>Registro</strong></Card.Title>
 
