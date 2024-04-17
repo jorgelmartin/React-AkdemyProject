@@ -51,17 +51,23 @@ export const Login = () => {
 
     return (
         //RENDER LOGIN CONTAINER
-        <Container className="d-flex justify-content-center align-items-center" style={{height:'100%', width:'100%'}}>
+        <Container className="d-flex justify-content-center align-items-center" style={{ height: '100%', width: '100%' }}>
             <Row>
                 <Card
                     style={{
                         backgroundColor: '#9f512121',
                         border: '0.1em solid #614a1971',
-                        borderRadius: '2em'
+                        borderRadius: '2em',
+                        boxShadow: 'inset 0.2em 0.2em 0.7em 0.1em rgba(0, 0, 0, 0.503)'
                     }}>
 
                     {/* LOGIN TITLE */}
-                    <Card.Title className="text-center mb-2 display-5"><strong>Iniciar sesión</strong></Card.Title>
+                    <Card.Title
+                        className="text-center m-2 display-5"
+                        style={{
+                            textShadow: '0.03em 0.03em 0.06em rgba(0, 0, 0, 0.5)'
+                        }}>
+                        <strong>Iniciar sesión</strong></Card.Title>
                     <Card.Body className="loginDataUser">
                         <Row className="d-flex justify-content-center align-items-center">
                             <Col xs={10} md={6}>
@@ -69,8 +75,7 @@ export const Login = () => {
 
                                     {/* EMAIL LOGIN */}
                                     <Form.Group className="mt-3">
-                                    <Form.Label htmlFor="email"className="labelLogin">Email:</Form.Label>
-                                        {/* <div className="">Email:</div> */}
+                                        <Form.Label htmlFor="email" className="labelLogin">Email:</Form.Label>
                                         <Col>
                                             <InputText
                                                 type={"email"}
@@ -87,7 +92,7 @@ export const Login = () => {
 
                                     {/* PASSWORD LOGIN */}
                                     <Form.Group className="mb-3">
-                                    <Form.Label htmlFor="password"className="labelLogin">Contraseña:</Form.Label>
+                                        <Form.Label htmlFor="password" className="labelLogin">Contraseña:</Form.Label>
                                         <Col>
                                             <InputText
                                                 type={"password"}
@@ -110,7 +115,7 @@ export const Login = () => {
                     ) : (
                         <></>
                     )}
-                    <div className="d-flex justify-content-center">
+                    <div className="d-flex justify-content-center m-2">
                         <AkdemyButton
                             onClick={(e) => submitHandler(e, user)}
                             type="submit"

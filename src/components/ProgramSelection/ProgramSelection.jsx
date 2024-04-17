@@ -5,7 +5,7 @@ import './ProgramSelection.css';
 
 export const ProgramSelection = ({ onSelectProgram, selectedProgram }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const programs = useFetchPrograms(); 
+    const programs = useFetchPrograms();
     const [selectedProgramName, setSelectedProgramName] = useState("");
 
     const handleProgramSelect = (programId, programName) => {
@@ -17,7 +17,10 @@ export const ProgramSelection = ({ onSelectProgram, selectedProgram }) => {
     // PROGRAM SELECTOR FOR CHAT ROOM
     return (
         <div className="programContainer" >
-            <h3 className="programItemTitle" onClick={() => setIsOpen(!isOpen)}>{selectedProgramName || "Selecciona una sala"}</h3>
+            <h3
+                className="programItemTitle"
+                onClick={() => setIsOpen(!isOpen)}>{selectedProgramName || "Selecciona una sala"}
+            </h3>
             {isOpen && (
                 <div className="programItem">
                     {programs.map((program) => (

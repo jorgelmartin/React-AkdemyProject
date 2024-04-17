@@ -51,7 +51,7 @@ export const Admin = () => {
                         {/* SHOW BUTTON TO GO TO REQUESTS */}
                         <div
                             className="menuCardTitle"
-                            onClick={() => navigate("/userReq")}
+                            onClick={() => navigate("/userRequest")}
                         >
                             SOLICITUDES
                         </div>

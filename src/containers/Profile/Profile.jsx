@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "./Profile.css";
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { userData } from "../userSlice";
 import { inputCheck, inputHandler } from "../../services/useful";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -21,10 +20,8 @@ export const Profile = () => {
     const [hovering, setHovering] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [userError, setUserError] = useState({});
-
-    //GETTING TOKEN FROM REDUX
-    const datos = useSelector(userData);
-    const token = datos.credentials.token;
+    const userRole = useSelector((state) => state.user.data.role);
+    const token = useSelector((state) => state.user.credentials.token);
 
     //UPDATE PROFILE
     const editHandler = (body, token) => {
@@ -140,7 +137,7 @@ export const Profile = () => {
                 {/* PROFILE EMAIL */}
                 <div className="profileLabel">Email:</div>
                 <div className="profileData">
-                    {editing && datos.data.role === 2 ? (
+                    {editing && userRole === 2 ? (
                         <div>
                         <input
                             type="text"
@@ -159,7 +156,7 @@ export const Profile = () => {
 
                 </div>
                 {/* PROFILE PASSWORD, ONLY IF IS EDITING */}
-                {editing && datos.data.role === 2 && (
+                {editing && userRole === 2 && (
                     <>
                         <div className="profileLabel">Contraseña:</div>
                         <div className="profileData">
@@ -194,7 +191,7 @@ export const Profile = () => {
                         />
 
                         {/* CHECK IF THE USER IS ADMIN TO HIDE DELETE BUTTON */}
-                        {datos.data.role === 2 ? (
+                        {userRole === 2 ? (
                             <Button
                                 onClick={() => setShowModal(true)}
                                 className={`deleteButton ${hovering ? 'hovered' : ''}`}

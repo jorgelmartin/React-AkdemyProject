@@ -34,7 +34,7 @@ export const Body = () => {
                 <Route path="/convodetail/:id" element={<ConvocationDetail />} /> 
                 <Route path="/student" element={<Student />} /> 
                 <Route path="/inscription" element={<Inscription />} />
-                <Route path="/userReq" element={<UserRequests />} /> 
+                <Route path="/userRequest" element={<UserRequests />} /> 
                 <Route path="/myPrograms" element={<MyPrograms />} /> 
                 <Route path="/programDetail/:id" element={<ProgramDetail />} /> 
                 <Route path="/requestAccepted" element={<RequestAccepted />} /> 

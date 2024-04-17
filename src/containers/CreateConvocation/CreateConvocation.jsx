@@ -4,7 +4,6 @@ import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { SelectPrograms } from "../../../hooks/useFetchSelectPrograms";
 import { SelectDate } from "../../../hooks/useFetchSelectDate";
-import { userData } from "../../containers/userSlice";
 import { useSelector } from "react-redux";
 import { SelectSchedule } from "../../../hooks/useFetchSelectSchedule";
 import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
@@ -12,15 +11,10 @@ import { createConvocation, updateConvocation } from "../../services/ApiCalls";
 
 export const CreateConvocation = ({ isUpdate, updateData }) => {
     const navigate = useNavigate();
-    const datos = useSelector(userData);
-    const token = datos?.credentials?.token;
+    const token = useSelector((state) => state.user.credentials.token);
 
     //BRING THE DATA FOR THE EDIT
-    const [convocationData, setConvocationData] = useState(
-        {
-            ...updateData,
-        }
-    );
+    const [convocationData, setConvocationData] = useState({...updateData});
 
     //CREATE AND UPDATE APPOINTMENT
     const createApp = (e) => {
@@ -33,6 +27,7 @@ export const CreateConvocation = ({ isUpdate, updateData }) => {
                 .then(() => navigate("/convocation"));
         }
     };
+    
     return (
         //RENDER CREATE CONVOCATIONS
             <div

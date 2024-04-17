@@ -4,7 +4,6 @@ import { Container } from "react-bootstrap";
 import "../../App.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
-import { userData } from "../../containers/userSlice";
 import { InputSearch } from "../../components/InputSearch/InputSearch";
 import { AdminButton } from "../../components/AdminButton/AdminButton";
 import { PageButton } from "../../components/PageButton/PageButton";
@@ -13,10 +12,11 @@ export const Convocation = () => {
     const convocations = useFetchConvocations();
     const [filteredConvocations, setFilteredConvocations] = useState([]);
     const navigate = useNavigate();
-    const userRole = useSelector(userData);
+    const userRole = useSelector((state) => state.user.data.role);
     const [currentPage, setCurrentPage] = useState(1);
+    const [searchText, setSearchText] = useState('');
 
-    // GET THE RECENT CONVOCATION
+    // GET THE RECENT CONVOCATION FIRST
     useEffect(() => {
         if (!Array.isArray(convocations)) {
             return;
@@ -24,24 +24,28 @@ export const Convocation = () => {
         setFilteredConvocations(convocations.reverse());
     }, [convocations]);
 
+    //GO TO FIRST PAGE WHEN SEARCH START
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [searchText]);
+
     //HANDLE SEARCH BASED ON THE GIVEN TEXT
     const handleSearch = (text) => {
         if (text) {
-            const searchText = text.toLowerCase();
+            setSearchText(text.toLowerCase());
             const filtered = convocations.filter(
                 (convocation) =>
                     convocation.program.name.toLowerCase().includes(searchText) ||
                     convocation.beginning.toLowerCase().includes(searchText) ||
                     convocation.schedule.toLowerCase().includes(searchText) ||
-                    convocation.id.toString().toLowerCase().includes(searchText)
+                    convocation.id.toString().includes(searchText)
             );
             setFilteredConvocations(filtered);
-            setCurrentPage(1);
         } else {
             setFilteredConvocations(convocations);
         };
     };
-
+    
     // CALCULATE START AND END INDEX FOR CURRENT PAGE
     const startIndex = (currentPage - 1) * 7;
     const endIndex = currentPage * 7;
@@ -71,7 +75,7 @@ export const Convocation = () => {
                     <div className="tableDataHeader">Horarios</div>
 
                     {/* ONLY SHOW DETAIL IF IS ADMIN */}
-                    {userRole.data.role === 1 && (
+                    {userRole === 1 && (
                         <div className="tableDataHeader">Detalle</div>
                     )}
                 </div>
@@ -85,7 +89,7 @@ export const Convocation = () => {
                             <div className="tableDataData">{convocation.schedule}</div>
 
                             {/* ONLY SHOW DETAIL BUTTON IF IS ADMIN */}
-                            {userRole.data.role === 1 && (
+                            {userRole === 1 && (
                                 <div className="tableDataData">
                                     <div className="d-flex justify-content-center align-items mt-1 buttonsConvocations">
                                         <AdminButton
@@ -101,21 +105,23 @@ export const Convocation = () => {
             </div>
 
             {/* PAGINATION */}
-            <div className="d-flex justify-content-center align-items-center mt-4 mb-2">
-                <PageButton
-                    onClick={() => setCurrentPage(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    text={'🡰'}
-                    design="left"
-                />
-                <div className="numberPage">{currentPage}</div>
-                <PageButton
-                    onClick={() => setCurrentPage(currentPage + 1)}
-                    disabled={endIndex >= filteredConvocations.length}
-                    text={'🡲'}
-                    design="right"
-                />
-            </div>
+            {filteredConvocations.length > 7 ? (
+                <div className="d-flex justify-content-center align-items-center mt-4 mb-2">
+                    <PageButton
+                        onClick={() => setCurrentPage(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        text={'🡰'}
+                        design="left"
+                    />
+                    <div className="numberPage">{currentPage}</div>
+                    <PageButton
+                        onClick={() => setCurrentPage(currentPage + 1)}
+                        disabled={endIndex >= filteredConvocations.length}
+                        text={'🡲'}
+                        design="right"
+                    />
+                </div>
+            ) : ''}
         </Container>
     );
 };

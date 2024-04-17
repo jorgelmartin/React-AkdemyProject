@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFetchUsers } from "../../../hooks/useFetchUsers";
 import { Container } from "react-bootstrap";
 import "./../../App.css";
@@ -9,20 +9,25 @@ export const Users = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const users = useFetchUsers();
+  const [searchText, setSearchText] = useState('');
+
+  //GO TO FIRST PAGE WHEN SEARCH START
+  useEffect(() => {
+    setCurrentPage(1);
+}, [searchText]);
 
   //HANDLER SEARCH
   const handleSearch = (text) => {
     if (text) {
-      const searchText = text.toLowerCase();
+      setSearchText(text.toLowerCase());
       const filtered = users.filter(
         (user) =>
           user.name.toLowerCase().includes(searchText) ||
           user.surname.toLowerCase().includes(searchText) ||
           user.email.toLowerCase().includes(searchText) ||
-          user.id.toString().toLowerCase().includes(searchText)
+          user.id.toString().includes(searchText)
       );
       setFilteredUsers(filtered);
-      setCurrentPage(1);
     } else {
       setFilteredUsers(users);
     };
@@ -70,21 +75,23 @@ export const Users = () => {
       </div>
 
       {/* PAGINATION */}
-      <div className="d-flex justify-content-center align-items-center mt-4 mb-2">
-        <PageButton
-          onClick={() => setCurrentPage(currentPage - 1)}
-          disabled={currentPage === 1}
-          text={'🡰'}
-          design="left"
-        />
-        <div className="numberPage">{currentPage}</div>
-        <PageButton
-          onClick={() => setCurrentPage(currentPage + 1)}
-          disabled={endIndex >= filteredUsers.length}
-          text={'🡲'}
-          design="right"
-        />
-      </div>
+      {filteredUsers.length > 7 ? (
+        <div className="d-flex justify-content-center align-items-center mt-4 mb-2">
+          <PageButton
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPage === 1}
+            text={'🡰'}
+            design="left"
+          />
+          <div className="numberPage">{currentPage}</div>
+          <PageButton
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={endIndex >= filteredUsers.length}
+            text={'🡲'}
+            design="right"
+          />
+        </div>
+      ) : ''}
     </Container>
   );
 };

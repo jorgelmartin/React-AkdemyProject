@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { userData } from "../src/containers/userSlice";
 
 //GET USER REQUEST FROM THE API
 export const useFetchUserRequest = () => {

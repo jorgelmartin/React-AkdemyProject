@@ -3,17 +3,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./ProgramDetail.css";
 import { useFetchPrograms } from "../../../hooks/useFetchPrograms";
 import { useSelector } from "react-redux";
-import { userData } from "../userSlice";
 import { AkdemyButton } from "../../components/AkdemyButton/AkdemyButton";
 
 export const ProgramDetail = () => {
-    const datosCredencialesRedux = useSelector(userData);
+    const token = useSelector((state) => state.user.credentials.token);
     const navigate = useNavigate();
     //GET THE ID VALUE FROM THE URL
     let { id } = useParams();
     const parsedId = parseInt(id);
-
-    //ASSIGN PROGRAMS
     const programs = useFetchPrograms();
     const [programDetail, setProgramDetail] = useState('');
 
@@ -23,17 +20,25 @@ export const ProgramDetail = () => {
         if (foundProduct) {
             setProgramDetail(foundProduct);
         } else {
-            setProgramDetail(null);
+            setProgramDetail('');
         }
     }, [parsedId, programs]);
 
     //CHECK IF THE USER IS REGISTERED
     const handleClick = () => {
-        if (!datosCredencialesRedux.credentials?.token) {
+        if (!token) {
             navigate('/register');
         } else {
             navigate('/inscription');
         }
+    };
+
+    // GET THE CURRENT INDEX & DIRECTION TO SHOW THE NEXT DETAIL PROGRAM
+    const handleNavigateProgram = (direction) => {
+        const currentIndex = programs.findIndex((program) => program.id === parsedId);
+        const nextIndex = (currentIndex + direction + programs.length) % programs.length;
+        const nextProgramId = programs[nextIndex].id;
+        navigate(`/programDetail/${nextProgramId}`);
     };
 
     return (
@@ -48,8 +53,10 @@ export const ProgramDetail = () => {
                     <h5>Precio: {programDetail.price}</h5>
 
                     {/* BUTTON TO GO TO REQUEST INSCRIPTION */}
-                    <div className="mt-3">
+                    <div className="mt-3 buttonsDetailPage">
+                        <div className="arrowButtonDetail" onClick={() => handleNavigateProgram(-1)}>🡰</div>
                         <AkdemyButton onClick={handleClick} text={"Solicitar Inscripción"} />
+                        <div className="arrowButtonDetail" onClick={() => handleNavigateProgram(1)}>🡲</div>
                     </div>
                 </>
             ) : (

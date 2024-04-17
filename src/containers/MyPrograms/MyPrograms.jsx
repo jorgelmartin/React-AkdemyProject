@@ -1,15 +1,11 @@
 import { Container } from "react-bootstrap";
 import { useFetchRequestAccepted } from "../../../hooks/useFetchRequestAccepted";
 import { useSelector } from "react-redux";
-import { userData } from "../userSlice";
 
 export const MyPrograms = () => {
 
-    //GET USERDATA FROM REDUX
-    const datosCredencialesRedux = useSelector(userData);
-
     //GET THE ID FROM USER
-    const userId = datosCredencialesRedux?.data?.userId;
+    const userId = useSelector((state) => state.user.data.userId);
 
     //GET THE REQUEST ACCEPTED
     const usersReq = useFetchRequestAccepted(userId);
@@ -24,7 +20,6 @@ export const MyPrograms = () => {
             <div className="dataBorder">
                 <div className="dataTitle">Mis cursos</div>
             </div>
-
 
             {/* TABLE OF USER PROGRAMS */}
             <div className="tableContainerData mt-4">
@@ -43,7 +38,6 @@ export const MyPrograms = () => {
                     </div>
                 ))}
             </div>
-
         </Container>
     );
 };

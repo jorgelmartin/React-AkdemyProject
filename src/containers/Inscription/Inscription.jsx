@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Container, Card } from 'react-bootstrap';
 import { useFetchConvocations } from '../../../hooks/useFetchConvocation';
 import { useSelector } from 'react-redux';
-import { userData } from '../userSlice';
 import { useNavigate } from 'react-router-dom';
 import { AkdemyButton } from '../../components/AkdemyButton/AkdemyButton';
 import "./Inscription.css";
@@ -12,15 +11,12 @@ import { createUserConvocation } from '../../services/ApiCalls';
 
 export const Inscription = () => {
     const [convocationData, setConvocationData] = useState({});
-    const datosCredencialesRedux = useSelector(userData);
     const [selectedConvocationId, setSelectedConvocationId] = useState({});
     const allInscriptions = useFetchInscriptions();
     const [showModal, setShowModal] = useState(false);
-
+    const userToken = useSelector((state) => state.user.credentials.token);
+    const userId = useSelector((state) => state.user.data.userId);
     const navigate = useNavigate();
-
-    const userToken = datosCredencialesRedux?.credentials?.token;
-    const userId = datosCredencialesRedux?.data?.userId;
     const convocations = useFetchConvocations();
 
     //GETTING THE DATA FROM THE SELECTEDCONVOCATION 
