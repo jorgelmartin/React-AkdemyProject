@@ -100,14 +100,14 @@ export const ConvocationDetail = () => {
                                     <PageButton
                                         onClick={() => setCurrentPage(currentPage - 1)}
                                         disabled={currentPage === 1}
-                                        text={'🡰'}
+                                        text={'◁'}
                                         design="left"
                                     />
                                     <div className="numberPage">{currentPage}</div>
                                     <PageButton
                                         onClick={() => setCurrentPage(currentPage + 1)}
                                         disabled={endIndex >= studentAccepted.length}
-                                        text={'🡲'}
+                                        text={'▷'}
                                         design="right"
                                     />
                                 </div>

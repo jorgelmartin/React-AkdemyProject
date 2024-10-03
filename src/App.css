@@ -27,9 +27,15 @@
 /* DATA STYLE */
 .containerData {
   position: fixed;
-  top: 3em;
+  top: 2.8em;
+  padding: 0;
+  /* overflow: hidden; */
+}
+
+.containerDataScroll {
+  padding: 0.5em;
   overflow-y: auto;
-  max-height: calc(100vh - 3em);
+  max-height: calc(100vh - 2.8em);
 }
 
 .dataTitle {

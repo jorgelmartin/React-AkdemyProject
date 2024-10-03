@@ -2,7 +2,7 @@
 
 !['home1'](./src/assets/home1.jpg)
 
-#### [Enlace Backend](https://github.com/jorgemctin/Laravel-AkdemyProject)
+#### [Enlace Backend](https://github.com/jorgelmartin/Laravel-AkdemyProject)
 
 ### Tecnologías:
 
